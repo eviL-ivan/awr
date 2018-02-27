@@ -1,0 +1,327 @@
+0 silly input []
+1 silly flags { _: [ 'bootstrap' ],
+1 silly flags   'reject-cycles': false,
+1 silly flags   rejectCycles: false,
+1 silly flags   args: [] }
+2 verbose rootPath C:\Users\holopov_ig\Desktop\awr
+3 info version 2.9.0
+4 silly existsSync C:\Users\holopov_ig\Desktop\awr\VERSION
+5 silly initialize attempt
+6 silly npmConfig { registry: undefined,
+6 silly npmConfig   npmClient: undefined,
+6 silly npmConfig   npmClientArgs: undefined,
+6 silly npmConfig   mutex: undefined }
+7 silly initialize success
+8 silly execute attempt
+9 info Bootstrapping 4 packages
+10 info lifecycle preinstall
+11 silly runScript preinstall awr-app
+12 silly awr-app
+13 silly runScript preinstall awr-components
+14 silly awr-components
+15 silly runScript preinstall awr-utils
+16 silly awr-utils
+17 silly runScript preinstall awr-validation
+18 silly awr-validation
+19 silly hasDependencyInstalled awr-app babel-plugin-module-resolver
+20 silly dependencyIsSatisfied [ 'babel-plugin-module-resolver',
+20 silly dependencyIsSatisfied   '^3.1.0',
+20 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+21 verbose dependencyIsSatisfied babel-plugin-module-resolver false
+22 silly hasDependencyInstalled awr-app babel-plugin-styled-components
+23 silly dependencyIsSatisfied [ 'babel-plugin-styled-components',
+23 silly dependencyIsSatisfied   '^1.1.5',
+23 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+24 verbose dependencyIsSatisfied babel-plugin-styled-components false
+25 silly hasDependencyInstalled awr-app babel-plugin-transform-decorators-legacy
+26 silly dependencyIsSatisfied [ 'babel-plugin-transform-decorators-legacy',
+26 silly dependencyIsSatisfied   '^1.3.4',
+26 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+27 verbose dependencyIsSatisfied babel-plugin-transform-decorators-legacy false
+28 silly hasDependencyInstalled awr-app cross-env
+29 silly dependencyIsSatisfied [ 'cross-env',
+29 silly dependencyIsSatisfied   '^5.1.3',
+29 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+30 verbose dependencyIsSatisfied cross-env false
+31 silly hasDependencyInstalled awr-app eslint
+32 silly dependencyIsSatisfied [ 'eslint',
+32 silly dependencyIsSatisfied   '^4.18.0',
+32 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+33 verbose dependencyIsSatisfied eslint false
+34 silly hasDependencyInstalled awr-app eslint-config-airbnb
+35 silly dependencyIsSatisfied [ 'eslint-config-airbnb',
+35 silly dependencyIsSatisfied   '^16.1.0',
+35 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+36 verbose dependencyIsSatisfied eslint-config-airbnb false
+37 silly hasDependencyInstalled awr-app eslint-config-prettier
+38 silly dependencyIsSatisfied [ 'eslint-config-prettier',
+38 silly dependencyIsSatisfied   '^2.9.0',
+38 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+39 verbose dependencyIsSatisfied eslint-config-prettier false
+40 silly hasDependencyInstalled awr-app eslint-import-resolver-babel-module
+41 silly dependencyIsSatisfied [ 'eslint-import-resolver-babel-module',
+41 silly dependencyIsSatisfied   '^4.0.0',
+41 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+42 verbose dependencyIsSatisfied eslint-import-resolver-babel-module false
+43 silly hasDependencyInstalled awr-app eslint-plugin-import
+44 silly dependencyIsSatisfied [ 'eslint-plugin-import',
+44 silly dependencyIsSatisfied   '^2.9.0',
+44 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+45 verbose dependencyIsSatisfied eslint-plugin-import false
+46 silly hasDependencyInstalled awr-app eslint-plugin-prettier
+47 silly dependencyIsSatisfied [ 'eslint-plugin-prettier',
+47 silly dependencyIsSatisfied   '^2.6.0',
+47 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+48 verbose dependencyIsSatisfied eslint-plugin-prettier false
+49 silly hasDependencyInstalled awr-app nodemon
+50 silly dependencyIsSatisfied [ 'nodemon',
+50 silly dependencyIsSatisfied   '1.15.1',
+50 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+51 verbose dependencyIsSatisfied nodemon false
+52 silly hasDependencyInstalled awr-app awr-components
+53 silly dependencyIsSatisfied [ 'awr-components',
+53 silly dependencyIsSatisfied   'latest',
+53 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+54 verbose dependencyIsSatisfied awr-components false
+55 silly hasDependencyInstalled awr-app awr-utils
+56 silly dependencyIsSatisfied [ 'awr-utils',
+56 silly dependencyIsSatisfied   'latest',
+56 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+57 verbose dependencyIsSatisfied awr-utils false
+58 silly hasDependencyInstalled awr-app awr-validation
+59 silly dependencyIsSatisfied [ 'awr-validation',
+59 silly dependencyIsSatisfied   'latest',
+59 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+60 verbose dependencyIsSatisfied awr-validation false
+61 silly hasDependencyInstalled awr-app jss
+62 silly dependencyIsSatisfied [ 'jss',
+62 silly dependencyIsSatisfied   'latest',
+62 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+63 verbose dependencyIsSatisfied jss false
+64 silly hasDependencyInstalled awr-app material-ui
+65 silly dependencyIsSatisfied [ 'material-ui',
+65 silly dependencyIsSatisfied   'next',
+65 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+66 verbose dependencyIsSatisfied material-ui false
+67 silly hasDependencyInstalled awr-app mobx
+68 silly dependencyIsSatisfied [ 'mobx',
+68 silly dependencyIsSatisfied   '3.5.1',
+68 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+69 verbose dependencyIsSatisfied mobx false
+70 silly hasDependencyInstalled awr-app mobx-react
+71 silly dependencyIsSatisfied [ 'mobx-react',
+71 silly dependencyIsSatisfied   '^4.4.2',
+71 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+72 verbose dependencyIsSatisfied mobx-react false
+73 silly hasDependencyInstalled awr-app mobx-state-tree
+74 silly dependencyIsSatisfied [ 'mobx-state-tree',
+74 silly dependencyIsSatisfied   '1.3.1',
+74 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+75 verbose dependencyIsSatisfied mobx-state-tree false
+76 silly hasDependencyInstalled awr-app next
+77 silly dependencyIsSatisfied [ 'next',
+77 silly dependencyIsSatisfied   '^5.0.0',
+77 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+78 verbose dependencyIsSatisfied next false
+79 silly hasDependencyInstalled awr-app nprogress
+80 silly dependencyIsSatisfied [ 'nprogress',
+80 silly dependencyIsSatisfied   '^0.2.0',
+80 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+81 verbose dependencyIsSatisfied nprogress false
+82 silly hasDependencyInstalled awr-app react
+83 silly dependencyIsSatisfied [ 'react',
+83 silly dependencyIsSatisfied   '^16.2.0',
+83 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+84 verbose dependencyIsSatisfied react false
+85 silly hasDependencyInstalled awr-app react-dom
+86 silly dependencyIsSatisfied [ 'react-dom',
+86 silly dependencyIsSatisfied   '^16.2.0',
+86 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+87 verbose dependencyIsSatisfied react-dom false
+88 silly hasDependencyInstalled awr-app react-jss
+89 silly dependencyIsSatisfied [ 'react-jss',
+89 silly dependencyIsSatisfied   'latest',
+89 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+90 verbose dependencyIsSatisfied react-jss false
+91 silly hasDependencyInstalled awr-app styled-components
+92 silly dependencyIsSatisfied [ 'styled-components',
+92 silly dependencyIsSatisfied   '^2.1.0',
+92 silly dependencyIsSatisfied   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\node_modules' ]
+93 verbose dependencyIsSatisfied styled-components false
+94 silly root dependencies []
+95 silly leaf dependencies {
+95 silly leaf dependencies   "awr-app": [
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "babel-plugin-module-resolver@^3.1.0",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "babel-plugin-styled-components@^1.1.5",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "babel-plugin-transform-decorators-legacy@^1.3.4",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "cross-env@^5.1.3",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "eslint@^4.18.0",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "eslint-config-airbnb@^16.1.0",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "eslint-config-prettier@^2.9.0",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "eslint-import-resolver-babel-module@^4.0.0",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "eslint-plugin-import@^2.9.0",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "eslint-plugin-prettier@^2.6.0",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "nodemon@1.15.1",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "awr-components@latest",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "awr-utils@latest",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "awr-validation@latest",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "jss@latest",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "material-ui@next",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "mobx@3.5.1",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "mobx-react@^4.4.2",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "mobx-state-tree@1.3.1",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "next@^5.0.0",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "nprogress@^0.2.0",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "react@^16.2.0",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "react-dom@^16.2.0",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "react-jss@latest",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     },
+95 silly leaf dependencies     {
+95 silly leaf dependencies       "dependency": "styled-components@^2.1.0",
+95 silly leaf dependencies       "isSatisfied": false
+95 silly leaf dependencies     }
+95 silly leaf dependencies   ]
+95 silly leaf dependencies }
+96 info Installing external dependencies
+97 verbose actions 1 actions, concurrency 4
+98 silly installInDir awr-app [ 'babel-plugin-module-resolver@^3.1.0',
+98 silly installInDir   'babel-plugin-styled-components@^1.1.5',
+98 silly installInDir   'babel-plugin-transform-decorators-legacy@^1.3.4',
+98 silly installInDir   'cross-env@^5.1.3',
+98 silly installInDir   'eslint@^4.18.0',
+98 silly installInDir   'eslint-config-airbnb@^16.1.0',
+98 silly installInDir   'eslint-config-prettier@^2.9.0',
+98 silly installInDir   'eslint-import-resolver-babel-module@^4.0.0',
+98 silly installInDir   'eslint-plugin-import@^2.9.0',
+98 silly installInDir   'eslint-plugin-prettier@^2.6.0',
+98 silly installInDir   'nodemon@1.15.1',
+98 silly installInDir   'awr-components@latest',
+98 silly installInDir   'awr-utils@latest',
+98 silly installInDir   'awr-validation@latest',
+98 silly installInDir   'jss@latest',
+98 silly installInDir   'material-ui@next',
+98 silly installInDir   'mobx@3.5.1',
+98 silly installInDir   'mobx-react@^4.4.2',
+98 silly installInDir   'mobx-state-tree@1.3.1',
+98 silly installInDir   'next@^5.0.0',
+98 silly installInDir   'nprogress@^0.2.0',
+98 silly installInDir   'react@^16.2.0',
+98 silly installInDir   'react-dom@^16.2.0',
+98 silly installInDir   'react-jss@latest',
+98 silly installInDir   'styled-components@^2.1.0' ]
+99 silly installInDir backup C:\Users\holopov_ig\Desktop\awr\packages\awr-app\package.json
+100 silly rename [ 'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\package.json',
+100 silly rename   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\package.json.lerna_backup' ]
+101 silly installInDir writing tempJson { dependencies:
+101 silly installInDir    { 'babel-plugin-module-resolver': '^3.1.0',
+101 silly installInDir      'babel-plugin-styled-components': '^1.1.5',
+101 silly installInDir      'babel-plugin-transform-decorators-legacy': '^1.3.4',
+101 silly installInDir      'cross-env': '^5.1.3',
+101 silly installInDir      eslint: '^4.18.0',
+101 silly installInDir      'eslint-config-airbnb': '^16.1.0',
+101 silly installInDir      'eslint-config-prettier': '^2.9.0',
+101 silly installInDir      'eslint-import-resolver-babel-module': '^4.0.0',
+101 silly installInDir      'eslint-plugin-import': '^2.9.0',
+101 silly installInDir      'eslint-plugin-prettier': '^2.6.0',
+101 silly installInDir      nodemon: '1.15.1',
+101 silly installInDir      'awr-components': 'latest',
+101 silly installInDir      'awr-utils': 'latest',
+101 silly installInDir      'awr-validation': 'latest',
+101 silly installInDir      jss: 'latest',
+101 silly installInDir      'material-ui': 'next',
+101 silly installInDir      mobx: '3.5.1',
+101 silly installInDir      'mobx-react': '^4.4.2',
+101 silly installInDir      'mobx-state-tree': '1.3.1',
+101 silly installInDir      next: '^5.0.0',
+101 silly installInDir      nprogress: '^0.2.0',
+101 silly installInDir      react: '^16.2.0',
+101 silly installInDir      'react-dom': '^16.2.0',
+101 silly installInDir      'react-jss': 'latest',
+101 silly installInDir      'styled-components': '^2.1.0' } }
+102 silly getExecOpts { cwd: 'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app' }
+103 silly installInDir [ 'npm', [ 'install' ] ]
+104 silly installInDir cleanup C:\Users\holopov_ig\Desktop\awr\packages\awr-app\package.json
+105 silly renameSync [ 'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\package.json.lerna_backup',
+105 silly renameSync   'C:\\Users\\holopov_ig\\Desktop\\awr\\packages\\awr-app\\package.json' ]
+106 verbose installed leaf awr-app
+107 error execute callback with error
+108 error Error: Command failed: npm install
+108 error npm ERR! code E404
+108 error npm ERR! 404 Not Found: awr-validation@latest
+108 error
+108 error npm ERR! A complete log of this run can be found in:
+108 error npm ERR!     C:\Users\holopov_ig\AppData\Roaming\npm-cache\_logs\2018-02-27T14_18_59_163Z-debug.log
+108 error
+108 error     at Promise.all.then.arr (C:\Users\holopov_ig\AppData\Roaming\npm\node_modules\lerna\node_modules\execa\index.js:236:11)
+108 error     at <anonymous>

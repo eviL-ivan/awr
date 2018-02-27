@@ -5,11 +5,13 @@ const { createServer } = require("http");
 const { parse } = require("url");
 const next = require("next");
 const mobxReact = require("mobx-react");
+const test = require("awr-utils");
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
 mobxReact.useStaticRendering(true);
 
+test();
 console.log("i am alive");
 
 app.prepare().then(() => {
