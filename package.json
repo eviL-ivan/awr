@@ -7,6 +7,6 @@
     "start": "cd packages/awr-app && npm run start"
   },
   "devDependencies": {
-    "lerna": "^2.9.0"
+    "lerna": "^3.0.0-alpha.1"
   }
 }

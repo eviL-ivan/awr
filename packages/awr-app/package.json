@@ -12,9 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "awr-components": "latest",
-    "awr-utils": "latest",
-    "awr-validation": "latest",
+    "awr-components": "^1.0",
+    "awr-utils": "^1.0",
+    "awr-validation": "^1.0",
     "jss": "latest",
     "material-ui": "next",
     "mobx": "3.5.1",

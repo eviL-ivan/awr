@@ -2,8 +2,11 @@ import React from "react";
 import Document, { Head, Main, NextScript } from "next/document";
 import JssProvider from "react-jss/lib/JssProvider";
 import getPageContext from "utils/getPageContext";
+import { ServerStyleSheet } from 'styled-components'
+
 import NProgress from "nprogress";
 import Router from "next/router";
+
 
 Router.onRouteChangeStart = url => {
   NProgress.start();
@@ -13,7 +16,7 @@ Router.onRouteChangeError = () => NProgress.done();
 
 class MyDocument extends Document {
   render() {
-    const { pageContext } = this.props;
+    const { styleTags } = this.props;
 
     return (
       <html lang="en" dir="ltr">
@@ -31,6 +34,7 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
           />
+          {styleTags}
         </Head>
         <body>
           <Main />
@@ -41,9 +45,13 @@ class MyDocument extends Document {
   }
 }
 
-MyDocument.getInitialProps = ctx => {
+MyDocument.getInitialProps = ({ renderPage }) => {
+  //styled-ssr
+  const sheet = new ServerStyleSheet();
+  const styleTags = sheet.getStyleElement();
+  //JSS
   const pageContext = getPageContext();
-  const page = ctx.renderPage(Component => props => (
+  const page = renderPage(Component => props => (
     <JssProvider
       registry={pageContext.sheetsRegistry}
       generateClassName={pageContext.generateClassName}
@@ -55,6 +63,7 @@ MyDocument.getInitialProps = ctx => {
   return {
     ...page,
     pageContext,
+    styleTags,
     styles: (
       <style
         id="jss-server-side"

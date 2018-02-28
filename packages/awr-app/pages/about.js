@@ -13,6 +13,6 @@ const Main = styled.div`
 @withStoreProvider
 export default class Counter extends React.Component {
   render() {
-    return <Main>Index</Main>;
+    return <Main>About styled</Main>;
   }
 }
