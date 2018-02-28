@@ -1,5 +1,5 @@
 {
-  "extends": ["react-app", "prettier"],
+  "extends": ["airbnb", "prettier"],
   "settings": {
     "import/resolver": {
       "babel-module": {}
