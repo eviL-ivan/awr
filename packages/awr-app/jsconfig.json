@@ -1,5 +1,14 @@
 {
   "compilerOptions": {
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      "components/*": ["./components/*"],
+      "decorators/*": ["./core/decorators/*"],
+      "services/*": ["./core/services/*"],
+      "utils/*": ["./core/utils/*"],
+      "theme/*": ["./core/theme/*"],
+      "store/*": ["./store/*"]
+    }
   }
 }

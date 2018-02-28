@@ -2,11 +2,10 @@ import React from "react";
 import Document, { Head, Main, NextScript } from "next/document";
 import JssProvider from "react-jss/lib/JssProvider";
 import getPageContext from "utils/getPageContext";
-import { ServerStyleSheet } from 'styled-components'
+import { ServerStyleSheet } from "styled-components";
 
 import NProgress from "nprogress";
 import Router from "next/router";
-
 
 Router.onRouteChangeStart = url => {
   NProgress.start();
@@ -46,10 +45,10 @@ class MyDocument extends Document {
 }
 
 MyDocument.getInitialProps = ({ renderPage }) => {
-  //styled-ssr
+  // styled-ssr
   const sheet = new ServerStyleSheet();
   const styleTags = sheet.getStyleElement();
-  //JSS
+  // JSS
   const pageContext = getPageContext();
   const page = renderPage(Component => props => (
     <JssProvider
