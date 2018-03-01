@@ -1,20 +1,24 @@
-import purple from "material-ui/colors/purple";
-import green from "material-ui/colors/green";
-import { createMuiTheme } from "material-ui/styles";
-
-const theme = createMuiTheme({
+// кастомная тема Styled Components
+const theme = {
   palette: {
-    primary: {
-      light: purple[300],
-      main: purple[500],
-      dark: purple[700]
-    },
-    secondary: {
-      light: green[300],
-      main: green[500],
-      dark: green[700]
+    mainColor: "#0071d4",
+    secondColor: "#6ba6da",
+    textColor: "#555",
+  },
+  sign: {
+    logo: {
+      height: "100px",
     }
+  },
+  header: {
+    height: "60px"
+  },
+  sidebar: {
+    width: "280px",
+  },
+  sidebarExpanded: {
+    width: "70px"
   }
-});
+};
 
 export default theme;
