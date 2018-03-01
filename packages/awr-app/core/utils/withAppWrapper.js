@@ -20,7 +20,9 @@ const Wrapper = ({ children }) => {
       <Reboot>
         <MuiThemeProvider theme={muiTheme}>
           <ThemeProvider theme={theme}>
-            {children}
+            <Typography>
+              {children}
+            </Typography>
           </ThemeProvider>
         </MuiThemeProvider>
       </Reboot>

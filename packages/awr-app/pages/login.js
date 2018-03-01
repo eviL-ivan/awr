@@ -31,9 +31,7 @@ class Login extends React.Component {
     return (
       <BackgroundImg>
         <Layout>
-          <Typography>
-            <EntryContainer />
-          </Typography>
+          <EntryContainer />
         </Layout>
       </BackgroundImg>
     );
