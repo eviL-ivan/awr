@@ -45,7 +45,7 @@ const DataBlock = styled(Paper)`
   font-size: 10;
   display: flex;
   margin-bottom: 10px;
-  font-weight: bold;
+  /* font-weight: bold; */
   justify-content: center;
   padding: 3px 6px;
   //position: absolute;
