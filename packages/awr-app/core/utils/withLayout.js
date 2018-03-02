@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Layout from "../theme/Layout";
+import Layout from "../../components/Layout/Layout";
 
 export default InnerComponent => {
   return class LayoutHoc extends Component {

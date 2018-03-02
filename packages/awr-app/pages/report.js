@@ -7,7 +7,7 @@ import Grid from "material-ui/Grid";
 
 import withLayout from "utils/withLayout";
 
-import Input from "../components/Report/Common/Input";
+import Input from "../components/Common/Input";
 import TextField from "material-ui/TextField";
 import { InputLabel } from "material-ui/Input";
 
