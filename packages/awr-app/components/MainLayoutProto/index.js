@@ -86,7 +86,7 @@ class App extends Component {
         <Reboot>
           <MuiThemeProvider theme={muiTheme}>
             <ThemeProvider theme={theme}>
-              <Typography>
+              <TypographyContainer>
                 <RowContainer>
                   <Sidebar
                     expanded={expanded}
@@ -109,7 +109,7 @@ class App extends Component {
                     />
                   </Layout>
                 </RowContainer>
-              </Typography>
+              </TypographyContainer>
             </ThemeProvider>
           </MuiThemeProvider>
         </Reboot>
@@ -123,6 +123,9 @@ const TypographyContainer = styled(Typography)`
   display: flex;
   height: 100%; */
   /* width: 100%; */
+  position: absolute;
+  width: 100%;
+  height: 100%;
 `;
 
 const RowContainer = styled.div`
