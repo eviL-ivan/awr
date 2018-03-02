@@ -21,7 +21,6 @@ class RecordsGroup extends Component {
   componentDidMount() {
     const stats = this.props.data.recordReports.reduce(
       (prev, item) => {
-        console.log(item.status);
         ++prev[item.status];
         return prev;
       },

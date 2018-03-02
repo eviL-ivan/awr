@@ -9,6 +9,7 @@ const RecordSmallInfoBlock = ({ className, data, title }) => (
 
 export default styled(RecordSmallInfoBlock)`
   display: flex;
+  align-items: center;
 `;
 
 const TitleConatiner = styled.span`
