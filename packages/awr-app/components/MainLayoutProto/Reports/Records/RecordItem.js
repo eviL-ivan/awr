@@ -55,14 +55,29 @@ class RecordItem extends React.Component {
           </TitleWithStatusContainer>
           {!inGroup && <ReportPeriodBlock />}
         </TitleBlock>
-
-        <InfoBlock>
-          <div style={{ display: "flex", flexDirection: "row" }}>
-            <Margin right={60}>
-              <RecordSmallInfoBlock title="Кому" data={recipient.title} />
-            </Margin>
-            <RecordSmallInfoBlock title="Отправлено" data={sendData} />
-          </div>
+        <div>
+          <InfoBlock>
+            <div
+              style={{ display: "flex", flexDirection: "row", width: "60%" }}
+            >
+              <Flex grow={1}>
+                <Margin right={60}>
+                  <RecordSmallInfoBlock
+                    title="Организация"
+                    data={organizationTitle}
+                  />
+                </Margin>
+              </Flex>
+              <Flex grow={1}>
+                <Margin right={60}>
+                  <RecordSmallInfoBlock title="Кому" data={recipient.title} />
+                </Margin>
+              </Flex>
+              <Flex grow={1}>
+                <RecordSmallInfoBlock title="Отправлено" data={sendData} />
+              </Flex>
+            </div>
+          </InfoBlock>
           <div style={{ display: "flex", alignItems: "flex-start" }}>
             <Edit
               style={{ color: "blue", fontSize: "30px", marginRight: "10px" }}
@@ -74,7 +89,7 @@ class RecordItem extends React.Component {
               style={{ color: "green", fontSize: "30px", marginRight: "10px" }}
             />
           </div>
-        </InfoBlock>
+        </div>
       </RecordItemContainer>
     );
   }
@@ -126,6 +141,11 @@ const Margin = styled.div`
   margin-right: ${p => (p.right ? p.right + "px" : 0)};
   margin-bottom: ${p => (p.bottom ? p.bottom + "px" : 0)};
   margin-top: ${p => (p.top ? p.top + "px" : 0)};
+`;
+
+const Flex = styled.div`
+  display: flex;
+  flex: ${p => (p.grow ? p.grow : 0)};
 `;
 const Period = styled.div`
   text-decoration: underline;

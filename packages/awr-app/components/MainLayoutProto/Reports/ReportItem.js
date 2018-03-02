@@ -26,32 +26,29 @@ function ReportItem({ data, records, organization, directions }) {
         );
     }
     if (Record)
-      prev.push(
-        <ReportContent zDepth={1}>
-          <DataBlock today={data == "Сегодня"}>{data}</DataBlock>
-          {Record}
-        </ReportContent>
-      );
+      prev.push(<ReportContent elevation={2}>{Record}</ReportContent>);
     return prev;
   }, []);
 
   if (!_records.length) return null;
-  return <Report>{_records}</Report>;
+  return (
+    <Report>
+      <DataBlock today={data == "Сегодня"}>{data}</DataBlock>
+      {_records}
+    </Report>
+  );
 }
 
 export default ReportItem;
 
-const DataBlock = styled(Paper)`
-  font-size: 10;
+const DataBlock = styled.span`
+  margin-left: -2px;
+  font-weight: 400;
+  font-size: 18px;
   display: flex;
   margin-bottom: 10px;
-  /* font-weight: bold; */
   justify-content: center;
   padding: 3px 6px;
-  //position: absolute;
-  background: ${p => (p.today ? "red" : "#fb8c0033")} !important;
-  // left: 10px;
-  // top: -20px;
 `;
 const ReportContent = styled(Paper)`
   padding: 15px 10px 10px;
@@ -71,7 +68,7 @@ const Report = styled.div`
   display: flex;
   flex-direction: column;
 
-  align-items: center;
+  align-items: start;
   justify-content: center;
   width: 100%;
   //padding: 15px 5px;

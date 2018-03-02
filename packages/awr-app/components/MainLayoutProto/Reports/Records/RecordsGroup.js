@@ -40,7 +40,7 @@ class RecordsGroup extends Component {
       <div style={{ width: "100%" }}>
         <TitleContainer>
           <TitleBlock>
-            <ReportDirectionBadge direction={direction} />
+            <ReportDirectionBadge inGroup direction={direction} />
             <RecordTitle title={title} />
           </TitleBlock>
           <LeftTitleBlock>

@@ -7,7 +7,7 @@ export default Title;
 
 const RecordTitle = styled.div`
   text-transform: UpperCase;
-  font-weight: bold;
+  font-weight: 500;
   margin-right: 20px;
   font-size: 18px;
 `;
