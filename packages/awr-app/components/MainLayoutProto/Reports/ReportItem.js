@@ -59,7 +59,7 @@ const ReportContent = styled(Paper)`
   display: flex;
   flex-wrap: wrap;
   //flex-direction:column;
-
+  font-size: 18px;
   &:not(:last-child) {
     margin-bottom: 10px;
   }

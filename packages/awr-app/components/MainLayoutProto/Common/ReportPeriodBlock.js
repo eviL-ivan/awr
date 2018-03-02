@@ -18,7 +18,7 @@ const PeriodContainer = styled.div`
   flex-direction: row;
   align-items: center;
   padding: 5px;
-  width: 150px;
+  /* width: 150px; */
   justify-content: space-between;
 `;
 const Period = styled.div`

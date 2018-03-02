@@ -70,6 +70,7 @@ class RecordsGroup extends Component {
 
 export default styled(RecordsGroup)`
   padding: 20px;
+  font-size: 18px;
 `;
 
 const TitleBlock = styled.div`
