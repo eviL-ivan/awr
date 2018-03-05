@@ -18,6 +18,12 @@ injectGlobal`
   body {
     font-family: Roboto;
   }
+  
+  // TODO: проверить работу путей, написать остальные импорты шрифтов
+   @font-face {
+     font-family: "Roboto";
+     src: url("static/fonts/Roboto-Regular.ttf") format("ttf");
+   }
 `;
 
 const Wrapper = ({ children }) => {

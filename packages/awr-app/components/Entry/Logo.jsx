@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Logo = ({ className }) => (
   <div className={className}>
-    <img src="https://psv4.userapi.com/c834604/u93145868/docs/d7/ee5d8eceab5f/logo.png" />
+    <img src="static/images/logo.png" />
   </div>
 );
 
