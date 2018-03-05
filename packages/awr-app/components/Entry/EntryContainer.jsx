@@ -9,8 +9,6 @@ import RestorePassword from "./RestorePassword/RestorePassword";
 import Autorization from "./Autorization/Autorization";
 import Logo from "./Logo";
 
-import { InputWrapper, LinksWrapper, CustomLink } from "./StyledComponents";
-
 const FormWrapper = styled(Paper) `
   padding: 20px 20px 30px;
 `;

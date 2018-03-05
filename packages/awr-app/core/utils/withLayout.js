@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Layout from "../../components/Layout/Layout";
+import withAppWrapper from "utils/withAppWrapper";
 
 export default InnerComponent => {
-  return class LayoutHoc extends Component {
+  @withAppWrapper
+  class LayoutHoc extends Component {
     render() {
       return (
         <Layout>
@@ -10,5 +12,7 @@ export default InnerComponent => {
         </Layout>
       );
     }
-  };
+  }
+
+  return LayoutHoc;
 };

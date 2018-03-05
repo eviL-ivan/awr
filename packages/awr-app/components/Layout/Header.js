@@ -118,7 +118,7 @@ class Header extends React.Component {
             <MenuIcon style={{color: "#fff"}} />
           </IconButton>
           <Logo>
-            <img src="https://psv4.userapi.com/c834501/u93145868/docs/d12/9724c42c6f3c/logo.png" />
+            <img src="static/images/logo_small.png" />
           </Logo>
         </HeaderLeft>
         <HeaderRight>

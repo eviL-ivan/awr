@@ -43,6 +43,7 @@ const MenuItemText = styled(ListItemText)`
 `;
 
 const MenuItem = styled(ListItem)`
+  background: ${p => {console.log("PROPS:", p); return "inherit"}};
   display: flex;
   align-items: center;
   padding: 10px 20px;
@@ -100,7 +101,7 @@ const Button = styled(MuiButton)`
 class Sidebar extends React.Component {
   state = {
     current: "", // развернутый пункт меню, содержит key из константы
-  }
+  };
 
   setCurrentMenuItem = key => () => {
     this.setState(state => ({
