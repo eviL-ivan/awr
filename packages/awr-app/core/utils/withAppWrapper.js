@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { ThemeProvider } from 'styled-components';
-import { Reboot, Typography } from "material-ui";
+import { ThemeProvider, injectGlobal } from 'styled-components';
+import { Reboot } from "material-ui";
 import { MuiThemeProvider } from 'material-ui/styles';
 import theme from "core/theme/theme";
 import muiTheme from "core/theme/muiTheme";
@@ -14,15 +14,19 @@ const jss = create(jssPreset());
 // We define a custom insertion point that JSS will look for injecting the styles in the DOM.
 jss.options.insertionPoint = 'jss-insertion-point';
 
+injectGlobal`
+  body {
+    font-family: Roboto;
+  }
+`;
+
 const Wrapper = ({ children }) => {
   return (
     <JssProvider jss={jss} generateClassName={generateClassName}>
       <Reboot>
         <MuiThemeProvider theme={muiTheme}>
           <ThemeProvider theme={theme}>
-            <Typography>
-              {children}
-            </Typography>
+            {children}
           </ThemeProvider>
         </MuiThemeProvider>
       </Reboot>

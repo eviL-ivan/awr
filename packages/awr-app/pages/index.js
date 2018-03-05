@@ -1,11 +1,9 @@
 import React from "react";
-import Page from "components/Layout/Page";
 import withLayout from "utils/withLayout";
 import withStoreProvider from "utils/withStoreProvider";
 import styled from "styled-components";
 
 import Link from "next/link";
-import Button from "material-ui/Button";
 
 const Wrapper = styled.div`
   > img {
