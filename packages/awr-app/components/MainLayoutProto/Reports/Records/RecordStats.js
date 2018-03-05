@@ -16,7 +16,11 @@ import styled from "styled-components";
 const RecordStats = props => {
   console.log(props.data);
   const { complite, cancel, warning, notCreate } = props.data;
+
+  console.log("notCreate", notCreate);
   const all = complite + cancel + warning + notCreate;
+
+  console.log("all", all);
 
   return (
     <StyledRecordStats>

@@ -27,7 +27,8 @@ class RecordsGroup extends Component {
       {
         complite: 0,
         cancel: 0,
-        warning: 0
+        warning: 0,
+        notCreate: 0
       }
     );
     this.setState({ stats });
