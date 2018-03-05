@@ -16,11 +16,7 @@ import styled from "styled-components";
 const RecordStats = props => {
   console.log(props.data);
   const { complite, cancel, warning, notCreate } = props.data;
-
-  console.log("notCreate", notCreate);
   const all = complite + cancel + warning + notCreate;
-
-  console.log("all", all);
 
   return (
     <StyledRecordStats>
@@ -32,7 +28,6 @@ const RecordStats = props => {
 
 const StyledRecordStats = styled.div`
   font-size: 20px;
-  // font-weight: bold;
 `;
 const Complite = styled.span`
   color: ${p => p.less && "red"};
