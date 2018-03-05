@@ -155,6 +155,9 @@ const Period = styled.div`
 `;
 
 const RecordItemContainer = styled.div`
+  &:last-child {
+    border-bottom: none;
+  }
   flex-direction: row;
   width: 100%;
   padding: 20px 10px;
