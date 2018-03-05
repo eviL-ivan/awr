@@ -16,7 +16,6 @@ Router.onRouteChangeError = () => NProgress.done();
 class MyDocument extends Document {
   render() {
     const { styleTags } = this.props;
-    console.log("styleTags", styleTags);
     return (
       <html lang="en" dir="ltr">
         <Head>
@@ -29,10 +28,6 @@ class MyDocument extends Document {
               "minimum-scale=1, width=device-width, height=device-height"
             }
           />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
-          />
           {styleTags}
         </Head>
         <body>
@@ -44,7 +39,7 @@ class MyDocument extends Document {
   }
 }
 
-MyDocument.getInitialProps = ({ renderPage }) => {
+MyDocument.getInitialProps = ({ renderPage, res }) => {
   // styled-ssr
   const sheet = new ServerStyleSheet();
   const styleTags = sheet.getStyleElement();

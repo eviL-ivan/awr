@@ -1,7 +1,6 @@
 import React from "react";
 import withAppWrapper from "utils/withAppWrapper";
 import styled from 'styled-components';
-import { Typography } from "material-ui";
 
 import EntryContainer from "components/Entry/EntryContainer";
 

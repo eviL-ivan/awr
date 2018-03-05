@@ -8,5 +8,8 @@
   },
   "devDependencies": {
     "lerna": "^2.9.0"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
   }
 }
