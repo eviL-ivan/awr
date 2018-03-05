@@ -16,7 +16,7 @@ Router.onRouteChangeError = () => NProgress.done();
 class MyDocument extends Document {
   render() {
     const { styleTags } = this.props;
-
+    console.log("styleTags", styleTags);
     return (
       <html lang="en" dir="ltr">
         <Head>
@@ -46,6 +46,8 @@ MyDocument.getInitialProps = ({ renderPage }) => {
   const styleTags = sheet.getStyleElement();
   // JSS
   const pageContext = getPageContext();
+  const _sheetsRegistry = pageContext.sheetsRegistry.toString();
+
   const page = renderPage(Component => props => (
     <JssProvider
       registry={pageContext.sheetsRegistry}
@@ -62,9 +64,7 @@ MyDocument.getInitialProps = ({ renderPage }) => {
     styles: (
       <style
         id="jss-server-side"
-        dangerouslySetInnerHTML={{
-          __html: pageContext.sheetsRegistry.toString()
-        }}
+        dangerouslySetInnerHTML={{ __html: _sheetsRegistry }}
       />
     )
   };
