@@ -16,17 +16,18 @@ const Container = styled.div`
   ${p =>
     p.inGroup &&
     `&:after {
+    z-index:1;
     content: "";
     display: block;
     border-top: 7px solid #080000;
     position: absolute;
-    margin-left: -11px;
+    margin-left: -10px;
     height: 8px;
     width: 1px;
     z-index: 1000000;
     background: transparent;
     border-right: 5px solid #000003;
-    border-left: 7px solid transparent;
+    border-left: 6px solid transparent;
     border-bottom: 5px solid transparent;
     margin-bottom: 8px;
     margin-top: 5px;

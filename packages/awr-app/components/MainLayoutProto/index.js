@@ -13,31 +13,9 @@ import { create } from "jss";
 import { createGenerateClassName, jssPreset } from "material-ui/styles";
 import Layout from "./Layout";
 
-import Header from "./Header/Header";
-import Sidebar from "./Sidebar";
+import Header from "components/Layout/Header";
+import Sidebar from "components/Layout/Sidebar";
 import Content from "./Reports/Content";
-import SubHeader from "./SubHeader";
-
-const generateClassName = createGenerateClassName();
-const jss = create(jssPreset());
-// We define a custom insertion point that JSS will look for injecting the styles in the DOM.
-jss.options.insertionPoint = "jss-insertion-point";
-
-const muiTheme = createMuiTheme({
-  palette: {
-    primary: {
-      main: "#0071d4",
-      light: "#6ba6da",
-      dark: "#3599F0"
-    },
-    secondary: {
-      main: "#6ba6da",
-      light: "#0071d4",
-      dark: "#6ba6da"
-    }
-    // error: will us the default color
-  }
-});
 
 class App extends Component {
   state = {
@@ -82,53 +60,32 @@ class App extends Component {
     const { expanded, organization, directions } = this.state;
 
     return (
-      <JssProvider jss={jss} generateClassName={generateClassName}>
-        <Reboot>
-          <MuiThemeProvider theme={muiTheme}>
-            <ThemeProvider theme={theme}>
-              <TypographyContainer>
-                <RowContainer>
-                  <Sidebar
-                    expanded={expanded}
-                    toggleSidebar={this.toggleSidebar}
-                  />
-                  <Layout>
-                    <Header
-                      changeOrganization={this.changeOrganization}
-                      organization={organization}
-                      directions={directions}
-                      changeDirection={this.changeDirection}
-                      changeAllDirection={this.changeAllDirection}
-                      toggleSidebar={this.toggleSidebar}
-                    />
-
-                    <Content
-                      sidebarExpanded={expanded}
-                      organization={organization}
-                      directions={directions}
-                    />
-                  </Layout>
-                </RowContainer>
-              </TypographyContainer>
-            </ThemeProvider>
-          </MuiThemeProvider>
-        </Reboot>
-      </JssProvider>
+      <ThemeProvider theme={theme}>
+        <RowContainer>
+          <Sidebar expanded={expanded} toggleSidebar={this.toggleSidebar} />
+          <Layout>
+            <Header
+              changeOrganization={this.changeOrganization}
+              organization={organization}
+              directions={directions}
+              changeDirection={this.changeDirection}
+              changeAllDirection={this.changeAllDirection}
+              toggleSidebar={this.toggleSidebar}
+            />
+            <Content
+              sidebarExpanded={expanded}
+              organization={organization}
+              directions={directions}
+            />
+          </Layout>
+        </RowContainer>
+      </ThemeProvider>
     );
   }
 }
 
-const TypographyContainer = styled(Typography)`
-  /* flex: 1;
-  display: flex;
-  height: 100%; */
-  /* width: 100%; */
-  position: absolute;
-  width: 100%;
-  height: 100%;
-`;
-
 const RowContainer = styled.div`
+  position: absolute;
   flex-direction: row;
   flex: 1;
   display: flex;
@@ -136,12 +93,3 @@ const RowContainer = styled.div`
   width: 100%;
 `;
 export default App;
-{
-  /* <SubHeader
-changeOrganization={this.changeOrganization}
-organization={organization}
-directions={directions}
-changeDirection={this.changeDirection}
-changeAllDirection={this.changeAllDirection}
-/> */
-}

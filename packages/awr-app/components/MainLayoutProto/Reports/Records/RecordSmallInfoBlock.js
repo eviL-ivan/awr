@@ -15,8 +15,9 @@ export default styled(RecordSmallInfoBlock)`
 const TitleConatiner = styled.span`
   display: flex;
   padding-right: 4px;
-  font-size: 12px;
+  font-size: 14px;
   color: gray;
+  margin-right: 5px;
 `;
 
 const DataContainer = styled.span`

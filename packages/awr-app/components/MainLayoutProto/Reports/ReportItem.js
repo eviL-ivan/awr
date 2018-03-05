@@ -1,29 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 import RecordItem from "./Records/RecordItem";
-import RecordsGroup from "./Records/RecordsGroup";
+import Records from "./Records/Records";
 import Paper from "material-ui/Paper";
 
 function ReportItem({ data, records, organization, directions }) {
   const _records = records.reduce((prev, item) => {
     let Record = null;
-    if (organization == "all") Record = <RecordsGroup data={item} />;
+    //если все организации
+    if (organization == "all") Record = <Records data={item} />;
     else {
+      //если выбрана кака-то конкретная
       let _recordData = item.recordReports.find(
         item => item.organization == organization
       );
-
-      if (_recordData)
-        Record = (
-          <RecordItem
-            key={Math.random()}
-            data={_recordData}
-            title={item.title}
-            organization={organization}
-            directions={directions}
-            direction={item.direction}
-          />
-        );
+      if (_recordData) {
+        const _item = { ...item, recordReports: [_recordData] };
+        Record = <Records data={_item} />;
+      }
     }
     if (Record)
       prev.push(<ReportContent elevation={2}>{Record}</ReportContent>);

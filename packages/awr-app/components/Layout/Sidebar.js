@@ -49,37 +49,6 @@ class Sidebar extends React.Component {
           </BtnAddDoc>
         </BurgerContainer>
 
-        {
-          // <CreateDocument expanded={expanded}>
-          //         {
-          //           // expanded &&
-          //           //   <Zoom
-          //           //     in
-          //           //   >
-          //           //     <Button
-          //           //       color="primary"
-          //           //       variant="fab"
-          //           //     >
-          //           //       <PlusIcon />
-          //           //     </Button>
-          //           // </Zoom>
-          //         }
-          //         {
-          //           // !expanded &&
-          //           //   <Zoom in>
-          //           //     <Button
-          //           //       color="primary"
-          //           //       variant="raised"
-          //           //       fullWidth
-          //           //     >
-          //           //       <AddDocumentIcon />
-          //           //       Создать документ
-          //           //     </Button>
-          //           // </Zoom>
-          //         }
-          //       </CreateDocument>
-        }
-
         {SIDEBAR_MENU.map(item => (
           <MenuItemWrapper
             key={item.key}
@@ -180,11 +149,8 @@ const opacityClose = keyframes`
 
 const BurgerContainer = styled.div`
   position: relative;
-  //background: #0163aa;
   background: ${p => p.theme.palette.subMainBlue};
-  //background: #014a8e;
 
-  height: ${p => p.theme.topBlock.height};
   margin-bottom: 20px;
   padding: 7px 10px;
 `;
@@ -237,8 +203,6 @@ const MenuItemWrapper = styled.div`
     left: 0;
     position: absolute;
     width: 5px;
-    //height:100%;
-    //background:#0163aa;
     background: #0772c0;
   }
 

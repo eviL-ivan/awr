@@ -36,16 +36,17 @@ class RecordsGroup extends Component {
   render() {
     const { stats, hover } = this.state;
     const { data: { title, direction, recordReports } } = this.props;
+
     return (
       <div style={{ width: "100%" }}>
         <TitleContainer>
           <TitleBlock>
             <ReportDirectionBadge inGroup direction={direction} />
             <RecordTitle title={title} />
+            {recordReports.length !== 1 && <RecordStats data={stats} />}
           </TitleBlock>
           <LeftTitleBlock>
             <ReportPeriodBlock />
-            <RecordStats data={stats} />
           </LeftTitleBlock>
         </TitleContainer>
         <GroupContainer>
@@ -83,7 +84,7 @@ const TitleBlock = styled.div`
 const RightTitleBlock = styled.div``;
 
 const LeftTitleBlock = TitleBlock.extend`
-  justify-content: space-between;
+  justify-content: flex-end;
 `;
 
 const TitleContainer = styled.div`

@@ -12,6 +12,8 @@ import Status from "./Status";
 import ReportDirectionBadge from "../../Common/ReportDirectionBadge";
 import ReportPeriodBlock from "../../Common/ReportPeriodBlock";
 import RecordSmallInfoBlock from "./RecordSmallInfoBlock";
+import { Flex, Margin, FlexRow } from "components/Common/positional";
+import Button from "material-ui/Button";
 class RecordItem extends React.Component {
   state = {
     hover: false
@@ -37,30 +39,13 @@ class RecordItem extends React.Component {
         active={this.state.hover}
         onMouseEnter={this.onMouseEnterHandler}
         onMouseLeave={this.onMouseLeaveHandler}
+        onMouseLeave={this.onMouseLeaveHandler}
       >
-        <TitleBlock inGroup={inGroup}>
-          <TitleWithStatusContainer inGroup={inGroup}>
-            <Status status={status} />
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                flexDirection: "row"
-              }}
-            >
-              {!inGroup && <ReportDirectionBadge direction={direction} />}
-              <RecordTitle title={title} />
-            </div>
-          </TitleWithStatusContainer>
-          {!inGroup && <ReportPeriodBlock />}
-        </TitleBlock>
-        <div>
-          <InfoBlock>
-            <div
-              style={{ display: "flex", flexDirection: "row", width: "60%" }}
-            >
-              <Flex grow={1}>
+        <Status status={status} />
+        <DescriptionContainer>
+          <Flex grow={1}>
+            <InfoBlock status={status}>
+              <Flex grow={1.5}>
                 <Margin right={60}>
                   <RecordSmallInfoBlock
                     title="Организация"
@@ -76,20 +61,35 @@ class RecordItem extends React.Component {
               <Flex grow={1}>
                 <RecordSmallInfoBlock title="Отправлено" data={sendData} />
               </Flex>
-            </div>
-          </InfoBlock>
-          <div style={{ display: "flex", alignItems: "flex-start" }}>
-            <Edit
-              style={{ color: "blue", fontSize: "30px", marginRight: "10px" }}
-            />
-            <DeleteForever
-              style={{ color: "red", fontSize: "30px", marginRight: "10px" }}
-            />
-            <CreateNewFolder
-              style={{ color: "green", fontSize: "30px", marginRight: "10px" }}
-            />
-          </div>
-        </div>
+            </InfoBlock>
+          </Flex>
+          {status == "complite" ? (
+            <ActionsBlock grow={1} />
+          ) : (
+            <ActionsBlock grow={1}>
+              {status !== "notCreate" && (
+                <ActionBtn variant="raised" color="default">
+                  <BtnTitle>Редактировать</BtnTitle>
+                  <Edit style={{ color: "blue", fontSize: "30px" }} />
+                </ActionBtn>
+              )}
+              {status !== "new" && (
+                <ActionBtn variant="raised" color="default">
+                  <BtnTitle>Удалить</BtnTitle>
+                  <DeleteForever style={{ color: "red", fontSize: "30px" }} />
+                </ActionBtn>
+              )}
+              {!(status == "warning" || status == "cancel") && (
+                <ActionBtn variant="raised" color="default">
+                  <BtnTitle>Создать</BtnTitle>
+                  <CreateNewFolder
+                    style={{ color: "green", fontSize: "30px" }}
+                  />
+                </ActionBtn>
+              )}
+            </ActionsBlock>
+          )}
+        </DescriptionContainer>
       </RecordItemContainer>
     );
   }
@@ -107,61 +107,60 @@ class RecordItem extends React.Component {
 
 export default RecordItem;
 
+const ActionBtn = styled(Button)`
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+`;
+
+const BtnTitle = styled.span`
+  margin-right: 20px;
+`;
+
+const ActionsBlock = Flex.extend`
+  justify-content: flex-end;
+  align-items: center;
+`;
 const TitleWithStatusContainer = styled.div`
   display: flex;
   flex-direction: row;
+`;
 
-  justify-content: ${p => (p.inGroup ? "" : "space-between")};
+const DescriptionContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
 `;
 
 const TitleBlock = styled.div`
   display: flex;
   flex-direction: row;
-  width: ${p => (!p.inGroup ? "100%" : "auto")};
-  justify-content: ${p => (p.inGroup ? "" : "space-between")};
+  width: 100%;
+
   margin-right: 20px;
 `;
-// const RecordItemContainer = styled.div`
-//   display: flex;
-//   align-items: flex-start;
-//   flex-direction: row;
-//   justify-content: space-between;
-//   width: 100%;
-// `;
 
 const InfoBlock = styled.div`
   width: 100%;
   flex-direction: row;
   display: flex;
   justify-content: inherit;
-`;
-const Margin = styled.div`
-  display: flex;
-  margin-left: ${p => (p.left ? p.left + "px" : 0)};
-  margin-right: ${p => (p.right ? p.right + "px" : 0)};
-  margin-bottom: ${p => (p.bottom ? p.bottom + "px" : 0)};
-  margin-top: ${p => (p.top ? p.top + "px" : 0)};
+  opacity: ${p => p.status == "notCreate" && "0.5"};
 `;
 
-const Flex = styled.div`
-  display: flex;
-  flex: ${p => (p.grow ? p.grow : 0)};
-`;
 const Period = styled.div`
   text-decoration: underline;
   margin-right: 20px;
 `;
 
 const RecordItemContainer = styled.div`
-  justify-content: space-between;
+  flex-direction: row;
   width: 100%;
-  padding: 10px;
+  padding: 20px 10px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  border-bottom: ${p => p.inGroup && "1px solid #a52a2a33"};
-  padding: 3px;
-  // margin-left: 10px;
+  border-bottom: 1px solid #a52a2a33;
   background: ${p => p.active && "rgba(171,124,207,0.2)"};
   cursor: ${p => p.active && "pointer"};
 `;

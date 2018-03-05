@@ -42,6 +42,18 @@ const reports = [
             recipient: {
               title: "ИНФО 0040"
             }
+          },
+          {
+            status: "notCreate",
+            organization: "gold",
+            organizationTitle: "ИП 'Бедное лукошко'",
+            docLink: "ya.ru",
+            docTitle: "NO_ZEMD_werwer_WEDWEW_WWQWD.xml",
+            period: "4 квартал 2016г",
+            sendData: "17.06.2017 12:38",
+            recipient: {
+              title: "ИНФО 0040"
+            }
           }
         ]
       }

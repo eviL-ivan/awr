@@ -4,6 +4,7 @@ import Done from "material-ui-icons/Done";
 import Clear from "material-ui-icons/Clear";
 import AssignmentLate from "material-ui-icons/AssignmentLate";
 import AssignmentReturn from "material-ui-icons/AssignmentReturn";
+import Alarm from "material-ui-icons/Alarm";
 import AssignmentTurnedIn from "material-ui-icons/AssignmentTurnedIn";
 import Tooltip from "material-ui/Tooltip";
 
@@ -56,6 +57,18 @@ const statusConfig = {
           width: "30px",
           height: "30px",
           color: "#CDD326"
+        }}
+      />
+    )
+  },
+  notCreate: {
+    tooltip: "Не создано",
+    comp: (
+      <Alarm
+        style={{
+          width: "30px",
+          height: "30px",
+          color: "gary"
         }}
       />
     )

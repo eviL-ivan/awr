@@ -15,13 +15,13 @@ import styled from "styled-components";
 
 const RecordStats = props => {
   console.log(props.data);
-  const { complite, cancel, warning } = props.data;
-  const all = complite + cancel + warning;
+  const { complite, cancel, warning, notCreate } = props.data;
+  const all = complite + cancel + warning + notCreate;
 
   return (
     <StyledRecordStats>
-      <Complite less={complite < all}>{complite}</Complite>
-      <span>/{all}</span>
+      (<Complite less={complite < all}>{complite}</Complite>
+      <span>/{all}</span>)
     </StyledRecordStats>
   );
 };
