@@ -41,9 +41,7 @@ class Layout extends React.Component {
             changeAllDirection={this.changeAllDirection}
             toggleSidebar={this.toggleSidebar}
           />
-          <Content organization={organization} sidebarExpanded={expanded}>
-            {childrenWithProps}
-          </Content>
+          <Content>{childrenWithProps}</Content>
         </PageWrapper>
       </RowContainer>
     );
@@ -59,6 +57,7 @@ const RowContainer = styled.div`
   display: flex;
   height: 100%;
   width: 100%;
+  background: #eeeeee80;
 `;
 
 const PageWrapper = styled.div`
@@ -74,4 +73,7 @@ const Content = styled.section`
   display: flex;
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: auto;
 `;

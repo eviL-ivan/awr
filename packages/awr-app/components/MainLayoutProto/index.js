@@ -1,64 +1,3 @@
-// import React, { Component } from "react";
-// import { render } from "react-dom";
-// import Reboot from "material-ui/Reboot";
-// import styled, { ThemeProvider } from "styled-components";
-// import { Typography } from "material-ui";
-// import { MuiThemeProvider, createMuiTheme } from "material-ui/styles";
-// //import "typeface-roboto";
-// //import "./style.css";
-// import { theme } from "./Theme.js";
-
-// import JssProvider from "react-jss/lib/JssProvider";
-// import { create } from "jss";
-// import { createGenerateClassName, jssPreset } from "material-ui/styles";
-// import Layout from "./Layout";
-
-// import Header from "components/Layout/Header";
-// import Sidebar from "components/Layout/Sidebar";
-// import Content from "./Reports/Content";
-
-// class App extends Component {
-//   state = {
-//     expanded: false,
-//     organization: "all",
-//     directions: {}
-//   };
-
-//   changeOrganization = organization => {
-//     this.setState({
-//       organization: organization.target.value
-//     });
-//   };
-
-//   toggleSidebar = () => {
-//     this.setState(state => ({
-//       expanded: !state.expanded
-//     }));
-//   };
-
-//   render() {
-//     const { expanded, organization, directions } = this.props;
-
-//     return (
-//       <Content
-//         sidebarExpanded={expanded}
-//         organization={organization}
-//         directions={directions}
-//       />
-//     );
-//   }
-// }
-
-// const RowContainer = styled.div`
-//   position: absolute;
-//   flex-direction: row;
-//   flex: 1;
-//   display: flex;
-//   height: 100%;
-//   width: 100%;
-// `;
-// export default App;
-
 import React from "react";
 import styled from "styled-components";
 import Paper from "material-ui/Paper";
@@ -74,11 +13,8 @@ class Documents extends React.Component {
 
   render() {
     const { className, organization, directions } = this.props;
-    console.log("reports", reports);
-    console.log("reports", organization);
     return (
       <div className={className}>
-        123
         {reports.map(({ data, records }) => (
           <ReportItem
             key={Math.random()}
@@ -96,8 +32,6 @@ class Documents extends React.Component {
 export default styled(Documents)`
   display: flex;
   height: 100%;
-  width: 100%;
+  width: 95%;
   flex-direction: column;
 `;
-
-// <img src="https://image.prntscr.com/image/jgTsbJzGT8COvf2-4afswQ.png"/>

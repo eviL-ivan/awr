@@ -29,11 +29,18 @@ class Sidebar extends React.Component {
     return (
       <aside className={className}>
         <BurgerContainer>
-          <IconButton onClick={toggleSidebar}>
+          <IconButton
+            style={
+              {
+                // width: "auto"
+              }
+            }
+            onClick={toggleSidebar}
+          >
             <MenuIcon
-              style={{
-                color: "#fff"
-              }}
+            // style={{
+            //   color: "#fff"
+            // }}
             />
           </IconButton>
           <BtnAddDoc expanded={expanded}>
@@ -106,7 +113,7 @@ class Sidebar extends React.Component {
 export default styled(Sidebar)`
   display: flex;
   flex-direction: column;
-  background: ${p => p.theme.palette.mainColor};
+  background: #fff;
   box-shadow: 0 5px 10px #ccc;
   width: ${p =>
     p.expanded ? p.theme.sidebarExpanded.width : p.theme.sidebar.width};
@@ -148,12 +155,13 @@ const opacityClose = keyframes`
 `;
 
 const BurgerContainer = styled.div`
+  padding-left: 7px;
   position: relative;
   background: ${p => p.theme.palette.subMainBlue};
-
+  height: 60px;
   margin-bottom: 20px;
-  padding: 7px 10px;
 `;
+
 const AddDocText = styled.span`
   font-size: 13px;
 
@@ -178,7 +186,8 @@ const BtnAddDoc = styled.button`
   border-radius: 50px;
   border: none;
   background: ${p => p.theme.palette.addDoc};
-  //box-shadow: 3px 2px 5px 1px black;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   transition: all 0.4s;
 `;
 
@@ -188,9 +197,11 @@ const SubMenuWrapper = styled.div`
   border-top: ${p => p.expanded && `3px solid ${p.theme.palette.mainColor}`};
   display: ${p => p.expanded && "none"};
   position: ${p => p.expanded && "absolute"};
-  top: ${p => p.expanded && "10px"};
+  top: ${p => p.expanded && "0px"};
   left: ${p => p.expanded && "100%"};
   box-shadow: ${p => p.expanded && "2px 2px 5px #ccc"};
+  margin-left: ${p => (p.expanded ? "2px" : "15px")};
+  background: #fafafa;
 `;
 
 const MenuItemWrapper = styled.div`
@@ -198,6 +209,7 @@ const MenuItemWrapper = styled.div`
 
   &${p => !p.active}:after {
     display: block;
+
     content: "";
     top: 0;
     left: 0;
@@ -213,7 +225,7 @@ const MenuItemWrapper = styled.div`
   &:hover ${SubMenuWrapper} {
     display: ${p => p.expanded && "block"};
   }
-  &:hover:after {
+  /* &:hover:after {
     display: block;
     content: "";
     top: 0;
@@ -223,15 +235,22 @@ const MenuItemWrapper = styled.div`
     height: 100%;
     //background:#0163aa;
     background: #0772c0;
-  }
+  } */
 `;
 
 const MenuItemIcon = styled(ListItemIcon)`
   margin-left: 2px;
-  color: ${p => p.expaned && "red"};
+  color: white !important;
+  > svg {
+    color: white;
+  }
 `;
 
 const MenuItemText = styled(ListItemText)`
+  > h3 {
+    color: ${p => p.theme.palette.textColor + "!important"};
+  }
+
   white-space: nowrap;
   padding: 0;
   opacity: ${p => (p.expanded ? "0" : "1")};
@@ -240,6 +259,7 @@ const MenuItemText = styled(ListItemText)`
 `;
 
 const MenuItem = styled(ListItem)`
+  background:black;
   position: relative;
   display: flex;
   align-items: center;
@@ -250,20 +270,21 @@ const MenuItem = styled(ListItem)`
   cursor: pointer;
   word-wrap: nowrap;
   box-sizing: border-box;
-  color: ${p => p.theme.palette.mainColor};
+  color: ${p => p.theme.palette.textColor};
 
-  svg {
-    color: ${p =>
-      p.active ? p.theme.palette.mainColor : p.theme.palette.textColor};
-  }
 
   ${MenuItemText} h3, ${MenuItemIcon} {
-    color: ${p => "white"};
-    //     p.active ? p.theme.palette.mainColor : //p.theme.palette.textColor
+     font-weight: bold;
+    color: ${p => p.theme.palette.textColor + "!important"};
+    
   }
 
   ${MenuItemIcon} {
+    color: ${p => p.theme.palette.textColor};
     margin-right: ${p => (p.dense ? "10px" : "20px")};
+  }
+  > svg {
+    color:${p => p.theme.palette.textColor};
   }
 `;
 

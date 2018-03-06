@@ -8,6 +8,20 @@ import Alarm from "material-ui-icons/Alarm";
 import AssignmentTurnedIn from "material-ui-icons/AssignmentTurnedIn";
 import Tooltip from "material-ui/Tooltip";
 
+import DoneIcon from "material-ui-icons/Done";
+import ErrorIcon from "material-ui-icons/Clear";
+import BlockIcon from "material-ui-icons/Block";
+import SendIcon from "material-ui-icons/Send";
+import WarningIcon from "material-ui-icons/InfoOutline";
+import AddCircleOutline from "material-ui-icons/AddCircleOutline";
+// FF9800;
+
+const commonStyle = {
+  width: "30px",
+  height: "30px",
+  color: "white"
+};
+
 const Status = ({ className, status }) => (
   <Tooltip
     className={className}
@@ -22,55 +36,34 @@ const Status = ({ className, status }) => (
 export default styled(Status)`
   margin-right: 20px;
   cursor: pointer;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: ${p => statusConfig[p.status].background};
 `;
 
 const statusConfig = {
   complite: {
     tooltip: "Обработано",
-    comp: (
-      <AssignmentTurnedIn
-        style={{
-          width: "30px",
-          height: "30px",
-          color: "green"
-        }}
-      />
-    )
+    comp: <DoneIcon style={commonStyle} />,
+    background: "green"
   },
   cancel: {
     tooltip: "Отказано",
-    comp: (
-      <AssignmentReturn
-        style={{
-          width: "30px",
-          height: "30px",
-          color: "red"
-        }}
-      />
-    )
+    comp: <BlockIcon style={commonStyle} />,
+    background: "red"
   },
   warning: {
     tooltip: "На доработку",
-    comp: (
-      <AssignmentLate
-        style={{
-          width: "30px",
-          height: "30px",
-          color: "#CDD326"
-        }}
-      />
-    )
+    comp: <WarningIcon style={commonStyle} />,
+    background: "#FF9800"
   },
   notCreate: {
     tooltip: "Не создано",
-    comp: (
-      <Alarm
-        style={{
-          width: "30px",
-          height: "30px",
-          color: "gary"
-        }}
-      />
-    )
+    comp: <AddCircleOutline style={commonStyle} />,
+    background: "gray"
   }
 };

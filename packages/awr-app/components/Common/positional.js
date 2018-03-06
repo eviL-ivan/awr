@@ -7,11 +7,9 @@ const Flex = styled.div`
 `;
 
 // flex-basis: ${p => {
-//   console.log("flex-basis", p.basis);
 //   return p.basis ? p.basis : "100%";
 // }};
 // flex-shrink: ${p => {
-//   console.log("flex-basis", p.shrink);
 //   return p.shrink ? p.shrink : 1;
 // }};
 

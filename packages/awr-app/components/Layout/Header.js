@@ -235,7 +235,6 @@ const SelectContainer = styled(Select)`
   color: white !important;
   display: flex;
   align-items: center;
-  /* font-weight: bold; */
   & div:(:first-child) {
     background: ${p => p.theme.palette.subMainBlue} !important;
   }
@@ -243,10 +242,12 @@ const SelectContainer = styled(Select)`
     background: none !important;
   }
 
+  & * {
+    height: 100%;
+  }
   &:before,
   &:after {
     background: none !important;
-    //background-color: white !important;
   }
   & svg {
     color: white;

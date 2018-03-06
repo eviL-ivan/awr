@@ -4,7 +4,6 @@ import Records from "./Records/Records";
 import Paper from "material-ui/Paper";
 
 function ReportItem({ data, records, organization, directions }) {
-  console.log("records,organization", records, organization);
   const _records = records.reduce((prev, item) => {
     let Record = null;
     //если все организации
@@ -23,7 +22,6 @@ function ReportItem({ data, records, organization, directions }) {
       prev.push(<ReportContent elevation={2}>{Record}</ReportContent>);
     return prev;
   }, []);
-  console.log("_records.length", _records.length);
   if (!_records.length) return null;
   return (
     <Report>

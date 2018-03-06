@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const ReportDirectionBadge = ({ direction, inGroup }) => {
-  console.log("ReportDirectionBadge", direction);
   return <Container inGroup={inGroup}>{directionConf[direction]}</Container>;
 };
 export default ReportDirectionBadge;
@@ -24,7 +23,6 @@ const Container = styled.div`
     margin-left: -10px;
     height: 8px;
     width: 1px;
-    z-index: 1000000;
     background: transparent;
     border-right: 5px solid #000003;
     border-left: 6px solid transparent;

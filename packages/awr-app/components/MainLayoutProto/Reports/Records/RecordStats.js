@@ -14,7 +14,6 @@ import styled from "styled-components";
 // }
 
 const RecordStats = props => {
-  console.log(props.data);
   const { complite, cancel, warning, notCreate } = props.data;
   const all = complite + cancel + warning + notCreate;
 
