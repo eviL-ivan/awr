@@ -1,95 +1,100 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
-import Reboot from "material-ui/Reboot";
-import styled, { ThemeProvider } from "styled-components";
-import { Typography } from "material-ui";
-import { MuiThemeProvider, createMuiTheme } from "material-ui/styles";
-//import "typeface-roboto";
-//import "./style.css";
-import { theme } from "./Theme.js";
+// import React, { Component } from "react";
+// import { render } from "react-dom";
+// import Reboot from "material-ui/Reboot";
+// import styled, { ThemeProvider } from "styled-components";
+// import { Typography } from "material-ui";
+// import { MuiThemeProvider, createMuiTheme } from "material-ui/styles";
+// //import "typeface-roboto";
+// //import "./style.css";
+// import { theme } from "./Theme.js";
 
-import JssProvider from "react-jss/lib/JssProvider";
-import { create } from "jss";
-import { createGenerateClassName, jssPreset } from "material-ui/styles";
-import Layout from "./Layout";
+// import JssProvider from "react-jss/lib/JssProvider";
+// import { create } from "jss";
+// import { createGenerateClassName, jssPreset } from "material-ui/styles";
+// import Layout from "./Layout";
 
-import Header from "components/Layout/Header";
-import Sidebar from "components/Layout/Sidebar";
-import Content from "./Reports/Content";
+// import Header from "components/Layout/Header";
+// import Sidebar from "components/Layout/Sidebar";
+// import Content from "./Reports/Content";
 
-class App extends Component {
-  state = {
-    expanded: false,
-    organization: "all",
-    directions: {}
-  };
+// class App extends Component {
+//   state = {
+//     expanded: false,
+//     organization: "all",
+//     directions: {}
+//   };
 
-  changeDirection = directionName => {
-    const directions = { ...this.state.directions };
-    if (directions[directionName]) delete directions[directionName];
-    else directions[directionName] = true;
+//   changeOrganization = organization => {
+//     this.setState({
+//       organization: organization.target.value
+//     });
+//   };
 
-    this.setState({ directions });
-  };
-  changeAllDirection = directions => () => {
-    const directionLength = Object.keys(this.state.directions).length;
+//   toggleSidebar = () => {
+//     this.setState(state => ({
+//       expanded: !state.expanded
+//     }));
+//   };
 
-    let _directions = {};
-    if (directionLength !== 6) {
-      _directions = directions.reduce((previousValue, item) => {
-        previousValue[item.label] = true;
-        return previousValue;
-      }, {});
-    }
-    this.setState({ directions: _directions });
-  };
+//   render() {
+//     const { expanded, organization, directions } = this.props;
 
-  changeOrganization = organization => {
-    this.setState({
-      organization: organization.target.value
-    });
-  };
+//     return (
+//       <Content
+//         sidebarExpanded={expanded}
+//         organization={organization}
+//         directions={directions}
+//       />
+//     );
+//   }
+// }
 
-  toggleSidebar = () => {
-    this.setState(state => ({
-      expanded: !state.expanded
-    }));
-  };
+// const RowContainer = styled.div`
+//   position: absolute;
+//   flex-direction: row;
+//   flex: 1;
+//   display: flex;
+//   height: 100%;
+//   width: 100%;
+// `;
+// export default App;
+
+import React from "react";
+import styled from "styled-components";
+import Paper from "material-ui/Paper";
+import Icon from "material-ui/Icon";
+import DoneIcon from "material-ui-icons/Person";
+import Done from "material-ui-icons/Done";
+import Clear from "material-ui-icons/Clear";
+import reports from "./Reports/reportsData";
+import ReportItem from "./Reports/ReportItem";
+
+class Documents extends React.Component {
+  state = {};
 
   render() {
-    const { expanded, organization, directions } = this.state;
-
+    const { className, organization, directions } = this.props;
+    console.log("reports", reports);
     return (
-      <ThemeProvider theme={theme}>
-        <RowContainer>
-          <Sidebar expanded={expanded} toggleSidebar={this.toggleSidebar} />
-          <Layout>
-            <Header
-              changeOrganization={this.changeOrganization}
-              organization={organization}
-              directions={directions}
-              changeDirection={this.changeDirection}
-              changeAllDirection={this.changeAllDirection}
-              toggleSidebar={this.toggleSidebar}
-            />
-            <Content
-              sidebarExpanded={expanded}
-              organization={organization}
-              directions={directions}
-            />
-          </Layout>
-        </RowContainer>
-      </ThemeProvider>
+      <div className={className}>
+        {reports.map(({ data, records }) => (
+          <ReportItem
+            key={Math.random()}
+            data={data}
+            records={records}
+            organization={organization}
+            directions={directions}
+          />
+        ))}
+      </div>
     );
   }
 }
 
-const RowContainer = styled.div`
-  position: absolute;
-  flex-direction: row;
-  flex: 1;
+export default styled(Documents)`
   display: flex;
   height: 100%;
   width: 100%;
 `;
-export default App;
+
+// <img src="https://image.prntscr.com/image/jgTsbJzGT8COvf2-4afswQ.png"/>

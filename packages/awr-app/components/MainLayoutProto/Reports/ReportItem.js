@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import RecordItem from "./Records/RecordItem";
 import Records from "./Records/Records";
 import Paper from "material-ui/Paper";
 
