@@ -4,6 +4,7 @@ import Records from "./Records/Records";
 import Paper from "material-ui/Paper";
 
 function ReportItem({ data, records, organization, directions }) {
+  console.log("records,organization", records, organization);
   const _records = records.reduce((prev, item) => {
     let Record = null;
     //если все организации
@@ -22,7 +23,7 @@ function ReportItem({ data, records, organization, directions }) {
       prev.push(<ReportContent elevation={2}>{Record}</ReportContent>);
     return prev;
   }, []);
-
+  console.log("_records.length", _records.length);
   if (!_records.length) return null;
   return (
     <Report>
@@ -47,13 +48,10 @@ const ReportContent = styled(Paper)`
   padding: 15px 10px 10px;
   width: 99%;
   display: flex;
-  flex-wrap: wrap;
-  //flex-direction:column;
   font-size: 18px;
   &:not(:last-child) {
     margin-bottom: 10px;
   }
-  //height:95%;
 `;
 
 const Report = styled.div`

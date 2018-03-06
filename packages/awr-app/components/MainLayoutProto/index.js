@@ -75,8 +75,10 @@ class Documents extends React.Component {
   render() {
     const { className, organization, directions } = this.props;
     console.log("reports", reports);
+    console.log("reports", organization);
     return (
       <div className={className}>
+        123
         {reports.map(({ data, records }) => (
           <ReportItem
             key={Math.random()}
@@ -95,6 +97,7 @@ export default styled(Documents)`
   display: flex;
   height: 100%;
   width: 100%;
+  flex-direction: column;
 `;
 
 // <img src="https://image.prntscr.com/image/jgTsbJzGT8COvf2-4afswQ.png"/>

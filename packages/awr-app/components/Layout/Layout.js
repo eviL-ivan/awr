@@ -26,7 +26,9 @@ class Layout extends React.Component {
 
   render() {
     const { expanded, organization, directions } = this.state;
-
+    var childrenWithProps = React.Children.map(this.props.children, child =>
+      React.cloneElement(child, { organization: organization })
+    );
     return (
       <RowContainer>
         <Sidebar toggleSidebar={this.toggleSidebar} expanded={expanded} />
@@ -39,7 +41,9 @@ class Layout extends React.Component {
             changeAllDirection={this.changeAllDirection}
             toggleSidebar={this.toggleSidebar}
           />
-          <Content sidebarExpanded={expanded}>{this.props.children}</Content>
+          <Content organization={organization} sidebarExpanded={expanded}>
+            {childrenWithProps}
+          </Content>
         </PageWrapper>
       </RowContainer>
     );
