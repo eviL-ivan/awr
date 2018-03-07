@@ -29,30 +29,14 @@ class Sidebar extends React.Component {
     return (
       <aside className={className}>
         <BurgerContainer>
-          <IconButton
-            style={
-              {
-                // width: "auto"
-              }
-            }
-            onClick={toggleSidebar}
-          >
-            <MenuIcon
-            // style={{
-            //   color: "#fff"
-            // }}
-            />
+          <IconButton onClick={toggleSidebar}>
+            <MenuIcon />
           </IconButton>
           <BtnAddDoc expanded={expanded}>
-            <AddDocText
-              style={{
-                fontSize: "20px"
-              }}
-              expanded={!expanded}
-            >
+            <AddDocText style={{ fontSize: "20px" }} expanded={!expanded}>
               +
             </AddDocText>
-            <AddDocText expanded={expanded}>Cоздать документы</AddDocText>
+            <AddDocText expanded={expanded}>Cоздать документ</AddDocText>
           </BtnAddDoc>
         </BurgerContainer>
 
@@ -70,9 +54,11 @@ class Sidebar extends React.Component {
             >
               {item.icon && <MenuItemIcon>{item.icon}</MenuItemIcon>}
               <MenuItemText expanded={expanded} primary={item.title} />
-              {!expanded &&
-                item.children &&
-                (current === item.key ? <ExpandLess /> : <ExpandMore />)}
+              {
+                // !expanded &&
+                // item.children &&
+                // (current === item.key ? <ExpandLess /> : <ExpandMore />)
+              }
             </MenuItem>
             {item.children && (
               <SubMenuWrapper expanded={expanded}>
@@ -80,24 +66,24 @@ class Sidebar extends React.Component {
                   <Collapse in={!expanded ? current === item.key : true}>
                     <List disablePadding>
                       {item.children.map(child => (
-                        <MenuItem button dense expanded={expanded}>
+                        <SubMenuItem button dense expanded={expanded}>
                           {child.icon && (
                             <MenuItemIcon>{child.icon}</MenuItemIcon>
                           )}
                           <MenuItemText inset primary={child.title} />
-                        </MenuItem>
+                        </SubMenuItem>
                       ))}
                     </List>
                   </Collapse>
                 ) : (
                   <List disablePadding>
                     {item.children.map(child => (
-                      <MenuItem button dense expanded={expanded}>
+                      <SubMenuItem button dense expanded={expanded}>
                         {child.icon && (
                           <MenuItemIcon>{child.icon}</MenuItemIcon>
                         )}
                         <MenuItemText inset primary={child.title} />
-                      </MenuItem>
+                      </SubMenuItem>
                     ))}
                   </List>
                 )}
@@ -114,7 +100,7 @@ export default styled(Sidebar)`
   display: flex;
   flex-direction: column;
   background: #fff;
-  box-shadow: 0 5px 10px #ccc;
+  box-shadow: 0 5px 10px #686868;
   width: ${p =>
     p.expanded ? p.theme.sidebarExpanded.width : p.theme.sidebar.width};
   transition: all 0.3s;
@@ -180,7 +166,7 @@ const BtnAddDoc = styled.button`
   justify-content: center;
   color: white;
   font-size: 30px;
-  font-weight: bold;
+  // font-weight: bold;
   width: ${p => (p.expanded ? "50px" : "170px")};
   height: 50px;
   border-radius: 50px;
@@ -200,9 +186,10 @@ const SubMenuWrapper = styled.div`
   top: ${p => p.expanded && "0px"};
   left: ${p => p.expanded && "100%"};
   box-shadow: ${p => p.expanded && "2px 2px 5px #ccc"};
-  margin-left: ${p => (p.expanded ? "2px" : "15px")};
+
   background: #fafafa;
 `;
+// margin-left: ${p => (p.expanded ? "2px" : "15px")};
 
 const MenuItemWrapper = styled.div`
   position: relative;
@@ -225,25 +212,16 @@ const MenuItemWrapper = styled.div`
   &:hover ${SubMenuWrapper} {
     display: ${p => p.expanded && "block"};
   }
-  /* &:hover:after {
-    display: block;
-    content: "";
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 5px;
-    height: 100%;
-    //background:#0163aa;
-    background: #0772c0;
-  } */
 `;
 
 const MenuItemIcon = styled(ListItemIcon)`
-  margin-left: 2px;
-  color: white !important;
-  > svg {
-    color: white;
-  }
+  margin-right: 0 !important;
+
+  // margin-left: 2px;
+  // color: white !important;
+  // > svg {
+  //   color: white;
+  // }
 `;
 
 const MenuItemText = styled(ListItemText)`
@@ -259,7 +237,6 @@ const MenuItemText = styled(ListItemText)`
 `;
 
 const MenuItem = styled(ListItem)`
-  background:black;
   position: relative;
   display: flex;
   align-items: center;
@@ -271,33 +248,45 @@ const MenuItem = styled(ListItem)`
   word-wrap: nowrap;
   box-sizing: border-box;
   color: ${p => p.theme.palette.textColor};
-
-
+ 
+  & h3 {
+    font-family: "Medium";
+    font-weight: 500;
+  }
   ${MenuItemText} h3, ${MenuItemIcon} {
-     font-weight: bold;
+    
     color: ${p => p.theme.palette.textColor + "!important"};
     
   }
 
-  ${MenuItemIcon} {
-    color: ${p => p.theme.palette.textColor};
-    margin-right: ${p => (p.dense ? "10px" : "20px")};
+
+`;
+
+// ${MenuItemIcon} {
+//   // background:black;
+//   color: ${p => p.theme.palette.textColor};
+//   margin-right: ${p => (p.dense ? "10px" : "20px")};
+// }
+// > svg {
+//   color:${p => p.theme.palette.textColor};
+// }
+const SubMenuItem = MenuItem.extend`
+  padding-left: 30px !important;
+  & h3 {
+    font-weight: normal !important;
   }
-  > svg {
-    color:${p => p.theme.palette.textColor};
-  }
 `;
 
-const CreateDocument = styled.div`
-  padding: ${p => (p.expanded ? "10px 0" : "20px")};
-  text-align: ${p => p.expanded && "center"};
-  background: #fff;
-`;
+// const CreateDocument = styled.div`
+//   padding: ${p => (p.expanded ? "10px 0" : "20px")};
+//   text-align: ${p => p.expanded && "center"};
+//   background: #fff;
+// `;
 
-const AddDocumentIcon = styled(AddCircleIcon)`
-  margin-right: ${p => !p.expanded && "10px"};
-`;
+// const AddDocumentIcon = styled(AddCircleIcon)`
+//   margin-right: ${p => !p.expanded && "10px"};
+// `;
 
-const Button = styled(MuiButton)`
-  white-space: nowrap;
-`;
+// const Button = styled(MuiButton)`
+//   white-space: nowrap;
+// `;

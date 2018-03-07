@@ -17,13 +17,25 @@ jss.options.insertionPoint = "jss-insertion-point";
 injectGlobal`
   body {
     font-family: "Roboto";
-  }
-  
-  
+  } 
    @font-face {
+     font-family: "Medium";
+     src: url("static/fonts/Roboto-Medium.ttf") ;
+   }
+      @font-face {
      font-family: "Roboto";
      src: url("static/fonts/Roboto-Regular.ttf") ;
    }
+   @font-face {
+     font-family: "Bold";
+     font-weight:700,
+     src: url("static/fonts/Roboto-Bold.ttf") ;
+   }
+      @font-face {
+     font-family: "Roboto";
+     font-weight:100,
+     src: url("static/fonts/Roboto-Thin.ttf") ;
+   }  
 `;
 
 // const Wrapper = ({ children }) => {
