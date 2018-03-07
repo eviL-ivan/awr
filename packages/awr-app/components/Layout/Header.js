@@ -229,15 +229,25 @@ const UserName = styled.span`
 const SelectContainer = styled(Select)`
   background: none !important;
   border: none;
-  height: 60px;
+
   padding: 0 10px;
-  /* width: 200px; */
   color: white !important;
   display: flex;
   align-items: center;
-  & div:(:first-child) {
+
+  &div: (: first-child) {
     background: ${p => p.theme.palette.subMainBlue} !important;
   }
+
+  & .customSelect_active {
+    padding-right: 30px;
+    padding-bottom: 0;
+    padding-top: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+
   & div {
     background: none !important;
   }

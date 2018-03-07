@@ -1,7 +1,7 @@
 // кастомная тема Styled Components
 const theme = {
   palette: {
-    mainColor: "#0071d4",
+    mainColor: "#1565C0",
     secondColor: "#6ba6da",
     textColor: "#555",
     addDoc: "#43A047"
@@ -18,7 +18,7 @@ const theme = {
     width: "280px"
   },
   sidebarExpanded: {
-    width: "70px"
+    width: "60px"
   }
 };
 
@@ -41,7 +41,7 @@ const theme2 = {
   },
   header: { height: "60px" },
   sidebar: { width: "280px" },
-  sidebarExpanded: { width: "70px" },
+  sidebarExpanded: { width: "60px" },
   topBlock: { height: "60px" }
 };
 

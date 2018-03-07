@@ -44,10 +44,10 @@ class RecordsGroup extends Component {
           <TitleBlock>
             <ReportDirectionBadge inGroup direction={direction} />
             <RecordTitle title={title} />
-            {recordReports.length !== 1 && <RecordStats data={stats} />}
           </TitleBlock>
           <LeftTitleBlock>
-            <ReportPeriodBlock />
+            {/* <ReportPeriodBlock /> */}
+            {recordReports.length !== 1 && <RecordStats data={stats} />}
           </LeftTitleBlock>
         </TitleContainer>
         <GroupContainer>

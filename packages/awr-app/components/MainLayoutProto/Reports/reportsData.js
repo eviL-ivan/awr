@@ -54,6 +54,18 @@ const reports = [
             recipient: {
               title: "ИНФО 0040"
             }
+          },
+          {
+            status: "complite",
+            organization: "gold",
+            organizationTitle: "ИП 'Бедное лукошко'",
+            docLink: "ya.ru",
+            docTitle: "NO_ZEMD_werwer_WEDWEW_WWQWD.xml",
+            period: "4 квартал 2016г",
+            sendData: "17.06.2017 12:38",
+            recipient: {
+              title: "ИНФО 0040"
+            }
           }
         ]
       }
@@ -116,7 +128,7 @@ const reports = [
             }
           },
           {
-            status: "cancel",
+            status: "complite",
             organization: "sup",
             organizationTitle: "OOO 'Суповой набор’",
             docLink: "ya.ru",
@@ -128,21 +140,9 @@ const reports = [
             }
           },
           {
-            status: "warning",
+            status: "complite",
             organization: "gold",
             organizationTitle: "ИП 'Золотое Дно",
-            docLink: "ya.ru",
-            docTitle: "NO_ZEMD_werwer_WEDWEW_WWQWD.xml",
-            period: "4 квартал 2016г",
-            sendData: "17.06.2017 12:38",
-            recipient: {
-              title: "ИНФО 0040"
-            }
-          },
-          {
-            status: "notCreate",
-            organization: "gold",
-            organizationTitle: "ИП 'Бедное лукошко'",
             docLink: "ya.ru",
             docTitle: "NO_ZEMD_werwer_WEDWEW_WWQWD.xml",
             period: "4 квартал 2016г",

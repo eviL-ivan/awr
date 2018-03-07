@@ -15,6 +15,7 @@ import RecordSmallInfoBlock from "./RecordSmallInfoBlock";
 import { Flex, Margin, FlexRow } from "components/Common/positional";
 import Button from "material-ui/Button";
 import Tooltip from "material-ui/Tooltip";
+import Actions from "./Actions";
 class RecordItem extends React.Component {
   state = {
     hover: false
@@ -64,42 +65,7 @@ class RecordItem extends React.Component {
               </Flex>
             </InfoBlock>
           </Flex>
-          {status == "complite" ? (
-            <ActionsBlock grow={1} />
-          ) : (
-            <ActionsBlock grow={1}>
-              {status !== "notCreate" && (
-                <Tooltip
-                  id="tooltip-icon"
-                  title={"Редактировать"}
-                  placement="bottom"
-                >
-                  <ActionBtn variant="raised" color="default">
-                    {/* <BtnTitle>Редактировать</BtnTitle> */}
-                    <Edit style={{ color: "blue", fontSize: "30px" }} />
-                  </ActionBtn>
-                </Tooltip>
-              )}
-              {status !== "new" && (
-                <Tooltip id="tooltip-icon" title={"Удалить"} placement="bottom">
-                  <ActionBtn variant="raised" color="default">
-                    {/* <BtnTitle>Удалить</BtnTitle> */}
-                    <DeleteForever style={{ color: "red", fontSize: "30px" }} />
-                  </ActionBtn>
-                </Tooltip>
-              )}
-              {!(status == "warning" || status == "cancel") && (
-                <Tooltip id="tooltip-icon" title={"создать"} placement="bottom">
-                  <ActionBtn variant="raised" color="default">
-                    {/* <BtnTitle>Создать</BtnTitle> */}
-                    <CreateNewFolder
-                      style={{ color: "green", fontSize: "30px" }}
-                    />
-                  </ActionBtn>
-                </Tooltip>
-              )}
-            </ActionsBlock>
-          )}
+          <Actions status={status} />
         </DescriptionContainer>
       </RecordItemContainer>
     );
@@ -118,23 +84,10 @@ class RecordItem extends React.Component {
 
 export default RecordItem;
 
-const ActionBtn = styled(Button)`
-  min-width: 50px !important;
-  padding: 0px 10px !important;
-  font-size: 12px !important;
-  &:not(:last-child) {
-    margin-right: 10px;
-  }
-`;
-
 const BtnTitle = styled.span`
   margin-right: 20px;
 `;
 
-const ActionsBlock = Flex.extend`
-  justify-content: flex-end;
-  align-items: center;
-`;
 const TitleWithStatusContainer = styled.div`
   display: flex;
   flex-direction: row;

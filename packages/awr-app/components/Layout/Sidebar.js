@@ -53,7 +53,11 @@ class Sidebar extends React.Component {
               onClick={this.setCurrentMenuItem(item.key)}
             >
               {item.icon && <MenuItemIcon>{item.icon}</MenuItemIcon>}
-              <MenuItemText expanded={expanded} primary={item.title} />
+              <MenuItemText
+                expanded={expanded}
+                primary={item.title}
+                hasChildren={item.children && item.children.length}
+              />
               {
                 // !expanded &&
                 // item.children &&
@@ -141,7 +145,7 @@ const opacityClose = keyframes`
 `;
 
 const BurgerContainer = styled.div`
-  padding-left: 7px;
+  padding: 5px;
   position: relative;
   background: ${p => p.theme.palette.subMainBlue};
   height: 60px;
@@ -149,7 +153,7 @@ const BurgerContainer = styled.div`
 `;
 
 const AddDocText = styled.span`
-  font-size: 13px;
+  font-size: 15px;
 
   animation: ${p =>
     !p.expanded
@@ -166,7 +170,6 @@ const BtnAddDoc = styled.button`
   justify-content: center;
   color: white;
   font-size: 30px;
-  // font-weight: bold;
   width: ${p => (p.expanded ? "50px" : "170px")};
   height: 50px;
   border-radius: 50px;
@@ -178,16 +181,16 @@ const BtnAddDoc = styled.button`
 `;
 
 const SubMenuWrapper = styled.div`
-  z-index: 100;
+  z-index: 10;
   background: ${p => p.theme.palette.subMenu};
   border-top: ${p => p.expanded && `3px solid ${p.theme.palette.mainColor}`};
   display: ${p => p.expanded && "none"};
   position: ${p => p.expanded && "absolute"};
-  top: ${p => p.expanded && "0px"};
-  left: ${p => p.expanded && "100%"};
+  top: ${p => p.expanded && "10px"};
+  left: ${p => p.expanded && p.theme.sidebarExpanded.width};
   box-shadow: ${p => p.expanded && "2px 2px 5px #ccc"};
-
   background: #fafafa;
+  border-left: ${p => p.expanded && "2px solid #ccc"};
 `;
 // margin-left: ${p => (p.expanded ? "2px" : "15px")};
 
@@ -226,6 +229,8 @@ const MenuItemIcon = styled(ListItemIcon)`
 
 const MenuItemText = styled(ListItemText)`
   > h3 {
+    font-family: ${p => (p.hasChildren ? "Medium" : "Roboto")};
+    font-weight: ${p => (p.hasChildren ? 500 : 100)};
     color: ${p => p.theme.palette.textColor + "!important"};
   }
 
@@ -249,10 +254,10 @@ const MenuItem = styled(ListItem)`
   box-sizing: border-box;
   color: ${p => p.theme.palette.textColor};
  
-  & h3 {
+  /* & h3 {
     font-family: "Medium";
     font-weight: 500;
-  }
+  } */
   ${MenuItemText} h3, ${MenuItemIcon} {
     
     color: ${p => p.theme.palette.textColor + "!important"};
@@ -273,6 +278,7 @@ const MenuItem = styled(ListItem)`
 const SubMenuItem = MenuItem.extend`
   padding-left: 30px !important;
   & h3 {
+    font-family: "Roboto";
     font-weight: normal !important;
   }
 `;
