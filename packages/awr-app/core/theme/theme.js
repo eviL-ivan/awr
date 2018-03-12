@@ -19,6 +19,14 @@ const theme = {
   },
   sidebarExpanded: {
     width: "60px"
+  },
+  directionColor: {
+    fns: "#1565C0",
+    pfr: "#D50000",
+    rosstat: "#FF6F00",
+    fss: "#FBB901",
+    rar: "#2196F3",
+    rpn: "#9E9E9E"
   }
 };
 

@@ -2,19 +2,6 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { Line, Circle } from "rc-progress";
 
-// class RecordStats extends Component {
-//   render() {
-//     const { complite, cancel } = this.props.data;
-//     return (
-//       <div>
-//         <span>
-//           {complite}/{complite + cancel}
-//         </span>
-//       </div>
-//     );
-//   }
-// }
-
 const RecordStats = props => {
   const { complite, cancel, warning, notCreate } = props.data;
   const all = complite + cancel + warning + notCreate;
@@ -30,7 +17,9 @@ const RecordStats = props => {
     </StyledRecordStats>
   );
 };
-
+/**
+ * STYLED-COMPONENTS
+ */
 const StatsContainer = styled.div`
   position: absolute;
   width: 100%;

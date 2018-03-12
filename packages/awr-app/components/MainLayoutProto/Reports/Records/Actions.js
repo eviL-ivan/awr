@@ -76,7 +76,7 @@ const ActionsBtnConfig = {
   create: {
     //component: <CreateNewFolder style={iconStyle} />,
     component: CreateNewFolder,
-    title: "Обработано",
+    title: "Cоздать",
     back: "#4CAF50"
   }
 };

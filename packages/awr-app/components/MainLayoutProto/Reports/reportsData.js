@@ -108,15 +108,15 @@ const reports = [
     ]
   },
   {
-    data: "28 марта 2018",
+    data: "27 марта 2018",
     records: [
       {
-        direction: "fns",
-        directionTitle: "ФНС",
+        direction: "rar",
+        directionTitle: "РАР",
         title: "Налоговая деклорация по земельному налогу",
         recordReports: [
           {
-            status: "complite",
+            status: "notCreate",
             organization: "mitek",
             organizationTitle: "OOO 'МИТЕК’",
             docLink: "ya.ru",
@@ -128,7 +128,7 @@ const reports = [
             }
           },
           {
-            status: "complite",
+            status: "warning",
             organization: "sup",
             organizationTitle: "OOO 'Суповой набор’",
             docLink: "ya.ru",
@@ -140,7 +140,7 @@ const reports = [
             }
           },
           {
-            status: "complite",
+            status: "warning",
             organization: "gold",
             organizationTitle: "ИП 'Золотое Дно",
             docLink: "ya.ru",
@@ -156,11 +156,11 @@ const reports = [
     ]
   },
   {
-    data: "28 марта 2018",
+    data: "26 марта 2018",
     records: [
       {
-        direction: "fns",
-        directionTitle: "ФНС",
+        direction: "rosstat",
+        directionTitle: "Росстат",
         title: "Налоговая деклорация по земельному налогу",
         recordReports: [
           {

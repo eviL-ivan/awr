@@ -4,7 +4,8 @@ import Chip from "material-ui/Chip";
 const RecordSmallInfoBlock = ({ className, data, title }) => (
   <div className={className}>
     {/* <Chip label={data} /> */}
-    <TitleConatiner>{title}:</TitleConatiner>
+    {title && <TitleConatiner>{title}:</TitleConatiner>}
+
     <DataContainer>{data}</DataContainer>
     {/* <Chip label={data} /> */}
   </div>

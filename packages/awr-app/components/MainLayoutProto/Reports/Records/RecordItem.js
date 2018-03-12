@@ -35,6 +35,7 @@ class RecordItem extends React.Component {
         status
       }
     } = this.props;
+
     return (
       <RecordItemContainer
         inGroup={inGroup}
@@ -45,23 +46,23 @@ class RecordItem extends React.Component {
       >
         <Status status={status} />
         <DescriptionContainer>
-          <Flex grow={1}>
+          <Flex grow={2}>
             <InfoBlock status={status}>
               <Flex grow={1.5}>
                 <Margin right={60}>
-                  <RecordSmallInfoBlock
-                    title="Организация"
-                    data={organizationTitle}
-                  />
+                  <RecordSmallInfoBlock data={organizationTitle} />
                 </Margin>
               </Flex>
               <Flex grow={1}>
                 <Margin right={60}>
-                  <RecordSmallInfoBlock title="Кому" data={recipient.title} />
+                  <RecordSmallInfoBlock data={recipient.title} />
                 </Margin>
               </Flex>
               <Flex grow={1}>
-                <RecordSmallInfoBlock title="Отправлено" data={sendData} />
+                <RecordSmallInfoBlock data={sendData} />
+              </Flex>
+              <Flex grow={1}>
+                <RecordSmallInfoBlock data={"4 квартал 2016г"} />
               </Flex>
             </InfoBlock>
           </Flex>
@@ -83,7 +84,9 @@ class RecordItem extends React.Component {
 }
 
 export default RecordItem;
-
+/////////////////////////////
+//STYLED-COMPONENTS
+/////////////////////////////
 const BtnTitle = styled.span`
   margin-right: 20px;
 `;
@@ -98,6 +101,7 @@ const DescriptionContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex: 1;
+  align-items: center;
 `;
 
 const TitleBlock = styled.div`
@@ -122,9 +126,14 @@ const Period = styled.div`
 `;
 
 const RecordItemContainer = styled.div`
+  &:first-child {
+    box-shadow: 0px 8px 16px -10px rgba(0, 0, 0, 0.12);
+  }
+
   &:last-child {
     border-bottom: none;
   }
+
   flex-direction: row;
   width: 100%;
   padding: 20px 10px;
@@ -133,4 +142,44 @@ const RecordItemContainer = styled.div`
   border-bottom: 1px solid #a52a2a33;
   background: ${p => p.active && "rgba(171,124,207,0.2)"};
   cursor: ${p => p.active && "pointer"};
+`;
+
+//////////////////////////
+
+export const RecordItemTitles = ({ inGroup }) => {
+  return (
+    <RecordItemContainer inGroup={inGroup}>
+      <StatusContainer>
+        <RecordSmallInfoBlock title="Статус" />
+      </StatusContainer>
+      <DescriptionContainer>
+        <Flex grow={2}>
+          <InfoBlock>
+            <Flex grow={1.5}>
+              <Margin right={60}>
+                <RecordSmallInfoBlock title="Организация" />
+              </Margin>
+            </Flex>
+            <Flex grow={1}>
+              <Margin right={60}>
+                <RecordSmallInfoBlock title="Кому" />
+              </Margin>
+            </Flex>
+            <Flex grow={1}>
+              <RecordSmallInfoBlock title="Отправлено" />
+            </Flex>
+            <Flex grow={1}>
+              <RecordSmallInfoBlock title="Период" />
+            </Flex>
+          </InfoBlock>
+        </Flex>
+        <Flex grow={1} />
+      </DescriptionContainer>
+    </RecordItemContainer>
+  );
+};
+
+const StatusContainer = styled.span`
+  margin-right: 20px;
+  width: 50px;
 `;

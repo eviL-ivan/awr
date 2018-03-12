@@ -18,6 +18,7 @@ function ReportItem({ data, records, organization, directions }) {
         Record = <Records data={_item} />;
       }
     }
+    //пушим элеиенты отчета по записям
     if (Record)
       prev.push(<ReportContent elevation={2}>{Record}</ReportContent>);
     return prev;
@@ -33,6 +34,9 @@ function ReportItem({ data, records, organization, directions }) {
 
 export default ReportItem;
 
+/////////////////////////////
+//STYLED-COMPONENTS
+/////////////////////////////
 const DataBlock = styled.span`
   margin-left: -2px;
   font-weight: 400;
