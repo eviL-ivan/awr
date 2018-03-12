@@ -65,7 +65,7 @@ class RecordItem extends React.Component {
               </Flex>
             </InfoBlock>
           </Flex>
-          <Actions status={status} />
+          <Actions status={status} hover={this.state.hover} />
         </DescriptionContainer>
       </RecordItemContainer>
     );

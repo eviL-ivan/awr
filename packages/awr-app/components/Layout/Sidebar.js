@@ -69,8 +69,13 @@ class Sidebar extends React.Component {
                 {!expanded ? (
                   <Collapse in={!expanded ? current === item.key : true}>
                     <List disablePadding>
-                      {item.children.map(child => (
-                        <SubMenuItem button dense expanded={expanded}>
+                      {item.children.map((child, index) => (
+                        <SubMenuItem
+                          button
+                          dense
+                          expanded={expanded}
+                          key={index + child.title}
+                        >
                           {child.icon && (
                             <MenuItemIcon>{child.icon}</MenuItemIcon>
                           )}

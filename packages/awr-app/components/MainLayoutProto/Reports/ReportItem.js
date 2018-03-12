@@ -60,9 +60,6 @@ const Report = styled.div`
   align-items: start;
   justify-content: center;
   width: 100%;
-  //padding: 15px 5px;
-  //height:500px;
-  //background-color: rgba(171, 124, 207, 0.2);
   &:not(:first-child) {
     margin-top: 30px;
   }

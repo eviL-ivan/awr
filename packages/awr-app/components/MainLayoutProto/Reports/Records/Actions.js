@@ -13,20 +13,27 @@ import { Flex, Margin, FlexRow } from "components/Common/positional";
 import Button from "material-ui/Button";
 import Tooltip from "material-ui/Tooltip";
 
-const Actions = ({ status }) => {
+const iconStyle = { color: "white", fontSize: "30px" };
+
+const Actions = ({ status, hover }) => {
   if (status == "complite") return <ActionsBlock grow={1} />;
   return (
     <ActionsBlock grow={1}>
       {statusConfig[status].map(item => {
+        const BtnIcon = ActionsBtnConfig[item].component;
         return (
           <Tooltip
             id="tooltip-icon"
             title={ActionsBtnConfig[item].title}
             placement="bottom"
           >
-            <ActionBtn variant="raised">
+            <ActionBtn
+              background={ActionsBtnConfig[item].back}
+              variant="raised"
+              hover={hover}
+            >
               {/* <BtnTitle>Редактировать</BtnTitle> */}
-              {ActionsBtnConfig[item].component}
+              <BtnIcon style={iconStyle} />
             </ActionBtn>
           </Tooltip>
         );
@@ -38,6 +45,8 @@ const Actions = ({ status }) => {
 export default Actions;
 
 const ActionBtn = styled(Button)`
+  opacity: ${p => (p.hover ? 1 : 0.5)} !important;
+  background: ${p => (p.background ? p.background : "black")} !important;
   min-width: 50px !important;
   padding: 0px 10px !important;
   font-size: 12px !important;
@@ -50,19 +59,25 @@ const ActionsBlock = Flex.extend`
   justify-content: flex-end;
   align-items: center;
 `;
-const iconStyle = { color: "white", fontSize: "30px" };
+
 const ActionsBtnConfig = {
   edit: {
-    component: <Edit style={iconStyle} />,
-    title: "Обработано"
+    //component: <Edit style={iconStyle} />,
+    component: Edit,
+    title: "Обработано",
+    back: "#3F51B5"
   },
   delete: {
-    component: <DeleteForever style={iconStyle} />,
-    title: "Удалить"
+    //component: <DeleteForever style={iconStyle} />,
+    component: DeleteForever,
+    title: "Удалить",
+    back: "#F44336"
   },
   create: {
-    component: <CreateNewFolder style={iconStyle} />,
-    title: "Обработано"
+    //component: <CreateNewFolder style={iconStyle} />,
+    component: CreateNewFolder,
+    title: "Обработано",
+    back: "#4CAF50"
   }
 };
 const statusConfig = {
