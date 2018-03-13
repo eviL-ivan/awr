@@ -7,19 +7,12 @@ import ClickAwayListener from 'material-ui/utils/ClickAwayListener';
 import { Manager, Target, Popper } from 'react-popper';
 import Grow from 'material-ui/transitions/Grow';
 
-import MenuIcon from "material-ui-icons/Menu";
 import PersonIcon from 'material-ui-icons/Person';
 import ExpandMore from 'material-ui-icons/ExpandMore';
 import ExitIcon from 'material-ui-icons/ExitToApp';
 import SettingsIcon from 'material-ui-icons/Settings';
 import LinkIcon from 'material-ui-icons/BookmarkBorder';
 import NotificationsIcon from 'material-ui-icons/Notifications';
-
-const Logo = styled.div`
-  margin-left: 15px;
-  display: flex;
-  align-items: center;
-`;
 
 const HeaderLeft = styled.div`
   display: flex;
@@ -108,18 +101,12 @@ class Header extends React.Component {
   };
 
   render() {
-    const { className, toggleSidebar } = this.props;
+    const { className } = this.props;
     const { menuOpened } = this.state;
 
     return (
       <header className={className}>
         <HeaderLeft>
-          <IconButton onClick={toggleSidebar}>
-            <MenuIcon style={{color: "#fff"}} />
-          </IconButton>
-          <Logo>
-            <img src="static/images/logo_small.png" />
-          </Logo>
         </HeaderLeft>
         <HeaderRight>
           <IconButton>
@@ -189,7 +176,7 @@ class Header extends React.Component {
 
 export default styled(Header)`
   position: fixed;
-  z-index: 2;
+  z-index: 10;
   top: 0;
   left: 0;
   right: 0;
@@ -200,5 +187,7 @@ export default styled(Header)`
   box-sizing: border-box;
   height: ${p => p.theme.header.height};
   background: ${p => p.theme.palette.mainColor};
+  margin-left: ${p => p.sidebarExpanded ? p.theme.sidebarExpanded.width : p.theme.sidebar.width};
   color: #fff;
+  transition: all .3s;
 `;

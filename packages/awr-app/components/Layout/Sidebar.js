@@ -1,16 +1,26 @@
 import React from "react";
 import styled from "styled-components";
-import { Button as MuiButton } from "material-ui";
+import { Button as MuiButton, IconButton } from "material-ui";
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import { Zoom, Collapse } from 'material-ui/transitions';
+
 import ExpandLess from 'material-ui-icons/ExpandLess';
 import ExpandMore from 'material-ui-icons/ExpandMore';
-import AddCircleIcon from 'material-ui-icons/NoteAdd';
+import AddDocumentIcon from 'material-ui-icons/NoteAdd';
 import PlusIcon from 'material-ui-icons/Add';
 
 import { SIDEBAR_MENU } from "./ConstantsTemp";
 
+const Logo = styled.div`
+  height: ${p => p.theme.header.height};
+  display: flex;
+  z-index: 4;
+  justify-content: center;
+  align-items: center;
+`;
+
 const SubMenuWrapper = styled.div`
+  z-index: 11;
   background: ${p => p.expanded ? "#fafafa" : "#fff"};
   border-top: ${p => p.expanded && `3px solid ${p.theme.palette.mainColor}`};
   display: ${p => p.expanded && "none"};
@@ -31,7 +41,6 @@ const MenuItemWrapper = styled.div`
 
 const MenuItemIcon = styled(ListItemIcon)`
   margin-left: 2px;
-  color: ${p => p.expaned && "red"};
 `;
 
 const MenuItemText = styled(ListItemText)`
@@ -43,7 +52,6 @@ const MenuItemText = styled(ListItemText)`
 `;
 
 const MenuItem = styled(ListItem)`
-  background: ${p => {console.log("PROPS:", p); return "inherit"}};
   display: flex;
   align-items: center;
   padding: 10px 20px;
@@ -88,10 +96,10 @@ const CreateDocument = styled.div`
   padding: ${p => p.expanded ? "10px 0" : "20px"};
   text-align: ${p => p.expanded && "center"};
   background: #fff;
-`;
-
-const AddDocumentIcon = styled(AddCircleIcon)`
-  margin-right: ${p => !p.expanded && "10px"};
+  
+  svg {
+    margin-right: ${p => !p.expanded && "5px"}
+  }
 `;
 
 const Button = styled(MuiButton)`
@@ -115,6 +123,13 @@ class Sidebar extends React.Component {
 
     return (
       <aside className={className}>
+        <Logo>
+          {
+            expanded
+              ? <img src="static/images/logo_small_expanded.png" />
+              : <img src="static/images/logo_small.png" />
+          }
+        </Logo>
         <CreateDocument expanded={expanded}>
           {
             expanded &&
@@ -125,7 +140,7 @@ class Sidebar extends React.Component {
                 color="primary"
                 variant="fab"
               >
-                <PlusIcon />
+                <AddDocumentIcon />
               </Button>
             </Zoom>
           }
@@ -194,13 +209,15 @@ class Sidebar extends React.Component {
       </aside>
     );
   }
-};
+}
 
 export default styled(Sidebar)`
   background: #fafafa;
   position: fixed;
-  box-shadow: 0 5px 10px #ccc;
+  top: 0;
+  z-index: 11;
+  box-shadow: 0 0 3px #ccc;
   width: ${p => p.expanded ? p.theme.sidebarExpanded.width : p.theme.sidebar.width};
-  height: calc(100vh - ${p => p.theme.header.height});
+  height: 100vh;
   transition: all .3s;
 `;
