@@ -34,4 +34,5 @@ export default styled(Documents)`
   height: 100%;
   width: 95%;
   flex-direction: column;
+  transition: all;
 `;

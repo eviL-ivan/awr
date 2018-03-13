@@ -11,4 +11,5 @@ export default styled(Layout)`
   flex-direction: column;
   width: 100%;
   background-color: rgba(171, 124, 207, 0.08);
+  transition: all;
 `;

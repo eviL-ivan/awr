@@ -44,8 +44,12 @@ export default styled(Status)`
   justify-content: center;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
-  background: ${p => statusConfig[p.status].background};
+  padding: 5px;
+  & > svg {
+    border-radius: 50%;
+    background: ${p =>
+      statusConfig[p.status] ? statusConfig[p.status].background : null};
+  }
 `;
 
 /**
@@ -54,17 +58,17 @@ export default styled(Status)`
 
 const statusConfig = {
   complite: {
-    tooltip: "Обработано",
+    tooltip: "Принят",
     comp: <DoneIcon style={commonStyle} />,
     background: "green"
   },
   cancel: {
-    tooltip: "Отказано",
+    tooltip: "Ошибка",
     comp: <Clear style={commonStyle} />,
     background: "red"
   },
   warning: {
-    tooltip: "На доработку",
+    tooltip: "Не принят",
     //comp: <WarningIcon style={commonStyle} />,
     comp: <PriorityHigh style={commonStyle} />,
     background: "#FF9800"

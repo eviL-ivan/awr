@@ -20,31 +20,33 @@ import IconButton from "material-ui/IconButton";
 class RecordsGroup extends Component {
   state = {
     stats: {},
-    hover: false,
+    // hover: false,
     checked: false
   };
+
+  initialStats = {
+    complite: 0,
+    cancel: 0,
+    warning: 0,
+    notCreate: 0
+  };
   componentDidMount() {
-    const stats = this.props.data.recordReports.reduce(
-      (prev, item) => {
-        ++prev[item.status];
-        return prev;
-      },
-      {
-        complite: 0,
-        cancel: 0,
-        warning: 0,
-        notCreate: 0
-      }
-    );
+    const stats = this.props.data.recordReports.reduce((prev, item) => {
+      ++prev[item.status];
+      return prev;
+    }, this.initialStats);
     this.setState({ stats });
   }
 
   render() {
-    const { stats, hover, checked } = this.state;
+    const { stats, checked } = this.state;
     const {
       data: { title, direction, directionTitle, recordReports },
       className
     } = this.props;
+    const _recordReports = recordReports.map((item, index) => (
+      <RecordItem key={index + item.organizationTitle} inGroup data={item} />
+    ));
 
     return (
       <div className={className}>
@@ -63,16 +65,12 @@ class RecordsGroup extends Component {
         </TitleContainer>
         <GroupContainer>
           <RecordItemTitles inGroup />
-          {recordReports.length > 3 ? (
-            <Collapse in={checked} collapsedHeight="270px">
-              {recordReports.map((item, index) => {
-                return <RecordItem inGroup data={item} />;
-              })}
+          {_recordReports.length > 3 ? (
+            <Collapse in={checked} collapsedHeight="210px" timeout={300}>
+              {_recordReports}
             </Collapse>
           ) : (
-            recordReports.map((item, index) => {
-              return <RecordItem inGroup data={item} />;
-            })
+            _recordReports
           )}
         </GroupContainer>
         <ColapseBtnContainer>
@@ -87,21 +85,22 @@ class RecordsGroup extends Component {
       </div>
     );
   }
-  onMouseEnterHandler = index => () => {
-    this.setState({
-      hover: index
-    });
-  };
-  onMouseLeaveHandler = () => {
-    this.setState({
-      hover: false
-    });
-  };
+  // onMouseEnterHandler = index => () => {
+  //   this.setState({
+  //     hover: index
+  //   });
+  // };
+  // onMouseLeaveHandler = () => {
+  //   this.setState({
+  //     hover: false
+  //   });
+  // };
 }
 
 export default styled(RecordsGroup)`
   font-size: 18px;
   width: 100%;
+  transition: all;
 `;
 /////////////////////////////
 //STYLED-COMPONENTS
@@ -109,6 +108,11 @@ export default styled(RecordsGroup)`
 const ColapseBtnContainer = styled.div`
   display: flex;
   justify-content: center;
+  height: 40px;
+  & svg {
+    height: 80%;
+    width: 80%;
+  }
 `;
 
 const TitleBlock = styled.div`
@@ -137,5 +141,5 @@ const Period = styled.div`
 `;
 
 const GroupContainer = styled.div`
-  padding: 0 15px 15px;
+  padding: 0 15px;
 `;

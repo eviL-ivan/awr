@@ -15,22 +15,24 @@ import Tooltip from "material-ui/Tooltip";
 
 const iconStyle = { color: "white", fontSize: "30px" };
 
-const Actions = ({ status, hover }) => {
+const Actions = ({ status, hover = false }) => {
   if (status == "complite") return <ActionsBlock grow={1} />;
   return (
     <ActionsBlock grow={1}>
-      {statusConfig[status].map(item => {
+      {statusConfig[status].map((item, index) => {
         const BtnIcon = ActionsBtnConfig[item].component;
         return (
           <Tooltip
             id="tooltip-icon"
             title={ActionsBtnConfig[item].title}
             placement="bottom"
+            key={index + ActionsBtnConfig[item].title}
           >
             <ActionBtn
               background={ActionsBtnConfig[item].back}
               variant="raised"
               hover={hover}
+              status={status}
             >
               {/* <BtnTitle>Редактировать</BtnTitle> */}
               <BtnIcon style={iconStyle} />
@@ -45,7 +47,7 @@ const Actions = ({ status, hover }) => {
 export default Actions;
 
 const ActionBtn = styled(Button)`
-  opacity: ${p => (p.hover ? 1 : 0.5)} !important;
+  opacity: ${p => (p.status == "notCreate" || p.hover ? 1 : 0.5)} !important;
   background: ${p => (p.background ? p.background : "black")} !important;
   min-width: 50px !important;
   padding: 0px 10px !important;

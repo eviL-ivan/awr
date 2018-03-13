@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Avatar, IconButton, Paper, Badge } from "material-ui";
 import List, { ListItem, ListItemIcon, ListItemText } from "material-ui/List";
 import { MenuList, MenuItem } from "material-ui/Menu";
@@ -51,23 +51,26 @@ class Header extends React.Component {
       changeDirection,
       organization,
       directions,
-      changeAllDirection
+      changeAllDirection,
+      expanded
     } = this.props;
     const { menuOpened } = this.state;
 
     return (
       <header className={className}>
         <HeaderLeft>
+          <BurgerContainer>
+            <IconButton onClick={toggleSidebar}>
+              <MenuIcon style={{ color: "white" }} />
+            </IconButton>
+          </BurgerContainer>
           <Logo>
             <img src="https://static.tildacdn.com/tild3564-6635-4561-b364-303265376561/__.png" />
           </Logo>
         </HeaderLeft>
         <HeaderRight>
           <SelectContainer
-            classes={{
-              root: "customSelect",
-              select: "customSelect_active"
-            }}
+            classes={{ root: "customSelect", select: "customSelect_active" }}
             value={organization}
             onChange={changeOrganization}
             inputProps={{ name: "organization" }}
@@ -151,7 +154,7 @@ export default styled(Header)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 10px;
+  /* padding-left: 10px; */
   box-sizing: border-box;
   height: ${p => p.theme.header.height};
   background: ${p => p.theme.palette.mainColor};
@@ -264,5 +267,72 @@ const SelectContainer = styled(Select)`
   }
   &:hover {
     background: rgba(0, 0, 0, 0.1) !important;
+  }
+`;
+
+const opacityOpen = keyframes`
+  from {
+     width:0;
+    opacity: 0;
+  }
+  80% {
+    opacity: 0
+  }
+  to {
+    opacity: 1;
+  }
+`;
+const opacityClose = keyframes`
+  from {
+    opacity: 1;
+  }
+  20% {
+    width:0;
+    opacity: 0
+  }
+  to {
+    width:0;
+    opacity: 0;
+  }
+`;
+
+const BtnAddDoc = styled.button`
+  z-index: 100;
+  position: absolute;
+  right: -25px;
+  bottom: -25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 30px;
+  width: ${p => (p.expanded ? "50px" : "170px")};
+  height: 50px;
+  border-radius: 50px;
+  border: none;
+  background: ${p => p.theme.palette.addDoc};
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  transition: all 0.4s;
+`;
+
+const AddDocText = styled.span`
+  font-size: 15px;
+
+  animation: ${p =>
+    !p.expanded
+      ? `${opacityOpen} 0.5s linear forwards`
+      : `${opacityClose} 0.5s linear forwards`};
+`;
+
+const BurgerContainer = styled.div`
+  width: ${p => p.theme.sidebarExpanded.width};
+  padding: 5px;
+  position: relative;
+  background: #1258a8;
+  height: 60px;
+  & svg {
+    width: 1.3em !important;
+    height: 1.3em !important;
   }
 `;

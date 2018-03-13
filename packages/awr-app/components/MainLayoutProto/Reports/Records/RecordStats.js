@@ -17,9 +17,9 @@ const RecordStats = props => {
     </StyledRecordStats>
   );
 };
-/**
- * STYLED-COMPONENTS
- */
+/////////////////////////////
+//STYLED-COMPONENTS
+/////////////////////////////
 const StatsContainer = styled.div`
   position: absolute;
   width: 100%;
@@ -31,6 +31,7 @@ const StatsContainer = styled.div`
 `;
 const CircleContainer = styled(Circle)`
   width: 60px;
+  height: 60px;
 `;
 const StyledRecordStats = styled.div`
   position: relative;

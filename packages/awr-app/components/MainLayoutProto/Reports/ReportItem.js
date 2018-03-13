@@ -4,7 +4,7 @@ import Records from "./Records/Records";
 import Paper from "material-ui/Paper";
 
 function ReportItem({ data, records, organization, directions }) {
-  const _records = records.reduce((prev, item) => {
+  const _records = records.reduce((prev, item, index) => {
     let Record = null;
     //если все организации
     if (organization == "all") Record = <Records data={item} />;
@@ -20,7 +20,11 @@ function ReportItem({ data, records, organization, directions }) {
     }
     //пушим элеиенты отчета по записям
     if (Record)
-      prev.push(<ReportContent elevation={2}>{Record}</ReportContent>);
+      prev.push(
+        <ReportContent key={index + item.title} elevation={2}>
+          {Record}
+        </ReportContent>
+      );
     return prev;
   }, []);
   if (!_records.length) return null;
@@ -59,8 +63,9 @@ const ReportContent = styled(Paper)`
 const Report = styled.div`
   position: relative;
   display: flex;
+  flex-shrink: 0;
   flex-direction: column;
-
+  transition: all;
   align-items: start;
   justify-content: center;
   width: 100%;

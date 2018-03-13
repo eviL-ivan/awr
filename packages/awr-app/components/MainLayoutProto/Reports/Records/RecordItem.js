@@ -44,11 +44,13 @@ class RecordItem extends React.Component {
         onMouseLeave={this.onMouseLeaveHandler}
         onMouseLeave={this.onMouseLeaveHandler}
       >
-        <Status status={status} />
+        <Flex grow={0.11}>
+          <Status status={status} />
+        </Flex>
         <DescriptionContainer>
           <Flex grow={2}>
             <InfoBlock status={status}>
-              <Flex grow={1.5}>
+              <Flex grow={1.1}>
                 <Margin right={60}>
                   <RecordSmallInfoBlock data={organizationTitle} />
                 </Margin>
@@ -84,6 +86,42 @@ class RecordItem extends React.Component {
 }
 
 export default RecordItem;
+
+export const RecordItemTitles = ({ inGroup }) => {
+  return (
+    <TitlesContainer inGroup={inGroup}>
+      <Flex grow={0.11}>
+        <StatusContainer>
+          <RecordSmallInfoBlock title="Статус" />
+        </StatusContainer>
+      </Flex>
+      <DescriptionContainer>
+        <Flex grow={2}>
+          <InfoBlock>
+            <Flex grow={1.1}>
+              <Margin right={60}>
+                <RecordSmallInfoBlock title="Организация" />
+              </Margin>
+            </Flex>
+            <Flex grow={1}>
+              <Margin right={60}>
+                <RecordSmallInfoBlock title="Кому" />
+              </Margin>
+            </Flex>
+            <Flex grow={1}>
+              <RecordSmallInfoBlock title="Отправлено" />
+            </Flex>
+            <Flex grow={1}>
+              <RecordSmallInfoBlock title="Период" />
+            </Flex>
+          </InfoBlock>
+        </Flex>
+        <Flex grow={1} />
+      </DescriptionContainer>
+    </TitlesContainer>
+  );
+};
+
 /////////////////////////////
 //STYLED-COMPONENTS
 /////////////////////////////
@@ -100,7 +138,7 @@ const DescriptionContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  flex: 1;
+  flex: 2;
   align-items: center;
 `;
 
@@ -126,17 +164,13 @@ const Period = styled.div`
 `;
 
 const RecordItemContainer = styled.div`
-  &:first-child {
-    box-shadow: 0px 8px 16px -10px rgba(0, 0, 0, 0.12);
-  }
-
   &:last-child {
     border-bottom: none;
   }
 
   flex-direction: row;
   width: 100%;
-  padding: 20px 10px;
+  padding: 10px 10px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #a52a2a33;
@@ -144,42 +178,13 @@ const RecordItemContainer = styled.div`
   cursor: ${p => p.active && "pointer"};
 `;
 
-//////////////////////////
-
-export const RecordItemTitles = ({ inGroup }) => {
-  return (
-    <RecordItemContainer inGroup={inGroup}>
-      <StatusContainer>
-        <RecordSmallInfoBlock title="Статус" />
-      </StatusContainer>
-      <DescriptionContainer>
-        <Flex grow={2}>
-          <InfoBlock>
-            <Flex grow={1.5}>
-              <Margin right={60}>
-                <RecordSmallInfoBlock title="Организация" />
-              </Margin>
-            </Flex>
-            <Flex grow={1}>
-              <Margin right={60}>
-                <RecordSmallInfoBlock title="Кому" />
-              </Margin>
-            </Flex>
-            <Flex grow={1}>
-              <RecordSmallInfoBlock title="Отправлено" />
-            </Flex>
-            <Flex grow={1}>
-              <RecordSmallInfoBlock title="Период" />
-            </Flex>
-          </InfoBlock>
-        </Flex>
-        <Flex grow={1} />
-      </DescriptionContainer>
-    </RecordItemContainer>
-  );
-};
-
 const StatusContainer = styled.span`
   margin-right: 20px;
   width: 50px;
+`;
+
+const TitlesContainer = RecordItemContainer.extend`
+  &:first-child {
+    box-shadow: 0px 8px 16px -10px rgba(0, 0, 0, 0.12);
+  }
 `;
