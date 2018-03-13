@@ -9,7 +9,7 @@ import Sidebar from "./Sidebar";
 
 const ToggleSidebarButton = styled.div`
   position: fixed !important;
-  z-index: 16;
+  z-index: 6;
   top: 0;
   left: ${p => p.expanded ? `calc(${p.theme.sidebarExpanded.width} - 3px)` : `calc(${p.theme.sidebar.width} - 27px)`};
   // TODO: удалить !important, когда заработает JSS

@@ -2,12 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { Button as MuiButton, IconButton } from "material-ui";
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import { Zoom, Collapse } from 'material-ui/transitions';
+import { Collapse } from 'material-ui/transitions';
 
 import ExpandLess from 'material-ui-icons/ExpandLess';
 import ExpandMore from 'material-ui-icons/ExpandMore';
 import AddDocumentIcon from 'material-ui-icons/NoteAdd';
-import PlusIcon from 'material-ui-icons/Add';
 
 import { SIDEBAR_MENU } from "./ConstantsTemp";
 
@@ -93,7 +92,7 @@ const MenuItem = styled(ListItem)`
 `;
 
 const CreateDocument = styled.div`
-  padding: ${p => p.expanded ? "10px 0" : "20px"};
+  padding: ${p => p.expanded ? "0" : "10px 20px"};
   text-align: ${p => p.expanded && "center"};
   background: #fff;
   
@@ -104,6 +103,10 @@ const CreateDocument = styled.div`
 
 const Button = styled(MuiButton)`
   white-space: nowrap;
+  width: ${p => p.expanded && "100%"} !important;
+  padding: ${p => p.expanded && "0"} !important;
+  min-width: ${p => p.expanded && "0"} !important;
+  height: ${p => p.expanded && "45px"};
 `;
 
 class Sidebar extends React.Component {
@@ -131,32 +134,15 @@ class Sidebar extends React.Component {
           }
         </Logo>
         <CreateDocument expanded={expanded}>
-          {
-            expanded &&
-            <Zoom
-              in
-            >
-              <Button
-                color="primary"
-                variant="fab"
-              >
-                <AddDocumentIcon />
-              </Button>
-            </Zoom>
-          }
-          {
-            !expanded &&
-            <Zoom in>
-              <Button
-                color="primary"
-                variant="raised"
-                fullWidth
-              >
-                <AddDocumentIcon />
-                Создать документ
-              </Button>
-            </Zoom>
-          }
+          <Button
+            color="primary"
+            variant="raised"
+            expanded={expanded}
+            fullWidth={!expanded}
+          >
+            <AddDocumentIcon />
+            {!expanded && "Создать документ"}
+          </Button>
         </CreateDocument>
         {
           SIDEBAR_MENU.map(item => (
@@ -215,7 +201,7 @@ export default styled(Sidebar)`
   background: #fafafa;
   position: fixed;
   top: 0;
-  z-index: 11;
+  z-index: 4;
   box-shadow: 0 0 3px #ccc;
   width: ${p => p.expanded ? p.theme.sidebarExpanded.width : p.theme.sidebar.width};
   height: 100vh;

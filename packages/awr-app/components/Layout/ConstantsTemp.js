@@ -1,14 +1,20 @@
 import React from "react";
+
+// Sidebar Icons
 import CalendarIcon from "material-ui-icons/DateRange";
-import FilesIcon from "material-ui-icons/Description";
 import MailIcon from "material-ui-icons/Mail";
 import DocumentsIcon from "material-ui-icons/Assignment";
-import IncomingIcon from "material-ui-icons/CallReceived";
 import LabelIcon from "material-ui-icons/Folder";
 import AnnouncementIcon from "material-ui-icons/Announcement";
 import QueryIcon from "material-ui-icons/RecordVoiceOver";
 import HelpIcon from "material-ui-icons/Help";
 import RssIcon from "material-ui-icons/RssFeed";
+
+// Profile Menu icons
+import ExitIcon from 'material-ui-icons/ExitToApp';
+import SettingsIcon from 'material-ui-icons/Settings';
+import LinkIcon from 'material-ui-icons/BookmarkBorder';
+import PersonIcon from 'material-ui-icons/Person';
 
 export const SIDEBAR_MENU = [
   {
@@ -124,5 +130,36 @@ export const SIDEBAR_MENU = [
     title: "Помощь",
     key: "help",
     icon: <HelpIcon />
+  },
+];
+
+
+export const PROFILE_MENU = [
+  {
+    key: "profile",
+    title: "Профиль",
+    icon: <PersonIcon />,
+    divider: true
+  },
+  {
+    key: "settings",
+    title: "Настройки",
+    icon: <SettingsIcon />
+  },
+  {
+    key: "link1",
+    title: "Ссылка",
+    icon: <LinkIcon />
+  },
+  {
+    key: "link2",
+    title: "Ссылка",
+    icon: <LinkIcon />,
+    divider: true
+  },
+  {
+    key: "profile",
+    title: "Выход",
+    icon: <ExitIcon />
   },
 ];

@@ -1,8 +1,17 @@
 import React from 'react';
 import styled from "styled-components";
-import { Paper } from "material-ui";
+import { Avatar as MUIAvatar, Tooltip as MuiTooltip } from "material-ui";
+import IconButton from 'material-ui/IconButton';
+import Menu, { MenuItem } from 'material-ui/Menu';
+import MoreVertIcon from 'material-ui-icons/MoreVert';
 import List, { ListItem, ListItemIcon, ListItemText, ListSubheader } from "material-ui/List";
 import { STATUSES } from "./TempConstants";
+import DocumentMenu from "./DocumentMenu";
+
+const DocumentMenuWrapper = styled.div`
+  flex-grow: 1;
+  text-align: right;
+`;
 
 const DocumentItem = styled(ListItem)`
   display: flex;
@@ -19,6 +28,16 @@ const DocumentItem = styled(ListItem)`
   
   &:last-of-type {
     margin-bottom: 10px;
+  }
+  
+  ${DocumentMenuWrapper} {
+    opacity: 0;
+  }
+  
+  &:hover {
+    ${DocumentMenuWrapper} {
+      opacity: 1;
+    }
   }
 `;
 
@@ -37,16 +56,46 @@ const DocumentInfo = styled(ListItemText)`
   justify-content: flex-end !important;
 `;
 
+const Tooltip = styled(MuiTooltip)`
+  div {
+    font-size: .8rem !important;
+  }
+`;
+
+const Avatar = styled(MUIAvatar)`
+  border: ${p => p.new && "1.5px dashed #ccc"};
+  ${p => p.new ? 'svg' : '__none'} {
+    color: #ccc;
+  }
+`;
+
 class Document extends React.Component {
+  state = {
+    anchorEl: null,
+  };
+
+  handleClick = event => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
+
+  handleClose = () => {
+    this.setState({ anchorEl: null });
+  };
+
   getStatus = statusId => STATUSES.filter(status => status.id === statusId)[0];
 
   render() {
+    const { anchorEl } = this.state;
     const { document: { name, date, status : statusId, recipient, period } } = this.props;
     const status = this.getStatus(statusId);
 
     return (
       <DocumentItem divider>
-        <ListItemIcon>{status.icon}</ListItemIcon>
+        <Tooltip title={status.title} placement="right">
+          <Avatar style={{background: status.color}} new={status.id === 0}>
+            {status.icon}
+          </Avatar>
+        </Tooltip>
         <DocumentTitle primary={name} />
         <DocumentInfo primary={status.title} secondary="Статус" />
         {
@@ -55,6 +104,16 @@ class Document extends React.Component {
         }
         <DocumentInfo primary={recipient} secondary="Получатель" />
         <DocumentInfo primary={period} secondary="Период" />
+        <DocumentMenuWrapper>
+          <IconButton onClick={this.handleClick}>
+            <MoreVertIcon />
+          </IconButton>
+          <DocumentMenu
+            anchorEl={anchorEl}
+            onClose={this.handleClose}
+            statusId={statusId}
+          />
+        </DocumentMenuWrapper>
         </DocumentItem>
     );
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import { IconButton } from "material-ui";
-import List, { ListItem, ListItemIcon, ListItemText, ListSubheader } from "material-ui/List";
+import List, { ListItem, ListItemText } from "material-ui/List";
 import { Collapse } from 'material-ui/transitions';
 import ExpandLess from 'material-ui-icons/ExpandLess';
 import Document from "./Document";
@@ -10,10 +10,10 @@ const ReportWrapper = styled(ListItem)`
   background: #fff !important;
   box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
   color: ${p => p.theme.palette.secondColor} !important;
-  z-index: 5;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 20px !important;
 `;
 
 const ReportTitle = styled(ListItemText)`
@@ -40,13 +40,32 @@ class Report extends React.Component {
     this.setState({ open: !this.state.open });
   };
 
+  getTotal = () => this.props.documents.length;
+  getCompleted = () => this.props.documents.reduce((count, report) => report.status === 3 ? ++count : count, 0);
+
+  sortDocuments = (field, ascending = true) => {
+    const compare = (a,b) => {
+      if (a[field] < b[field])
+        return -1;
+      if (a[field] > b[field])
+        return 1;
+      return 0;
+    };
+
+    return ascending
+      ? this.props.documents.sort(compare)
+      : this.props.documents.sort(compare).reverse();
+  };
+
   render() {
-    const { name, description, direction, documents } = this.props;
+    const { name, description, direction } = this.props;
     const { open } = this.state;
 
     return [
       <ReportWrapper button onClick={this.handleClick}>
-        <div>Circle</div>
+        <div>
+          {`${this.getCompleted()}/${this.getTotal()}`}
+        </div>
         <ReportTitle primary={name} secondary={description} />
         <ReportInfo primary={direction} secondary="Направление" />
         <IconButton>
@@ -56,7 +75,7 @@ class Report extends React.Component {
       <Collapse in={open} timeout="auto">
         <List disablePadding>
           {
-            documents.map(document => (
+            this.sortDocuments("status", false).map(document => (
               <Document document={document}/>
             ))
           }
