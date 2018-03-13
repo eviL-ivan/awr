@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { ThemeProvider, injectGlobal } from 'styled-components';
-import { Reboot } from "material-ui";
+import CssBaseline from "material-ui/CssBaseline";
 import { MuiThemeProvider } from 'material-ui/styles';
 import theme from "core/theme/theme";
 import muiTheme from "core/theme/muiTheme";
@@ -17,6 +17,7 @@ jss.options.insertionPoint = 'jss-insertion-point';
 injectGlobal`
   body {
     font-family: Roboto;
+    background: #f7f7f7 !important;
   }
   
   // TODO: проверить работу путей, написать остальные импорты шрифтов
@@ -29,13 +30,13 @@ injectGlobal`
 const Wrapper = ({ children }) => {
   return (
     <JssProvider jss={jss} generateClassName={generateClassName}>
-      <Reboot>
-        <MuiThemeProvider theme={muiTheme}>
-          <ThemeProvider theme={theme}>
+      <MuiThemeProvider theme={muiTheme}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline>
             {children}
-          </ThemeProvider>
-        </MuiThemeProvider>
-      </Reboot>
+          </CssBaseline>
+        </ThemeProvider>
+      </MuiThemeProvider>
     </JssProvider>
   );
 };
