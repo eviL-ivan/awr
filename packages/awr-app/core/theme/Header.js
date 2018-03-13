@@ -31,5 +31,8 @@ export default () => (
     <Link href="/login">
       <a style={linkStyle}>Login</a>
     </Link>
+    <Link href="/mainLayoutProto">
+      <a style={linkStyle}>mainLayoutProto</a>
+    </Link>
   </div>
 );

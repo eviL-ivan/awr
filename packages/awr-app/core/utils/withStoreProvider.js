@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Provider } from "mobx-react";
 import { getSnapshot } from "mobx-state-tree";
 import { initStore } from "store/store";
-import Layout from "theme/Layout";
 
 export default InnerComponent => {
   return class ProviderHoc extends Component {

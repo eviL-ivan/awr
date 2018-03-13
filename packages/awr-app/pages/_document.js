@@ -29,10 +29,6 @@ class MyDocument extends Document {
               "minimum-scale=1, width=device-width, height=device-height"
             }
           />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
-          />
           {styleTags}
         </Head>
         <body>
@@ -50,6 +46,8 @@ MyDocument.getInitialProps = ({ renderPage }) => {
   const styleTags = sheet.getStyleElement();
   // JSS
   const pageContext = getPageContext();
+  const _sheetsRegistry = pageContext.sheetsRegistry.toString();
+
   const page = renderPage(Component => props => (
     <JssProvider
       registry={pageContext.sheetsRegistry}
@@ -66,9 +64,7 @@ MyDocument.getInitialProps = ({ renderPage }) => {
     styles: (
       <style
         id="jss-server-side"
-        dangerouslySetInnerHTML={{
-          __html: pageContext.sheetsRegistry.toString()
-        }}
+        dangerouslySetInnerHTML={{ __html: _sheetsRegistry }}
       />
     )
   };

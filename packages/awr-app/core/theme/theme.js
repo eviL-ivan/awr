@@ -15,6 +15,7 @@ const theme = {
   },
   sidebar: {
     width: "280px",
+    background: "#fafafa",
   },
   sidebarExpanded: {
     width: "70px"
