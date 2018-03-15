@@ -49,15 +49,12 @@ const ToggleIcon = styled.div`
 
 class ToggleSidebarButton extends React.Component {
   render() {
-    const { open, onToggle } = this.props;
+    const { toggleSidebar, sidebarExpanded } = this.props;
 
     return (
-      <IconButton onClick={onToggle}>
-        <ToggleIcon open={open}>
-          <span />
-          <span />
-          <span />
-          <span />
+      <IconButton onClick={toggleSidebar}>
+        <ToggleIcon open={sidebarExpanded}>
+          <span /><span /><span /><span />
         </ToggleIcon>
       </IconButton>
     );

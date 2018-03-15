@@ -5,12 +5,7 @@ import Badge from 'material-ui/Badge';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import { ListItem } from 'material-ui/List';
 
-export const HeaderLeft = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-export const HeaderRight = styled.div`
+export const HeaderRightWrapper = styled.div`
   display: flex;
   align-items: center;
 
