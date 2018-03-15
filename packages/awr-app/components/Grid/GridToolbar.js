@@ -40,9 +40,10 @@ const Button = styled(MUIButton)`
 
 const DIRECTIONS = {
   pfr: "ПФР",
+  rar: "РАР",
   rosstat: "Росстат",
-  putin: "Путин",
-  fns: "ФНС"
+  fns: "ФНС",
+  fss: "ФСС"
 };
 
 class GridToolbar extends React.Component {
@@ -55,6 +56,7 @@ class GridToolbar extends React.Component {
         <Leftside>
           <FormControl>
             <Input
+              placeholder="Поиск"
               id="adornment-amount"
               startAdornment={<InputAdornment position="start"><SearchIcon /></InputAdornment>}
             />
