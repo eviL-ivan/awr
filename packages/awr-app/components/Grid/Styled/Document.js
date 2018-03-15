@@ -18,6 +18,7 @@ export const DocumentItem = styled(ListItem)`
   border-left: 1px solid #e3e4e8 !important;
   border-right: 1px solid #e3e4e8 !important;
   color: ${p => p.theme.palette.secondColor} !important;
+  font-size: 14px !important;
   
   &:first-of-type {
     box-shadow: inset 0 4px 7px #eee;
@@ -39,6 +40,7 @@ export const DocumentItem = styled(ListItem)`
 export const DocumentTitle = styled(ListItemText)`
   flex: 0 0 20% !important;
   padding: 0 20px !important;
+  font-size: inherit !important;
 `;
 
 export const DocumentInfo = styled(ListItemText)`
@@ -50,6 +52,7 @@ export const DocumentInfo = styled(ListItemText)`
   align-items: center !important;
   flex-basis: 15% !important;
   justify-content: flex-end !important;
+  font-size: inherit !important;
 `;
 
 export const Avatar = styled(MUIAvatar)`

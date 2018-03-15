@@ -33,7 +33,7 @@ class Document extends React.Component {
     const status = this.getStatus(statusId);
 
     return (
-      <DocumentItem button divider>
+      <DocumentItem dense button divider>
         <Tooltip title={status.title} placement="right">
           <Avatar style={{background: status.color}} new={status.id === 0}>
             {status.icon}

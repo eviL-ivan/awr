@@ -1,8 +1,9 @@
 import React from "react";
+import styled from "styled-components";
 // Иконки статусов
 import NoCreatedIcon from 'material-ui-icons/Add';
 import CreatedIcon from 'material-ui-icons/QueryBuilder';
-import SendIcon from 'material-ui-icons/Send';
+import SendIcon from 'material-ui-icons/Reply';
 import CompleteIcon from 'material-ui-icons/Check';
 import ErrorIcon from 'material-ui-icons/PriorityHigh';
 // Иконки контекстного меню документа
@@ -11,6 +12,10 @@ import EditFileIcon from 'material-ui-icons/Edit';
 import DeleteFileIcon from 'material-ui-icons/Delete';
 import PrintFileIcon from 'material-ui-icons/Print';
 import DownloadFileIcon from 'material-ui-icons/FileDownload';
+
+const CustomSendIcon = styled(SendIcon)`
+  transform: scaleX(-1);
+`;
 
 export const DOCUMENTS = [
   {
@@ -136,7 +141,7 @@ export const STATUSES = [
   {
     id: 2,
     title: "Отправлен",
-    icon: <SendIcon />,
+    icon: <CustomSendIcon />,
     color: "#0071D4"
   },
   {
