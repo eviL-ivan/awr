@@ -23,32 +23,19 @@ export const SIDEBAR_MENU = [
     icon: <DocumentsIcon />,
     children: [
       {
-        title: "Все отчёты",
+        title: "Все отчёты/Андрей",
         icon: <DocumentsIcon />,
+        link: "/mainLayoutProto"
       },
       {
-        title: "ПФР",
-        icon: <LabelIcon />,
+        title: "Все отчёты/Миша",
+        icon: <DocumentsIcon />,
+        link: "/grid"
       },
       {
-        title: "РАР",
+        title: "Ссылка",
         icon: <LabelIcon />,
-      },
-      {
-        title: "Росстат",
-        icon: <LabelIcon />,
-      },
-      {
-        title: "РПН",
-        icon: <LabelIcon />,
-      },
-      {
-        title: "ФНС",
-        icon: <LabelIcon />,
-      },
-      {
-        title: "ФСС",
-        icon: <LabelIcon />,
+        link: "/link"
       }
     ]
   },
@@ -60,10 +47,7 @@ export const SIDEBAR_MENU = [
       {
         title: "Все требования",
         icon: <AnnouncementIcon />,
-      },
-      {
-        title: "ФНС",
-        icon: <LabelIcon />,
+        link: "/demands"
       }
     ]
   },
@@ -75,26 +59,12 @@ export const SIDEBAR_MENU = [
       {
         title: "Все письма",
         icon: <MailIcon />,
+        link: "/messages"
       },
       {
         title: "Рассылки",
         icon: <RssIcon />,
-      },
-      {
-        title: "ПФР",
-        icon: <LabelIcon />,
-      },
-      {
-        title: "РАР",
-        icon: <LabelIcon />,
-      },
-      {
-        title: "Росстат",
-        icon: <LabelIcon />,
-      },
-      {
-        title: "ФНС",
-        icon: <LabelIcon />,
+        link: "/mass"
       }
     ]
   },
@@ -106,30 +76,21 @@ export const SIDEBAR_MENU = [
       {
         title: "Все запросы",
         icon: <QueryIcon />,
-      },
-      {
-        title: "ПФР",
-        icon: <LabelIcon />,
-      },
-      {
-        title: "ФНС",
-        icon: <LabelIcon />,
-      },
-      {
-        title: "ФСС",
-        icon: <LabelIcon />,
+        link: "/queries"
       }
     ]
   },
   {
     title: "Календарь бухгалтера",
     key: "calendar",
-    icon: <CalendarIcon />
+    icon: <CalendarIcon />,
+    link: "/report"
   },
   {
     title: "Помощь",
     key: "help",
-    icon: <HelpIcon />
+    icon: <HelpIcon />,
+    link: "/help"
   },
 ];
 

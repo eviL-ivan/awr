@@ -4,6 +4,7 @@ import { IconButton } from "material-ui";
 import List, { ListItem, ListItemText } from "material-ui/List";
 import { Collapse } from 'material-ui/transitions';
 import ExpandLess from 'material-ui-icons/ExpandLess';
+import CircularProgressBar from "../Common/CircularProgressBar";
 import Document from "./Document";
 
 const ReportWrapper = styled(ListItem)`
@@ -14,6 +15,10 @@ const ReportWrapper = styled(ListItem)`
   align-items: center;
   justify-content: space-between;
   padding: 20px !important;
+  
+  &:hover {
+    background: #f9f9f9 !important; 
+  }
 `;
 
 const ReportTitle = styled(ListItemText)`
@@ -63,9 +68,12 @@ class Report extends React.Component {
 
     return [
       <ReportWrapper button onClick={this.handleClick}>
-        <div>
-          {`${this.getCompleted()}/${this.getTotal()}`}
-        </div>
+        <CircularProgressBar
+          strokeWidth={4}
+          sqSize={55}
+          percentage={parseInt(this.getCompleted()/this.getTotal()*100)}
+          text={`${this.getCompleted()}/${this.getTotal()}`}
+        />
         <ReportTitle primary={name} secondary={description} />
         <ReportInfo primary={direction} secondary="Направление" />
         <IconButton>

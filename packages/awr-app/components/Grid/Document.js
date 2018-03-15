@@ -2,39 +2,38 @@ import React from 'react';
 import styled from "styled-components";
 import { Avatar as MUIAvatar, Tooltip as MuiTooltip } from "material-ui";
 import IconButton from 'material-ui/IconButton';
-import Menu, { MenuItem } from 'material-ui/Menu';
 import MoreVertIcon from 'material-ui-icons/MoreVert';
-import List, { ListItem, ListItemIcon, ListItemText, ListSubheader } from "material-ui/List";
+import { ListItem, ListItemText } from "material-ui/List";
 import { STATUSES } from "./TempConstants";
 import DocumentMenu from "./DocumentMenu";
 
 const DocumentMenuWrapper = styled.div`
   flex-grow: 1;
   text-align: right;
+  opacity: .1;
 `;
 
 const DocumentItem = styled(ListItem)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fff;
+  background: #fff !important;
   padding: 10px 20px !important;
-  border-left: 1px solid #e3e4e8;
-  border-right: 1px solid #e3e4e8;
+  border-left: 1px solid #e3e4e8 !important;
+  border-right: 1px solid #e3e4e8 !important;
+  color: ${p => p.theme.palette.secondColor} !important;
   
   &:first-of-type {
     box-shadow: inset 0 4px 7px #eee;
   }
   
   &:last-of-type {
-    margin-bottom: 10px;
-  }
-  
-  ${DocumentMenuWrapper} {
-    opacity: 0;
+    margin-bottom: 20px;
   }
   
   &:hover {
+    background: #f9f9f9 !important;
+ 
     ${DocumentMenuWrapper} {
       opacity: 1;
     }
@@ -90,7 +89,7 @@ class Document extends React.Component {
     const status = this.getStatus(statusId);
 
     return (
-      <DocumentItem divider>
+      <DocumentItem button divider>
         <Tooltip title={status.title} placement="right">
           <Avatar style={{background: status.color}} new={status.id === 0}>
             {status.icon}
@@ -114,7 +113,7 @@ class Document extends React.Component {
             statusId={statusId}
           />
         </DocumentMenuWrapper>
-        </DocumentItem>
+      </DocumentItem>
     );
   }
 }

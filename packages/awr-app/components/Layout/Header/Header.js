@@ -4,11 +4,15 @@ import { Avatar, IconButton, Paper, Badge } from 'material-ui';
 import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import Menu, { MenuList, MenuItem } from 'material-ui/Menu';
 
+// Иконки
 import PersonIcon from 'material-ui-icons/Person';
-import ExpandMore from 'material-ui-icons/ExpandMore';
+import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import NotificationsIcon from 'material-ui-icons/Notifications';
 
-import { PROFILE_MENU } from "./ConstantsTemp";
+import { PROFILE_MENU } from "../ConstantsTemp";
+
+// Компоненты
+import ToggleSidebarButton from "./ToggleSidebarButton";
 
 const HeaderLeft = styled.div`
   display: flex;
@@ -60,7 +64,7 @@ const ProfileMenu = styled(Menu)`
 `;
 
 const CustomAvatar = styled(Avatar)`
-  background: #fff;
+  background: #fff !important;
 
   svg {
     color: ${p => p.theme.palette.mainColor};
@@ -86,12 +90,16 @@ class Header extends React.Component {
   };
 
   render() {
-    const { className } = this.props;
+    const { className, sidebarExpanded, toggleSidebar } = this.props;
     const { anchorEl } = this.state;
 
     return (
       <header className={className}>
         <HeaderLeft>
+          <ToggleSidebarButton
+            open={sidebarExpanded}
+            onToggle={toggleSidebar}
+          />
         </HeaderLeft>
         <HeaderRight>
           <IconButton>
@@ -104,7 +112,7 @@ class Header extends React.Component {
             <CustomAvatar>
               <PersonIcon />
             </CustomAvatar>
-            <ExpandMore />
+            <ExpandMoreIcon />
           </TopProfile>
           <ProfileMenu
             anchorEl={anchorEl}
