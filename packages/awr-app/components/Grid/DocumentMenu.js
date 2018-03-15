@@ -17,11 +17,11 @@ class DocumentMenu extends React.Component {
         {
           DOCUMENT_MENU.map(item => (
             item.statuses.includes(statusId)
-            ? <MenuItem divider={item.divider} dense onClick={onClose} key={item.key}>
-                <ListItemIcon>{item.icon}</ListItemIcon>
-                <ListItemText inset primary={item.title} />
-              </MenuItem>
-            : null
+              ? <MenuItem divider={item.divider} dense onClick={onClose} key={item.key}>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText inset primary={item.title} />
+                </MenuItem>
+              : null
           ))
         }
       </Menu>

@@ -19,14 +19,21 @@ class Document extends React.Component {
   };
 
   openMenu = event => {
+    // блокируем переход к просмотру документа при клике на иконку меню
+    event.stopPropagation();
     this.setState({ anchorEl: event.currentTarget });
   };
 
-  closeMenu = () => {
+  closeMenu = e => {
+    // блокируем переход к просмотру документа при клике на иконку меню
+    e.stopPropagation();
     this.setState({ anchorEl: null });
   };
 
-  getStatus = statusId => STATUSES.filter(status => status.id === statusId)[0];
+  getStatus = statusId => {
+    const statusKey = Object.keys(STATUSES).filter(key => STATUSES[key].id === statusId)[0];
+    return STATUSES[statusKey];
+  };
 
   render() {
     const { anchorEl } = this.state;

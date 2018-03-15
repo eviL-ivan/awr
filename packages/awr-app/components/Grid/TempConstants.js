@@ -133,38 +133,44 @@ export const DOCUMENTS = [
   }
 ];
 
-export const STATUSES = [
-  {
+
+export const STATUSES = {
+  none: {
     id: 0,
     title: "Не создан",
     icon: <NoCreatedIcon />,
-    color: "#fff"
+    color: "#fff",
+    description: "",
   },
-  {
+  draft: {
     id: 1,
     title: "Не отправлен",
     icon: <CreatedIcon />,
-    color: "#7e8992"
+    color: "#7e8992",
+    description: "",
   },
-  {
+  send: {
     id: 2,
     title: "Отправлен",
     icon: <CustomSendIcon />,
-    color: "#0071D4"
+    color: "#0071D4",
+    description: "Декларация отправлена",
   },
-  {
+  complete: {
     id: 3,
-    title: "Завершен",
+    title: "Завершён",
     icon: <CompleteIcon />,
-    color: "#0aac18"
+    color: "#0aac18",
+    description: "",
   },
-  {
+  error: {
     id: 4,
-    title: "Требуется корректировка",
+    title: "Ошибка",
     icon: <ErrorIcon />,
-    color: "#ff4c4c"
+    color: "#ff4c4c",
+    description: "",
   }
-];
+};
 
 export const DOCUMENT_MENU = [
   {
