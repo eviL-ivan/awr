@@ -18,31 +18,31 @@ export const SIDEBAR_MENU = [
     children: [
       {
         title: "Все отчёты",
-        icon: <DocumentsIcon />,
+        icon: <DocumentsIcon />
       },
       {
         title: "ПФР",
-        icon: <LabelIcon />,
+        icon: <LabelIcon />
       },
       {
         title: "РАР",
-        icon: <LabelIcon />,
+        icon: <LabelIcon />
       },
       {
         title: "Росстат",
-        icon: <LabelIcon />,
+        icon: <LabelIcon />
       },
       {
         title: "РПН",
-        icon: <LabelIcon />,
+        icon: <LabelIcon />
       },
       {
         title: "ФНС",
-        icon: <LabelIcon />,
+        icon: <LabelIcon />
       },
       {
         title: "ФСС",
-        icon: <LabelIcon />,
+        icon: <LabelIcon />
       }
     ]
   },
@@ -53,11 +53,11 @@ export const SIDEBAR_MENU = [
     children: [
       {
         title: "Все требования",
-        icon: <AnnouncementIcon />,
+        icon: <AnnouncementIcon />
       },
       {
         title: "ФНС",
-        icon: <LabelIcon />,
+        icon: <LabelIcon />
       }
     ]
   },
@@ -68,27 +68,27 @@ export const SIDEBAR_MENU = [
     children: [
       {
         title: "Все письма",
-        icon: <MailIcon />,
+        icon: <MailIcon />
       },
       {
         title: "Рассылки",
-        icon: <RssIcon />,
+        icon: <RssIcon />
       },
       {
         title: "ПФР",
-        icon: <LabelIcon />,
+        icon: <LabelIcon />
       },
       {
         title: "РАР",
-        icon: <LabelIcon />,
+        icon: <LabelIcon />
       },
       {
         title: "Росстат",
-        icon: <LabelIcon />,
+        icon: <LabelIcon />
       },
       {
         title: "ФНС",
-        icon: <LabelIcon />,
+        icon: <LabelIcon />
       }
     ]
   },
@@ -99,19 +99,19 @@ export const SIDEBAR_MENU = [
     children: [
       {
         title: "Все запросы",
-        icon: <QueryIcon />,
+        icon: <QueryIcon />
       },
       {
         title: "ПФР",
-        icon: <LabelIcon />,
+        icon: <LabelIcon />
       },
       {
         title: "ФНС",
-        icon: <LabelIcon />,
+        icon: <LabelIcon />
       },
       {
         title: "ФСС",
-        icon: <LabelIcon />,
+        icon: <LabelIcon />
       }
     ]
   },
@@ -124,5 +124,32 @@ export const SIDEBAR_MENU = [
     title: "Помощь",
     key: "help",
     icon: <HelpIcon />
+  }
+];
+
+export const directionsConfig = [
+  {
+    direction: "fns",
+    title: "ФНС"
   },
+  {
+    direction: "rpn",
+    title: "РПН"
+  },
+  {
+    direction: "rar",
+    title: "РАР"
+  },
+  {
+    direction: "fss",
+    title: "ФСС"
+  },
+  {
+    direction: "rosstat",
+    title: "Росстат"
+  },
+  {
+    direction: "pfr",
+    title: "ПФР"
+  }
 ];

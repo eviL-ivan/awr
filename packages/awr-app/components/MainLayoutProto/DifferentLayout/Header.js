@@ -154,19 +154,24 @@ export default styled(Header)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* padding-left: 10px; */
+  flex-shrink: 0;
+
   box-sizing: border-box;
+
   height: ${p => p.theme.header.height};
+
   background: ${p => p.theme.palette.mainColor};
   color: #014a8e;
+
   box-shadow: 0 5px 10px #686868;
   z-index: 1;
 `;
 
 const Logo = styled.div`
-  margin-left: 20px;
   display: flex;
   align-items: center;
+
+  margin-left: 20px;
   width: 100px;
 `;
 

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Records from "./Records/Records";
+import RecordsGroup from "./Records/RecordsGroup";
 import Paper from "material-ui/Paper";
 
 function ReportsContainer({
@@ -11,39 +11,36 @@ function ReportsContainer({
   directions
 }) {
   const _records = records.reduce((prev, item, index) => {
-    let Record = null;
-    //если все организации
-    if (organization == "all")
-      Record = (
-        <Records
-          toggleInformationWindow={toggleInformationWindow}
-          data={item}
-        />
-      );
-    else {
-      //если выбрана кака-то конкретная
-      let _recordData = item.recordReports.find(
+    let recordGroup = null;
+    let recordsData = item.recordReports;
+    let data = item;
+    //если выбрана кака-то конкретная
+    if (organization !== "all") {
+      recordsData = item.recordReports.find(
         item => item.organization == organization
       );
-      if (_recordData) {
-        const _item = { ...item, recordReports: [_recordData] };
-        Record = (
-          <Records
-            toggleInformationWindow={toggleInformationWindow}
-            data={_item}
-          />
-        );
+
+      if (recordsData) {
+        data = { ...item, recordReports: [recordsData] };
       }
     }
+
+    recordGroup = (
+      <RecordsGroup
+        toggleInformationWindow={toggleInformationWindow}
+        data={data}
+      />
+    );
     //пушим элеиенты отчета по записям
-    if (Record)
+    if (recordsData)
       prev.push(
         <ReportContent key={index + item.title} elevation={2}>
-          {Record}
+          {recordGroup}
         </ReportContent>
       );
     return prev;
   }, []);
+
   if (!_records.length) return null;
   return (
     <Report>

@@ -54,29 +54,32 @@ export default Layout;
 
 const Container = styled.div`
   position: absolute;
+
+  display: flex;
   flex-direction: column;
   flex: 1;
-  display: flex;
-  height: calc(100% - 60px);
+
+  height: 100vh;
   width: 100%;
+
   background: #eeeeee80;
   transition: all 0.1s;
 `;
 
 const ContentWrapper = styled.div`
   display: flex;
+
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 60px);
 `;
 
 const Content = styled.section`
-  transition: all;
-  padding: 20px;
-  display: flex;
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
   overflow: auto;
   overflow-x: hidden;
 `;
