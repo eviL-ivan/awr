@@ -20,7 +20,6 @@ const Sidebar = (props) => {
 export default styled(Sidebar)`
   position: fixed;
   background: ${p => p.theme.sidebar.background} !important;
-  ${p => console.log("PALETTE", p.theme)};
   top: 0;
   z-index: 4;
   box-shadow: 0 0 3px #ccc;
