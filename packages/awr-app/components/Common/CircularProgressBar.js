@@ -1,30 +1,27 @@
 import React from "react";
-import { injectGlobal } from 'styled-components';
+import styled, { injectGlobal } from 'styled-components';
+
+const CircleBackground = styled.circle`
+  fill: none;
+  stroke: #ddd;
+`;
+
+const CircleProgress = styled.circle`
+  fill: none;
+  stroke: #0071D4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+`;
+
+const CircleText = styled.text`
+  font-weight: bold;
+  fill: #0071D4;
+`;
 
 injectGlobal`
   #progressInput {
     margin: 20px auto;
     width: 30%;
-  }
-  
-  .circle-background,
-  .circle-progress {
-    fill: none;
-  }
-  
-  .circle-background {
-    stroke: #ddd;
-  }
-  
-  .circle-progress {
-    stroke: #0071D4;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-  
-  .circle-text {
-    font-weight: bold;
-    fill: #0071D4;
   }
 `;
 
@@ -48,14 +45,12 @@ class CircularProgressBar extends React.Component {
         width={this.props.sqSize}
         height={this.props.sqSize}
         viewBox={viewBox}>
-        <circle
-          className="circle-background"
+        <CircleBackground
           cx={this.props.sqSize / 2}
           cy={this.props.sqSize / 2}
           r={radius}
           strokeWidth={`${this.props.strokeWidth}px`} />
-        <circle
-          className="circle-progress"
+        <CircleProgress
           cx={this.props.sqSize / 2}
           cy={this.props.sqSize / 2}
           r={radius}
@@ -66,14 +61,13 @@ class CircularProgressBar extends React.Component {
             strokeDasharray: dashArray,
             strokeDashoffset: dashOffset
           }} />
-        <text
-          className="circle-text"
+        <CircleText
           x="50%"
           y="50%"
           dy=".35em"
           textAnchor="middle">
           {`${this.props.text}`}
-        </text>
+        </CircleText>
       </svg>
     );
   }

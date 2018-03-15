@@ -1,13 +1,13 @@
 import React from "react";
 
-// Statuses Icons
+// Иконки статусов
 import NoCreatedIcon from 'material-ui-icons/Add';
 import CreatedIcon from 'material-ui-icons/QueryBuilder';
 import SendIcon from 'material-ui-icons/NearMe';
 import CompleteIcon from 'material-ui-icons/Check';
 import ErrorIcon from 'material-ui-icons/PriorityHigh';
 
-// Document Menu Icons
+// Иконки контекстного меню документа
 import CreateFileIcon from 'material-ui-icons/NoteAdd';
 import EditFileIcon from 'material-ui-icons/Edit';
 import DeleteFileIcon from 'material-ui-icons/Delete';

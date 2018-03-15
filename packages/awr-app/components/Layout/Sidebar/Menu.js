@@ -19,7 +19,7 @@ class Menu extends React.Component {
   componentDidMount() {
     const { url: { pathname } } = this.props;
 
-    // текущий пункт меню (судя по url) делаем развернутый
+    // текущий пункт меню (определяем его по url) делаем развернутый
     SIDEBAR_MENU.forEach(item => {
       if(pathname === item.link || item.children && item.children.some(child => child.link === pathname)) {
         this.setState({

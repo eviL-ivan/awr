@@ -1,8 +1,7 @@
 import React from 'react';
-import styled from "styled-components";
 import Menu, { MenuItem } from 'material-ui/Menu';
 import { ListItemIcon, ListItemText } from "material-ui/List";
-
+// Константы
 import { DOCUMENT_MENU } from "./TempConstants";
 
 class DocumentMenu extends React.Component {

@@ -1,80 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import { Avatar, IconButton, Paper, Badge } from 'material-ui';
-import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import Menu, { MenuList, MenuItem } from 'material-ui/Menu';
-
+import IconButton from 'material-ui/IconButton';
+import { ListItemIcon, ListItemText } from 'material-ui/List';
+// Константы
+import { PROFILE_MENU } from "../ConstantsTemp";
+// Компоненты
+import ToggleSidebarButton from "./ToggleSidebarButton";
+// Стайлд
+import {
+  HeaderLeft, HeaderRight, TopProfile,
+  CustomBadge, ProfileMenuItem, ProfileMenu,
+  CustomAvatar, UserName } from "./Styled/Header";
 // Иконки
 import PersonIcon from 'material-ui-icons/Person';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import NotificationsIcon from 'material-ui-icons/Notifications';
-
-import { PROFILE_MENU } from "../ConstantsTemp";
-
-// Компоненты
-import ToggleSidebarButton from "./ToggleSidebarButton";
-
-const HeaderLeft = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const HeaderRight = styled.div`
-  display: flex;
-  align-items: center;
-
-  svg {
-    color: #fff;
-  }
-`;
-
-const TopProfile = styled(ListItem)`
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: ${p => p.theme.header.height};
-`;
-
-const CustomBadge = styled(Badge)`
-  span {
-    background: #ff4c4c;
-    border: ${p => `2px solid ${p.theme.palette.mainColor}`};
-    color: #fff;
-  }
-`;
-
-const ProfileMenuItem = styled(MenuItem)`
-  color: ${p => p.theme.palette.mainColor};
-`;
-
-const ProfileMenu = styled(Menu)`
-  margin-top: calc(${p => p.theme.header.height} - 15px);
-  
-  svg {
-    color: ${p => p.theme.palette.textColor};
-  }
-
-  ${ProfileMenuItem}:hover {
-    background: #fff;
-
-    svg, h3 {
-      color: ${p => p.theme.palette.mainColor};
-    }
-  }
-`;
-
-const CustomAvatar = styled(Avatar)`
-  background: #fff !important;
-
-  svg {
-    color: ${p => p.theme.palette.mainColor};
-  }
-`;
-
-const UserName = styled.span`
-  margin-right: 10px;
-  color: #fff;
-`;
 
 class Header extends React.Component {
   state = {

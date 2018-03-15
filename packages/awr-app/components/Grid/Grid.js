@@ -1,6 +1,7 @@
 import React from 'react';
+// Компоненты
 import DateGroup from "./DateGroup";
-
+// Константы
 import { DOCUMENTS } from "./TempConstants";
 
 class Grid extends React.Component {
@@ -8,10 +9,10 @@ class Grid extends React.Component {
     return (
       <div>
         {
-          DOCUMENTS.map(group => (
+          DOCUMENTS.map((group, index) => (
             <DateGroup
+              groupIndex={index}
               date={group.date}
-              name={group.name}
               reports={group.reports}
             />
           ))

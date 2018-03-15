@@ -1,53 +1,30 @@
 import React from 'react';
-import styled from "styled-components";
-import { IconButton } from "material-ui";
-import List, { ListItem, ListItemText } from "material-ui/List";
+import IconButton from "material-ui/IconButton";
+import List from "material-ui/List";
 import { Collapse } from 'material-ui/transitions';
-import ExpandLess from 'material-ui-icons/ExpandLess';
+// Компоненты
 import CircularProgressBar from "../Common/CircularProgressBar";
 import Document from "./Document";
-
-const ReportWrapper = styled(ListItem)`
-  background: #fff !important;
-  box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
-  color: ${p => p.theme.palette.secondColor} !important;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px !important;
-  
-  &:hover {
-    background: #f9f9f9 !important; 
-  }
-`;
-
-const ReportTitle = styled(ListItemText)`
-  flex-grow: 1;
-`;
-
-const ReportInfo = styled(ListItemText)`
-  padding: 0 20px !important;
-  display: flex;
-  flex-grow: 0 !important;
-  flex-direction: column-reverse !important;
-  align-items: center !important;
-`;
-
-const ExpandIcon = styled(ExpandLess)`
-  transform: rotate(${p => p.open ? "0deg" : "180deg"});
-  transition: all .3s !important;
-`;
+// Стайлд
+import {
+  ReportWrapper, ReportTitle,
+  ReportInfo, ExpandIcon } from "./Styled/Report";
 
 class Report extends React.Component {
-  state = { open: false };
+  // разворачиваем по дефолту первый отчёт в первой группе по дате
+  state = { open: !this.props.index && !this.props.groupIndex };
 
-  handleClick = () => {
+  // Развернуть/Свернуть список организаций в отчёте
+  toggleReport = () => {
     this.setState({ open: !this.state.open });
   };
 
+  // общее количество организаций по одному отчету
   getTotal = () => this.props.documents.length;
+  // Количество организаций, у которых отчет в статусе "Завершен"
   getCompleted = () => this.props.documents.reduce((count, report) => report.status === 3 ? ++count : count, 0);
 
+  // сортировка отчетов по полю
   sortDocuments = (field, ascending = true) => {
     const compare = (a,b) => {
       if (a[field] < b[field])
@@ -67,7 +44,7 @@ class Report extends React.Component {
     const { open } = this.state;
 
     return [
-      <ReportWrapper button onClick={this.handleClick}>
+      <ReportWrapper button onClick={this.toggleReport}>
         <CircularProgressBar
           strokeWidth={4}
           sqSize={55}
