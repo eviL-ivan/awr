@@ -2,7 +2,7 @@ import React from "react";
 import AddDocumentIcon from 'material-ui-icons/NoteAdd';
 
 // Стайлд компоненты
-import { Button, Wrapper } from "./styled";
+import { Button, Wrapper } from "./Styled/CreateDocumentButton";
 
 const CreateDocumentButton = ({ expanded }) => (
   <Wrapper expanded={expanded}>

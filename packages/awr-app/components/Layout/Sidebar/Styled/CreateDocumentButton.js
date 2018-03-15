@@ -1,6 +1,6 @@
 import React from "react";
-import { Button as MuiButton } from "material-ui";
 import styled from "styled-components";
+import { Button as MuiButton } from "material-ui";
 
 export const Button = styled(MuiButton)`
   white-space: nowrap;

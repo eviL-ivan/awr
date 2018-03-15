@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
 // Компоненты
 import Logo from "./Logo";
 import CreateDocumentButton from "./CreateDocumentButton";
