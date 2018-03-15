@@ -1,24 +1,27 @@
 import React, { Component } from "react";
 import MainLayoutProto from "components/MainLayoutProto";
-import withLayout from "utils/withLayout";
-import styled from "styled-components";
-@withLayout
+import Layout from "components/MainLayoutProto/DifferentLayout/Layout";
+import withAppWrapper from "components/MainLayoutProto/DifferentLayout/withAppWrapper";
+
+function decorator(InnerComponent) {
+  @withAppWrapper
+  class LayoutHoc extends Component {
+    render() {
+      return (
+        <Layout>
+          <InnerComponent {...this.props} />
+        </Layout>
+      );
+    }
+  }
+
+  return LayoutHoc;
+}
+
 class mainLayoutProto extends Component {
   render() {
-    return (
-      <Container>
-        <MainLayoutProto organization={this.props.organization} />
-      </Container>
-    );
+    return <MainLayoutProto {...this.props} />;
   }
 }
 
-const Container = styled.div`
-  display: flex;
-  height: 100%;
-  width: 100%;
-  justify-content: center;
-  margin-top: 15px;
-`;
-
-export default mainLayoutProto;
+export default decorator(mainLayoutProto);

@@ -51,7 +51,7 @@ const DataBlock = styled.span`
   padding: 3px 6px;
 `;
 const ReportContent = styled(Paper)`
-  padding: 15px 10px 10px;
+  padding: 10px;
   width: 99%;
   display: flex;
   font-size: 18px;

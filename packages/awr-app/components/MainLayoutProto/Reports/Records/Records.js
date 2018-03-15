@@ -42,10 +42,16 @@ class RecordsGroup extends Component {
     const { stats, checked } = this.state;
     const {
       data: { title, direction, directionTitle, recordReports },
-      className
+      className,
+      toggleInformationWindow
     } = this.props;
     const _recordReports = recordReports.map((item, index) => (
-      <RecordItem key={index + item.organizationTitle} inGroup data={item} />
+      <RecordItem
+        toggleInformationWindow={toggleInformationWindow}
+        key={index + item.organizationTitle}
+        inGroup
+        data={item}
+      />
     ));
 
     return (
@@ -73,28 +79,19 @@ class RecordsGroup extends Component {
             _recordReports
           )}
         </GroupContainer>
-        <ColapseBtnContainer>
-          {recordReports.length > 3 && (
+
+        {recordReports.length > 3 && (
+          <ColapseBtnContainer>
             <IconButton
               onClick={() => this.setState({ checked: !this.state.checked })}
             >
               {checked ? <ExpandLess /> : <ExpandMore />}
             </IconButton>
-          )}
-        </ColapseBtnContainer>
+          </ColapseBtnContainer>
+        )}
       </div>
     );
   }
-  // onMouseEnterHandler = index => () => {
-  //   this.setState({
-  //     hover: index
-  //   });
-  // };
-  // onMouseLeaveHandler = () => {
-  //   this.setState({
-  //     hover: false
-  //   });
-  // };
 }
 
 export default styled(RecordsGroup)`

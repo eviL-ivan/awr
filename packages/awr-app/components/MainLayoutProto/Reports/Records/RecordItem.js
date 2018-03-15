@@ -33,7 +33,8 @@ class RecordItem extends React.Component {
         period,
         recipient,
         status
-      }
+      },
+      toggleInformationWindow
     } = this.props;
 
     return (
@@ -43,6 +44,7 @@ class RecordItem extends React.Component {
         onMouseEnter={this.onMouseEnterHandler}
         onMouseLeave={this.onMouseLeaveHandler}
         onMouseLeave={this.onMouseLeaveHandler}
+        onClick={this.openInfo}
       >
         <Flex grow={0.11}>
           <Status status={status} />
@@ -82,6 +84,10 @@ class RecordItem extends React.Component {
     this.setState({
       hover: false
     });
+  };
+  openInfo = e => {
+    e.stopPropagation();
+    this.props.toggleInformationWindow(this.props.data);
   };
 }
 

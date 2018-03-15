@@ -16,6 +16,7 @@ Router.onRouteChangeError = () => NProgress.done();
 class MyDocument extends Document {
   render() {
     const { styleTags } = this.props;
+
     return (
       <html lang="en" dir="ltr">
         <Head>
@@ -39,7 +40,7 @@ class MyDocument extends Document {
   }
 }
 
-MyDocument.getInitialProps = ({ renderPage, res }) => {
+MyDocument.getInitialProps = ({ renderPage }) => {
   // styled-ssr
   const sheet = new ServerStyleSheet();
   const styleTags = sheet.getStyleElement();
