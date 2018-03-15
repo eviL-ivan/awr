@@ -1,13 +1,14 @@
 import React from 'react';
 import IconButton from 'material-ui/IconButton';
 // Компоненты
+import Tooltip from "../Common/Tooltip";
 import DocumentMenu from "./DocumentMenu";
 // Константы
 import { STATUSES } from "./TempConstants";
 // Стайлд компоненты
 import {
   DocumentMenuWrapper, DocumentItem,
-  DocumentTitle, DocumentInfo, Tooltip, Avatar } from "./Styled/Document";
+  DocumentTitle, DocumentInfo, Avatar } from "./Styled/Document";
 // Иконки
 import MoreVertIcon from 'material-ui-icons/MoreVert';
 

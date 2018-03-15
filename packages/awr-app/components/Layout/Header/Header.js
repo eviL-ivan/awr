@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import IconButton from 'material-ui/IconButton';
 // Компоненты
 import HeaderLeft from "./HeaderLeft";
 import HeaderRight from "./HeaderRight";

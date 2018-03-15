@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import { ListItem, ListItemText } from "material-ui/List";
-import { Avatar as MUIAvatar, Tooltip as MuiTooltip } from "material-ui";
+import { Avatar as MUIAvatar } from "material-ui";
 
 export const DocumentMenuWrapper = styled.div`
   flex-grow: 1;
@@ -52,15 +52,9 @@ export const DocumentInfo = styled(ListItemText)`
   justify-content: flex-end !important;
 `;
 
-export const Tooltip = styled(MuiTooltip)`
-  div {
-    font-size: .8rem !important;
-  }
-`;
-
 export const Avatar = styled(MUIAvatar)`
-  width: 32px !important;
-  height: 32px !important;
+  width: 34px !important;
+  height: 34px !important;
   border: ${p => p.new && "1.5px dashed #ccc"};
   ${p => p.new ? 'svg' : '__none'} {
     color: #ccc;

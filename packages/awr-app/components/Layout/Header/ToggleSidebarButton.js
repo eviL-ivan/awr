@@ -21,10 +21,10 @@ const ToggleIcon = styled.div`
     opacity: 1;
     left: 0;
     transform: rotate(0deg);
-    transition: .25s ease-in-out;
+    transition: .3s ease-in-out;
     
     &:nth-child(1) {
-      top: ${p => p.open ? `${spacing*2.5}rem` : "0"};
+      top: ${p => p.open ? `${spacing}rem` : "0"};
       width: ${p => p.open && "0"};
       left: ${p => p.open && "50%"};
     }

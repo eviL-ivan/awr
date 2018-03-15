@@ -2,7 +2,7 @@ import React from "react";
 // Иконки статусов
 import NoCreatedIcon from 'material-ui-icons/Add';
 import CreatedIcon from 'material-ui-icons/QueryBuilder';
-import SendIcon from 'material-ui-icons/NearMe';
+import SendIcon from 'material-ui-icons/Send';
 import CompleteIcon from 'material-ui-icons/Check';
 import ErrorIcon from 'material-ui-icons/PriorityHigh';
 // Иконки контекстного меню документа

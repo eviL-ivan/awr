@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Collapse } from 'material-ui/transitions';
-import Tooltip from "material-ui/Tooltip";
+import Tooltip from "../../Common/Tooltip";
 import List from 'material-ui/List';
 // Иконки
 import ExpandLess from 'material-ui-icons/ExpandLess';
@@ -87,8 +87,16 @@ class Menu extends React.Component {
           <MenuItemWrapper expanded={expanded} active={current === item.key}>
             {
               item.link
-                ? <Link href={item.link}>{this.renderMenuItem(item)}</Link>
-                : this.renderMenuItem(item)
+                ? <Link href={item.link}>
+                    {
+                      expanded
+                        ? <Tooltip title={expanded && item.title} placement="top">{this.renderMenuItem(item)}</Tooltip>
+                        : this.renderMenuItem(item)
+                    }
+                  </Link>
+                : expanded
+                  ? <Tooltip title={expanded && item.title} placement="top">{this.renderMenuItem(item)}</Tooltip>
+                  : this.renderMenuItem(item)
             }
             {
               item.children &&
