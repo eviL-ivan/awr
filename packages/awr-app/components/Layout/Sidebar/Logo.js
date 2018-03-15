@@ -7,8 +7,8 @@ const Logo = ({ expanded, className }) => (
     <div className={className}>
       {
         expanded
-          ? <img src="static/images/logo_small_expanded.png" />
-          : <img src="static/images/logo_small.png" />
+          ? <img src="/static/images/logo_small_expanded.png" />
+          : <img src="/static/images/logo_small.png" />
       }
     </div>
   </Link>

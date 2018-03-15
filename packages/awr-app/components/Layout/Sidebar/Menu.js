@@ -41,7 +41,7 @@ class Menu extends React.Component {
 
     return (
       <MenuItem
-        current={pathname === item.link || item.children && item.children.some(child => child.link === pathname)}
+        current={pathname.includes(item.link) || item.children && item.children.some(child => pathname.includes(child.link))}
         active={current === item.key}
         button
         onClick={this.setCurrentMenuItem(item.key)}

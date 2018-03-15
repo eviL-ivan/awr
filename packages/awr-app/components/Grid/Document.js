@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from "next/link";
 import IconButton from 'material-ui/IconButton';
 // Компоненты
 import Tooltip from "../Common/Tooltip";
@@ -33,31 +34,33 @@ class Document extends React.Component {
     const status = this.getStatus(statusId);
 
     return (
-      <DocumentItem dense button divider>
-        <Tooltip title={status.title} placement="right">
-          <Avatar style={{background: status.color}} new={status.id === 0}>
-            {status.icon}
-          </Avatar>
-        </Tooltip>
-        <DocumentTitle primary={name} />
-        <DocumentInfo primary={status.title} secondary="Статус" />
-        {
-          date &&
-            <DocumentInfo primary={date} secondary="Дата" />
-        }
-        <DocumentInfo primary={recipient} secondary="Получатель" />
-        <DocumentInfo primary={period} secondary="Период" />
-        <DocumentMenuWrapper>
-          <IconButton onClick={this.openMenu}>
-            <MoreVertIcon />
-          </IconButton>
-          <DocumentMenu
-            anchorEl={anchorEl}
-            onClose={this.closeMenu}
-            statusId={statusId}
-          />
-        </DocumentMenuWrapper>
-      </DocumentItem>
+      <Link href="/grid/view">
+        <DocumentItem dense button divider>
+          <Tooltip title={status.title} placement="right">
+            <Avatar style={{background: status.color}} new={status.id === 0}>
+              {status.icon}
+            </Avatar>
+          </Tooltip>
+          <DocumentTitle primary={name} />
+          <DocumentInfo primary={status.title} secondary="Статус" />
+          {
+            date &&
+              <DocumentInfo primary={date} secondary="Дата" />
+          }
+          <DocumentInfo primary={recipient} secondary="Получатель" />
+          <DocumentInfo primary={period} secondary="Период" />
+          <DocumentMenuWrapper>
+            <IconButton onClick={this.openMenu}>
+              <MoreVertIcon />
+            </IconButton>
+            <DocumentMenu
+              anchorEl={anchorEl}
+              onClose={this.closeMenu}
+              statusId={statusId}
+            />
+          </DocumentMenuWrapper>
+        </DocumentItem>
+      </Link>
     );
   }
 }
