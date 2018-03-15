@@ -14,7 +14,7 @@ export const DocumentItem = styled(ListItem)`
   justify-content: space-between;
   align-items: center;
   background: #fff !important;
-  padding: 10px 20px !important;
+  padding: 5px 20px 5px 30px !important;
   border-left: 1px solid #e3e4e8 !important;
   border-right: 1px solid #e3e4e8 !important;
   color: ${p => p.theme.palette.secondColor} !important;
@@ -38,6 +38,7 @@ export const DocumentItem = styled(ListItem)`
 
 export const DocumentTitle = styled(ListItemText)`
   flex: 0 0 20% !important;
+  padding: 0 20px !important;
 `;
 
 export const DocumentInfo = styled(ListItemText)`
@@ -58,6 +59,8 @@ export const Tooltip = styled(MuiTooltip)`
 `;
 
 export const Avatar = styled(MUIAvatar)`
+  width: 32px !important;
+  height: 32px !important;
   border: ${p => p.new && "1.5px dashed #ccc"};
   ${p => p.new ? 'svg' : '__none'} {
     color: #ccc;

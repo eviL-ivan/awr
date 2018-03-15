@@ -30,7 +30,7 @@ export const CustomBadge = styled(Badge)`
 `;
 
 export const ProfileMenuItem = styled(MenuItem)`
-  color: ${p => p.theme.palette.mainColor};
+  color: ${p => p.theme.palette.secondColor} !important;
 `;
 
 export const ProfileMenu = styled(Menu)`
