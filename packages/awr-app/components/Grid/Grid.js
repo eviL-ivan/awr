@@ -3,21 +3,14 @@ import React from 'react';
 import DateGroup from "./DateGroup";
 import GridToolbar from "./GridToolbar";
 // Константы
-import { DOCUMENTS } from "./TempConstants";
-
-const DIRECTIONS = {
-  pfr: "ПФР",
-  rosstat: "Росстат",
-  putin: "Путин",
-  fns: "ФНС"
-};
+import { DOCUMENTS, DIRECTIONS } from "./TempConstants";
 
 class Grid extends React.Component {
   state = {
-    directions: []
+    directions: Object.keys(DIRECTIONS)
   };
 
-  // Выбрать / Снять выделение направления
+  // Выбрать/Снять выделение направления
   toggleDirection = direction => () => {
     this.setState(state => ({
       directions:
@@ -27,7 +20,7 @@ class Grid extends React.Component {
     }))
   };
 
-  // Выбрать / Снять выделение всех направлений
+  // Выбрать/Снять выделение всех направлений
   toggleAllDirections = () => {
     this.setState(state => ({
       directions:

@@ -5,6 +5,8 @@ import MUIButton from "material-ui/Button";
 import Typography from "material-ui/Typography";
 import { FormControl, FormHelperText } from 'material-ui/Form';
 import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
+// Константы
+import { DIRECTIONS } from "./TempConstants";
 // Иконки
 import SelectIcon from "material-ui-icons/Check";
 import SearchIcon from "material-ui-icons/Search";
@@ -37,14 +39,6 @@ const Button = styled(MUIButton)`
     opacity: ${p => p.selected ? "1" : "0.1"} !important;
   }
 `;
-
-const DIRECTIONS = {
-  pfr: "ПФР",
-  rar: "РАР",
-  rosstat: "Росстат",
-  fns: "ФНС",
-  fss: "ФСС"
-};
 
 class GridToolbar extends React.Component {
   render() {

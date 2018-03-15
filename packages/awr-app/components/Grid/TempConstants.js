@@ -17,6 +17,14 @@ const CustomSendIcon = styled(SendIcon)`
   transform: scaleX(-1);
 `;
 
+export const DIRECTIONS = {
+  pfr: "ПФР",
+  rar: "РАР",
+  rosstat: "Росстат",
+  fns: "ФНС",
+  fss: "ФСС"
+};
+
 export const DOCUMENTS = [
   {
     date: "28.02.2018",
