@@ -1,14 +1,20 @@
 import React from "react";
+
+// Sidebar Icons
 import CalendarIcon from "material-ui-icons/DateRange";
-import FilesIcon from "material-ui-icons/Description";
 import MailIcon from "material-ui-icons/Mail";
 import DocumentsIcon from "material-ui-icons/Assignment";
-import IncomingIcon from "material-ui-icons/CallReceived";
 import LabelIcon from "material-ui-icons/Folder";
 import AnnouncementIcon from "material-ui-icons/Announcement";
 import QueryIcon from "material-ui-icons/RecordVoiceOver";
 import HelpIcon from "material-ui-icons/Help";
 import RssIcon from "material-ui-icons/RssFeed";
+
+// Profile Menu icons
+import ExitIcon from "material-ui-icons/ExitToApp";
+import SettingsIcon from "material-ui-icons/Settings";
+import LinkIcon from "material-ui-icons/BookmarkBorder";
+import PersonIcon from "material-ui-icons/Person";
 
 export const SIDEBAR_MENU = [
   {
@@ -17,32 +23,19 @@ export const SIDEBAR_MENU = [
     icon: <DocumentsIcon />,
     children: [
       {
-        title: "Все отчёты",
-        icon: <DocumentsIcon />
+        title: "Все отчёты/Андрей",
+        icon: <DocumentsIcon />,
+        link: "/mainLayoutProto"
       },
       {
-        title: "ПФР",
-        icon: <LabelIcon />
+        title: "Все отчёты/Миша",
+        icon: <DocumentsIcon />,
+        link: "/grid"
       },
       {
-        title: "РАР",
-        icon: <LabelIcon />
-      },
-      {
-        title: "Росстат",
-        icon: <LabelIcon />
-      },
-      {
-        title: "РПН",
-        icon: <LabelIcon />
-      },
-      {
-        title: "ФНС",
-        icon: <LabelIcon />
-      },
-      {
-        title: "ФСС",
-        icon: <LabelIcon />
+        title: "Ссылка",
+        icon: <LabelIcon />,
+        link: "/link"
       }
     ]
   },
@@ -53,11 +46,8 @@ export const SIDEBAR_MENU = [
     children: [
       {
         title: "Все требования",
-        icon: <AnnouncementIcon />
-      },
-      {
-        title: "ФНС",
-        icon: <LabelIcon />
+        icon: <AnnouncementIcon />,
+        link: "/demands"
       }
     ]
   },
@@ -68,27 +58,13 @@ export const SIDEBAR_MENU = [
     children: [
       {
         title: "Все письма",
-        icon: <MailIcon />
+        icon: <MailIcon />,
+        link: "/messages"
       },
       {
         title: "Рассылки",
-        icon: <RssIcon />
-      },
-      {
-        title: "ПФР",
-        icon: <LabelIcon />
-      },
-      {
-        title: "РАР",
-        icon: <LabelIcon />
-      },
-      {
-        title: "Росстат",
-        icon: <LabelIcon />
-      },
-      {
-        title: "ФНС",
-        icon: <LabelIcon />
+        icon: <RssIcon />,
+        link: "/mass"
       }
     ]
   },
@@ -99,57 +75,51 @@ export const SIDEBAR_MENU = [
     children: [
       {
         title: "Все запросы",
-        icon: <QueryIcon />
-      },
-      {
-        title: "ПФР",
-        icon: <LabelIcon />
-      },
-      {
-        title: "ФНС",
-        icon: <LabelIcon />
-      },
-      {
-        title: "ФСС",
-        icon: <LabelIcon />
+        icon: <QueryIcon />,
+        link: "/queries"
       }
     ]
   },
   {
     title: "Календарь бухгалтера",
     key: "calendar",
-    icon: <CalendarIcon />
+    icon: <CalendarIcon />,
+    link: "/report"
   },
   {
     title: "Помощь",
     key: "help",
-    icon: <HelpIcon />
+    icon: <HelpIcon />,
+    link: "/help"
   }
 ];
 
-export const directionsConfig = [
+export const PROFILE_MENU = [
   {
-    direction: "fns",
-    title: "ФНС"
+    key: "profile",
+    title: "Профиль",
+    icon: <PersonIcon />,
+    divider: true
   },
   {
-    direction: "rpn",
-    title: "РПН"
+    key: "settings",
+    title: "Настройки",
+    icon: <SettingsIcon />
   },
   {
-    direction: "rar",
-    title: "РАР"
+    key: "link1",
+    title: "Ссылка",
+    icon: <LinkIcon />
   },
   {
-    direction: "fss",
-    title: "ФСС"
+    key: "link2",
+    title: "Ссылка",
+    icon: <LinkIcon />,
+    divider: true
   },
   {
-    direction: "rosstat",
-    title: "Росстат"
-  },
-  {
-    direction: "pfr",
-    title: "ПФР"
+    key: "profile",
+    title: "Выход",
+    icon: <ExitIcon />
   }
 ];

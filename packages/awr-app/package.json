@@ -17,6 +17,7 @@
     "awr-validation": "^1.0",
     "final-form": "^4.2.1",
     "jss": "latest",
+    "lodash": "latest",
     "material-ui": "next",
     "material-ui-icons": "latest",
     "mobx": "3.6.1",

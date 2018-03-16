@@ -1,3 +1,4 @@
 /.vscode
 /packages/awr-app/node_modules
 /packages/awr-app/.next
+/lerna-debug.log

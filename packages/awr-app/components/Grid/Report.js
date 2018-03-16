@@ -1,52 +1,56 @@
 import React from 'react';
-import styled from "styled-components";
-import { IconButton } from "material-ui";
-import List, { ListItem, ListItemIcon, ListItemText, ListSubheader } from "material-ui/List";
+import IconButton from "material-ui/IconButton";
+import List from "material-ui/List";
 import { Collapse } from 'material-ui/transitions';
-import ExpandLess from 'material-ui-icons/ExpandLess';
+// Компоненты
+import CircularProgressBar from "../Common/CircularProgressBar";
 import Document from "./Document";
-
-const ReportWrapper = styled(ListItem)`
-  background: #fff !important;
-  box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
-  color: ${p => p.theme.palette.secondColor} !important;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const ReportTitle = styled(ListItemText)`
-  flex-grow: 1;
-`;
-
-const ReportInfo = styled(ListItemText)`
-  padding: 0 20px !important;
-  display: flex;
-  flex-grow: 0 !important;
-  flex-direction: column-reverse !important;
-  align-items: center !important;
-`;
-
-const ExpandIcon = styled(ExpandLess)`
-  transform: rotate(${p => p.open ? "0deg" : "180deg"});
-  transition: all .3s !important;
-`;
+// Стайлд
+import {
+  ReportWrapper, ReportTitle,
+  ReportInfo, ExpandIcon } from "./Styled/Report";
 
 class Report extends React.Component {
-  state = { open: false };
+  // разворачиваем по дефолту первый отчёт в первой группе по дате
+  state = { open: !this.props.index && !this.props.groupIndex };
 
-  handleClick = () => {
+  // Развернуть/Свернуть список организаций в отчёте
+  toggleReport = () => {
     this.setState({ open: !this.state.open });
   };
 
+  // общее количество организаций по одному отчету
+  getTotal = () => this.props.documents.length;
+  // Количество организаций, у которых отчет в статусе "Завершен"
+  getCompleted = () => this.props.documents.reduce((count, report) => report.status === 3 ? ++count : count, 0);
+
+  // сортировка отчетов по полю
+  sortDocuments = (field, ascending = true) => {
+    const compare = (a,b) => {
+      if (a[field] < b[field])
+        return -1;
+      if (a[field] > b[field])
+        return 1;
+      return 0;
+    };
+
+    return ascending
+      ? this.props.documents.sort(compare)
+      : this.props.documents.sort(compare).reverse();
+  };
+
   render() {
-    const { name, description, direction, documents } = this.props;
+    const { name, description, direction } = this.props;
     const { open } = this.state;
 
     return [
-      <ReportWrapper button onClick={this.handleClick}>
-        <div>Circle</div>
+      <ReportWrapper button onClick={this.toggleReport}>
+        <CircularProgressBar
+          strokeWidth={4}
+          sqSize={55}
+          percentage={parseInt(this.getCompleted()/this.getTotal()*100)}
+          text={`${this.getCompleted()}/${this.getTotal()}`}
+        />
         <ReportTitle primary={name} secondary={description} />
         <ReportInfo primary={direction} secondary="Направление" />
         <IconButton>
@@ -56,7 +60,11 @@ class Report extends React.Component {
       <Collapse in={open} timeout="auto">
         <List disablePadding>
           {
+<<<<<<< HEAD
             documents.map(document => (
+=======
+            this.sortDocuments("status", false).map(document => (
+>>>>>>> 838d1b9bfad7d952e11a645a39522b88e417b604
               <Document document={document}/>
             ))
           }
