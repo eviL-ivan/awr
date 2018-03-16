@@ -10,7 +10,7 @@ import { Flex, Margin } from "components/Common/positional";
 
 class Filters extends Component {
   render() {
-    const { className } = this.props;
+    const { className, changeDirections, activeDirections } = this.props;
     return (
       <div className={className}>
         <Container>
@@ -19,7 +19,10 @@ class Filters extends Component {
             <Margin right="20">
               <Year />
             </Margin>
-            <Directions />
+            <Directions
+              changeDirections={changeDirections}
+              activeDirections={activeDirections}
+            />
           </Flex>
 
           <Search />
@@ -37,7 +40,8 @@ export default styled(Filters)`
   width: 100%;
   padding: 20px 0;
 
-  box-shadow: 0 5px 10px #686868;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 
   z-index: 20;
 `;

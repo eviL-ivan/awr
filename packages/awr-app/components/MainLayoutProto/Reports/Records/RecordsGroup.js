@@ -39,6 +39,7 @@ class RecordsGroup extends Component {
   }
 
   render() {
+    console.log("this.props", this.props);
     const { stats, checked } = this.state;
     const {
       data: { title, direction, directionTitle, recordReports },
@@ -72,7 +73,7 @@ class RecordsGroup extends Component {
         <GroupContainer>
           <RecordItemTitles inGroup />
           {_recordReports.length > 3 ? (
-            <Collapse in={checked} collapsedHeight="210px" timeout={300}>
+            <Collapse in={checked} collapsedHeight="180px" timeout={300}>
               {_recordReports}
             </Collapse>
           ) : (
@@ -105,7 +106,11 @@ export default styled(RecordsGroup)`
 const ColapseBtnContainer = styled.div`
   display: flex;
   justify-content: center;
+
   height: 40px;
+
+  box-shadow: 0px -5px 12px -11px;
+
   & svg {
     height: 80%;
     width: 80%;
@@ -131,6 +136,7 @@ const TitleContainer = styled.div`
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
+  padding-right: 10px;
 `;
 const Period = styled.div`
   text-decoration: underline;

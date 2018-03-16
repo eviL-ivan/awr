@@ -176,7 +176,7 @@ const RecordItemContainer = styled.div`
 
   flex-direction: row;
   width: 100%;
-  padding: 10px 10px;
+  padding: 5px 5px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #a52a2a33;

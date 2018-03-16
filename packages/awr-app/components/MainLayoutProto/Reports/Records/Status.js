@@ -22,7 +22,8 @@ const commonStyle = {
   width: "100%",
   height: "100%",
   color: "white",
-  padding: "10px"
+  padding: "10px",
+  opacity: 0.7
 };
 
 const Status = ({ className, status }) => (

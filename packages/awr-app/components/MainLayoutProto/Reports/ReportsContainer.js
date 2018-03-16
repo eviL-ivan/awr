@@ -4,50 +4,37 @@ import RecordsGroup from "./Records/RecordsGroup";
 import Paper from "material-ui/Paper";
 
 function ReportsContainer({
-  data,
+  date,
   records,
   toggleInformationWindow,
   organization,
   directions
 }) {
-  const _records = records.reduce((prev, item, index) => {
-    let recordGroup = null;
-    let recordsData = item.recordReports;
-    let data = item;
-    //если выбрана кака-то конкретная
-    if (organization !== "all") {
-      recordsData = item.recordReports.find(
-        item => item.organization == organization
-      );
+  // let _records = records.reduce((prev, item, index) => {
+  let recordGroup = null;
+  let recordsData = records.recordReports;
+  console.log("recordsData", recordsData);
+  // console.log("records", records);
 
-      if (recordsData) {
-        data = { ...item, recordReports: [recordsData] };
-      }
-    }
-
-    recordGroup = (
-      <RecordsGroup
-        toggleInformationWindow={toggleInformationWindow}
-        data={data}
-      />
-    );
-    //пушим элеиенты отчета по записям
-    if (recordsData)
-      prev.push(
-        <ReportContent key={index + item.title} elevation={2}>
-          {recordGroup}
+  //если выбрана кака-то конкретная
+  if (organization !== "all") {
+    recordsData = recordsData.filter(item => item.organization == organization);
+  }
+  console.log("recordsData after", recordsData);
+  // console.log("records", records);
+  if (recordsData.length) {
+    return (
+      <Report>
+        <DataBlock today={date == "Сегодня"}>{date}</DataBlock>
+        <ReportContent elevation={2}>
+          <RecordsGroup
+            toggleInformationWindow={toggleInformationWindow}
+            data={{ ...records, recordReports: recordsData }}
+          />
         </ReportContent>
-      );
-    return prev;
-  }, []);
-
-  if (!_records.length) return null;
-  return (
-    <Report>
-      <DataBlock today={data == "Сегодня"}>{data}</DataBlock>
-      {_records}
-    </Report>
-  );
+      </Report>
+    );
+  } else return null;
 }
 
 export default ReportsContainer;

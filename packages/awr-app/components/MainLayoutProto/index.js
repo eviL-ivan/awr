@@ -12,48 +12,60 @@ import ReportsContainer from "./Reports/ReportsContainer";
 import ReportInformationWindow from "../ReportInformationWindow";
 import Filters from "./Filters";
 import { directionsConfig } from "components/Layout/ConstantsTemp";
+import { log } from "util";
 
 class Documents extends React.Component {
   state = {
     reportInfo: null,
     directions: []
   };
-  selectDirection = data => {
-    if (data == "all")
-      return this.setState({
-        directions: directionsConfig
-      });
-    this.setState({});
-  };
-  toggleInformationWindow = e => {
-    // e.preventDeafault();
-    // debugger;
-    console.log("e", e.target);
 
+  changeDirections = data => {
+    if (!this.state.directions.find(item => item.direction == data.direction)) {
+      this.setState({
+        directions: [...this.state.directions, data]
+      });
+    } else
+      this.setState({
+        directions: this.state.directions.filter(
+          item => item.direction !== data.direction
+        )
+      });
+  };
+
+  toggleInformationWindow = e => {
     if (e.target) {
-      //e.stopPropagination();
       return this.setState({ reportInfo: null });
     }
     this.setState({ reportInfo: e });
   };
 
   render() {
-    const { className, organization, directions } = this.props;
+    const { directions } = this.state;
+    const { className, organization } = this.props;
+    console.log("changeDirections", directions);
+
     return (
       <div className={className}>
-        <Filters />
+        <Filters
+          activeDirections={directions}
+          changeDirections={this.changeDirections}
+        />
         <Container onClick={this.toggleInformationWindow}>
           <Content>
-            {reports.map(({ data, records }, idx) => (
-              <ReportsContainer
-                key={idx}
-                data={data}
-                records={records}
-                organization={organization}
-                directions={directions}
-                toggleInformationWindow={this.toggleInformationWindow}
-              />
-            ))}
+            {reports.map(({ date, records }, idx) => {
+              console.log();
+              return (
+                <ReportsContainer
+                  key={idx}
+                  date={"28 марта 2018"}
+                  records={records}
+                  organization={organization}
+                  directions={directions}
+                  toggleInformationWindow={this.toggleInformationWindow}
+                />
+              );
+            })}
             <ReportInformationWindow
               data={this.state.reportInfo}
               toggleInformationWindow={this.toggleInformationWindow}

@@ -19,7 +19,9 @@ import ReportPeriodBlock from "../../Common/ReportPeriodBlock";
 import RecordSmallInfoBlock from "./RecordSmallInfoBlock";
 import { Flex, Margin, FlexRow } from "components/Common/positional";
 
-const iconStyle = { color: "white", fontSize: "30px" };
+//const iconStyle = { color: "white", fontSize: "30px" };
+
+const iconStyle = { fontSize: "30px" };
 
 const Actions = ({ status, hover = false }) => {
   if (status == "complite") return <ActionsBlock grow={1} />;
@@ -75,13 +77,13 @@ const ActionsBtnConfig = {
     //component: <CreateNewFolder style={iconStyle} />,
     component: FileDownload,
     title: "Выгрузить",
-    back: "lightgray"
+    back: "gray"
   },
   print: {
     //component: <CreateNewFolder style={iconStyle} />,
     component: Print,
     title: "Печать",
-    back: "lightgray"
+    back: "gray"
   },
   send: {
     component: Send,
@@ -100,10 +102,24 @@ const statusConfig = {
 //STYLED-COMPONENTS
 /////////////////////////////
 const ActionBtn = styled(Button)`
-  opacity: ${p => (p.status == "notCreate" || p.hover ? 1 : 0.2)} !important;
-  background: ${p => (p.background ? p.background : "black")} !important;
-  min-width: 40px !important;
-  padding: 0px 10px !important;
+  box-shadow: none !important;
+  opacity: ${p => (p.status == "notCreate" || p.hover ? 0.6 : 0.4)} !important;
+  background: ${p => {
+    if (p.status == "notCreate") return p.background;
+    if (p.hover && p.background) {
+      return p.background;
+    } else return "lightgray";
+  }} !important;
+
+  & svg {
+    color: ${p => {
+      if (p.hover) return "white";
+      else return "rgba(0, 0, 0, 0.67)";
+    }} !important;
+  }
+  min-width: 30px !important;
+  /* padding: 0px 5px !important; */
+  padding: 5px !important;
   font-size: 12px !important;
 `;
 
