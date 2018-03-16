@@ -17,6 +17,7 @@
     "awr-validation": "^1.0",
     "final-form": "^4.2.1",
     "jss": "latest",
+    "lodash": "latest",
     "material-ui": "next",
     "material-ui-icons": "latest",
     "mobx": "3.6.1",
@@ -28,7 +29,6 @@
     "react-dom": "^16.2.0",
     "react-final-form": "^3.1.2",
     "react-jss": "latest",
-    "react-popper": "^0.8.2",
     "react-swipeable-views": "^0.12.13",
     "styled-components": "^3.2.0"
   },
