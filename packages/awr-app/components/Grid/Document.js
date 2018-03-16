@@ -19,14 +19,10 @@ class Document extends React.Component {
   };
 
   openMenu = event => {
-    // блокируем переход к просмотру документа при клике на иконку меню
-    event.stopPropagation();
     this.setState({ anchorEl: event.currentTarget });
   };
 
   closeMenu = e => {
-    // блокируем переход к просмотру документа при клике на иконку меню
-    e.stopPropagation();
     this.setState({ anchorEl: null });
   };
 
@@ -41,33 +37,33 @@ class Document extends React.Component {
     const status = this.getStatus(statusId);
 
     return (
-      <Link href="/grid/view">
-        <DocumentItem dense button divider>
-          <Tooltip title={status.title} placement="right">
-            <Avatar style={{background: status.color}} new={status.id === 0}>
-              {status.icon}
-            </Avatar>
-          </Tooltip>
+      <DocumentItem dense button divider>
+        <Tooltip title={status.title} placement="right">
+          <Avatar style={{background: status.color}} new={status.id === 0}>
+            {status.icon}
+          </Avatar>
+        </Tooltip>
+        <Link href="/grid/view">
           <DocumentTitle primary={name} />
-          <DocumentInfo primary={status.title} secondary="Статус" />
-          {
-            date &&
-              <DocumentInfo primary={date} secondary="Дата" />
-          }
-          <DocumentInfo primary={recipient} secondary="Получатель" />
-          <DocumentInfo primary={period} secondary="Период" />
-          <DocumentMenuWrapper>
-            <IconButton onClick={this.openMenu}>
-              <MoreVertIcon />
-            </IconButton>
-            <DocumentMenu
-              anchorEl={anchorEl}
-              onClose={this.closeMenu}
-              statusId={statusId}
-            />
-          </DocumentMenuWrapper>
-        </DocumentItem>
-      </Link>
+        </Link>
+        <DocumentInfo primary={status.title} secondary="Статус" />
+        {
+          date &&
+            <DocumentInfo primary={date} secondary="Дата" />
+        }
+        <DocumentInfo primary={recipient} secondary="Получатель" />
+        <DocumentInfo primary={period} secondary="Период" />
+        <DocumentMenuWrapper>
+          <IconButton onClick={this.openMenu}>
+            <MoreVertIcon />
+          </IconButton>
+          <DocumentMenu
+            anchorEl={anchorEl}
+            onClose={this.closeMenu}
+            statusId={statusId}
+          />
+        </DocumentMenuWrapper>
+      </DocumentItem>
     );
   }
 }

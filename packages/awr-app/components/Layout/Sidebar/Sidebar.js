@@ -11,7 +11,7 @@ const Sidebar = (props) => {
   return(
     <aside className={className}>
       <Logo expanded={expanded} />
-      <CreateDocumentButton expanded={expanded} />
+      <CreateDocumentButton expanded={expanded} title="Создать документ" />
       <Menu expanded={expanded} url={url} />
     </aside>
   )
