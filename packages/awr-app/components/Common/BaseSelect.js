@@ -55,6 +55,8 @@ class BaseSelect extends Component {
 export default styled(BaseSelect)`
   display: flex;
   flex-wrap: wrap;
+
+  margin-top: -16px !important;
 `;
 
 const FormControlContainer = styled(FormControl)`

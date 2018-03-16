@@ -21,7 +21,6 @@ const FlexColumn = Flex.extend`
 `;
 
 const Margin = styled.div`
-  display: flex;
   margin-left: ${p => (p.left ? p.left + "px" : 0)};
   margin-right: ${p => (p.right ? p.right + "px" : 0)};
   margin-bottom: ${p => (p.bottom ? p.bottom + "px" : 0)};

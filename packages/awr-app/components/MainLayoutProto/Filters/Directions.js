@@ -4,11 +4,17 @@ import styled from "styled-components";
 import Button from "material-ui/Button";
 
 import { directionsConfig } from "components/Layout/ConstantsTemp";
+import { Flex, Margin } from "components/Common/positional";
+
 class Directions extends Component {
   render() {
     return (
       <div>
-        <span>Направления :</span>
+        <Margin right="20">
+          <Flex>
+            <span>Направления :</span>
+          </Flex>
+        </Margin>
         <ButtonContainer variant="raised">ВСЕ</ButtonContainer>
         {directionsConfig.map((item, idx) => (
           <ButtonContainer variant="raised">{item.title}</ButtonContainer>

@@ -4,7 +4,9 @@ import styled from "styled-components";
 import Period from "./Period";
 import Year from "./Year";
 import Directions from "./Directions";
-import { Flex } from "components/Common/positional";
+import Search from "./Search";
+
+import { Flex, Margin } from "components/Common/positional";
 
 class Filters extends Component {
   render() {
@@ -14,9 +16,13 @@ class Filters extends Component {
         <Container>
           <Flex>
             <Period />
-            <Year />
+            <Margin right="20">
+              <Year />
+            </Margin>
+            <Directions />
           </Flex>
-          <Directions />
+
+          <Search />
         </Container>
       </div>
     );
