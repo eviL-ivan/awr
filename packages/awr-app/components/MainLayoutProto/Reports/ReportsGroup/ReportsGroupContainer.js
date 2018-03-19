@@ -5,16 +5,16 @@ import ReportsGroup from "./ReportsGroup";
 
 import Paper from "material-ui/Paper";
 
-function ReportsGroupContainer({ data, records, organization, directions }) {
+function ReportsGroupContainer({ date, records, organization, directions }) {
   const _records = records.reduce((prev, item, index) => {
     let Record = null;
 
     //если все организации
-    if (organization == "all") Record = <ReportsGroup data={item} />;
+    if (organization === "all") Record = <ReportsGroup data={item} />;
     else {
       //если выбрана кака-то конкретная
       let _recordData = item.recordReports.find(
-        item => item.organization == organization
+        item => item.organization === organization
       );
       //тут нужно будет поставить отдельное отображения для одного отчета
       if (_recordData) {
@@ -34,7 +34,7 @@ function ReportsGroupContainer({ data, records, organization, directions }) {
   if (!_records.length) return null;
   return (
     <Container>
-      <DateBlock today={data == "Сегодня"}>{data}</DateBlock>
+      <DateBlock today={date === "Сегодня"}>{date}</DateBlock>
       {_records}
     </Container>
   );

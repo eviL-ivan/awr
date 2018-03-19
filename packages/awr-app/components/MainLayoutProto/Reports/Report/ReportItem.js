@@ -125,7 +125,7 @@ const InfoBlock = styled.div`
 
   width: 100%;
 
-  opacity: ${p => p.status == "notCreate" && "0.5"};
+  opacity: ${p => p.status === "notCreate" && "0.5"};
 `;
 
 const RecordItemContainer = styled.div`

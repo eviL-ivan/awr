@@ -1,12 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import Paper from "material-ui/Paper";
-import Icon from "material-ui/Icon";
-import DoneIcon from "material-ui-icons/Person";
-import Done from "material-ui-icons/Done";
-import Clear from "material-ui-icons/Clear";
-
 import reports from "./Reports/reportsData";
 import ReportsGroupContainer from "./Reports/ReportsGroup/ReportsGroupContainer";
 import ReportInformationWindow from "../ReportInformationWindow";
@@ -19,7 +13,7 @@ class ReportsDashBoard extends React.Component {
     directions: []
   };
   selectDirection = data => {
-    if (data == "all")
+    if (data === "all")
       return this.setState({
         directions: directionsConfig
       });
@@ -28,8 +22,6 @@ class ReportsDashBoard extends React.Component {
   toggleInformationWindow = e => {
     // e.preventDeafault();
     // debugger;
-    console.log("e", e.target);
-
     if (e.target) {
       //e.stopPropagination();
       return this.setState({ reportInfo: null });
@@ -44,10 +36,10 @@ class ReportsDashBoard extends React.Component {
         <Filters />
         <Container onClick={this.toggleInformationWindow}>
           <Content>
-            {reports.map(({ data, records }, idx) => (
+            {reports.map(({ date, records }, idx) => (
               <ReportsGroupContainer
                 key={idx}
-                data={data}
+                date={date}
                 records={records}
                 organization={organization}
                 directions={directions}

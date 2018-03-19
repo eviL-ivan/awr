@@ -124,10 +124,6 @@ const TitleContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
 `;
-const Period = styled.div`
-  text-decoration: underline;
-  margin-right: 20px;
-`;
 
 const GroupContainer = styled.div`
   padding: 0 15px;

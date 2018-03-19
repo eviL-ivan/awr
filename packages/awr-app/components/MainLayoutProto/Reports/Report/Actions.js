@@ -16,7 +16,7 @@ import { Flex } from "components/Common/positional";
 const iconStyle = { color: "white", fontSize: "30px" };
 
 const Actions = ({ status, hover = false }) => {
-  if (status == "complite") return <ActionsBlock grow={1} />;
+  if (status === "complite") return <ActionsBlock grow={1} />;
   return (
     <ActionsBlock grow={1}>
       {statusConfig[status].map((item, index) => {
@@ -94,7 +94,7 @@ const statusConfig = {
 //STYLED-COMPONENTS
 /////////////////////////////
 const ActionBtn = styled(Button)`
-  opacity: ${p => (p.status == "notCreate" || p.hover ? 1 : 0.2)} !important;
+  opacity: ${p => (p.status === "notCreate" || p.hover ? 1 : 0.2)} !important;
   background: ${p => (p.background ? p.background : "black")} !important;
   min-width: 40px !important;
   padding: 0px 10px !important;
