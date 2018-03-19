@@ -39,4 +39,6 @@ const data = [
 
 export default styled(Period)`
   margin-right: 20px;
+  display: flex;
+  align-items: center;
 `;

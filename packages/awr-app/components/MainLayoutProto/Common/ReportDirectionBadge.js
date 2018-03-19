@@ -36,8 +36,3 @@ const Container = styled.div`
     bottom: -10px;
   }
 `;
-
-const directionConf = {
-  fns: "ФНС",
-  rpn: "РПН"
-};

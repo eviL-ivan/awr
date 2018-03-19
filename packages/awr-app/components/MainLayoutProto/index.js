@@ -1,71 +1,51 @@
 import React from "react";
 import styled from "styled-components";
 
-import Paper from "material-ui/Paper";
-import Icon from "material-ui/Icon";
-import DoneIcon from "material-ui-icons/Person";
-import Done from "material-ui-icons/Done";
-import Clear from "material-ui-icons/Clear";
-
 import reports from "./Reports/reportsData";
-import ReportsContainer from "./Reports/ReportsContainer";
+import ReportsGroupContainer from "./Reports/ReportsGroup/ReportsGroupContainer";
 import ReportInformationWindow from "../ReportInformationWindow";
 import Filters from "./Filters";
 import { directionsConfig } from "components/Layout/ConstantsTemp";
-import { log } from "util";
 
-class Documents extends React.Component {
+class ReportsDashBoard extends React.Component {
   state = {
     reportInfo: null,
     directions: []
   };
-
-  changeDirections = data => {
-    if (!this.state.directions.find(item => item.direction == data.direction)) {
-      this.setState({
-        directions: [...this.state.directions, data]
+  selectDirection = data => {
+    if (data === "all")
+      return this.setState({
+        directions: directionsConfig
       });
-    } else
-      this.setState({
-        directions: this.state.directions.filter(
-          item => item.direction !== data.direction
-        )
-      });
+    this.setState({});
   };
-
   toggleInformationWindow = e => {
+    // e.preventDeafault();
+    // debugger;
     if (e.target) {
+      //e.stopPropagination();
       return this.setState({ reportInfo: null });
     }
     this.setState({ reportInfo: e });
   };
 
   render() {
-    const { directions } = this.state;
-    const { className, organization } = this.props;
-    console.log("changeDirections", directions);
-
+    const { className, organization, directions } = this.props;
     return (
       <div className={className}>
-        <Filters
-          activeDirections={directions}
-          changeDirections={this.changeDirections}
-        />
+        <Filters />
         <Container onClick={this.toggleInformationWindow}>
           <Content>
-            {reports.map(({ date, records }, idx) => {
-              console.log();
-              return (
-                <ReportsContainer
-                  key={idx}
-                  date={"28 марта 2018"}
-                  records={records}
-                  organization={organization}
-                  directions={directions}
-                  toggleInformationWindow={this.toggleInformationWindow}
-                />
-              );
-            })}
+            {reports.map(({ date, records }, idx) => (
+              <ReportsGroupContainer
+                key={idx}
+                date={date}
+                records={records}
+                organization={organization}
+                directions={directions}
+                toggleInformationWindow={this.toggleInformationWindow}
+              />
+            ))}
             <ReportInformationWindow
               data={this.state.reportInfo}
               toggleInformationWindow={this.toggleInformationWindow}
@@ -77,7 +57,7 @@ class Documents extends React.Component {
   }
 }
 
-export default styled(Documents)`
+export default styled(ReportsDashBoard)`
   position: relative;
 
   display: flex;

@@ -1,40 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import Paper from "material-ui/Paper";
-import Icon from "material-ui/Icon";
-import DoneIcon from "material-ui-icons/Person";
-import LogoDirection from "./LogoDirection";
-import Edit from "material-ui-icons/Edit";
-import DeleteForever from "material-ui-icons/Delete";
-import CreateNewFolder from "material-ui-icons/CreateNewFolder";
-import RecordTitle from "./RecordTitle";
+
 import Status from "./Status";
-import ReportDirectionBadge from "../../Common/ReportDirectionBadge";
-import ReportPeriodBlock from "../../Common/ReportPeriodBlock";
-import RecordSmallInfoBlock from "./RecordSmallInfoBlock";
-import { Flex, Margin, FlexRow } from "components/Common/positional";
-import Button from "material-ui/Button";
-import Tooltip from "material-ui/Tooltip";
+import RecordSmallInfoBlock from "./SmallInfoBlock";
+import { Flex, Margin } from "components/Common/positional";
 import Actions from "./Actions";
+
 class RecordItem extends React.Component {
   state = {
     hover: false
   };
   render() {
     const {
-      title,
       inGroup = false,
-      direction,
-      data: {
-        organizationTitle,
-        sendData,
-        docLink,
-        docTitle,
-        period,
-        recipient,
-        status
-      },
-      toggleInformationWindow
+      data: { organizationTitle, sendData, recipient, status }
     } = this.props;
 
     return (
@@ -42,7 +21,6 @@ class RecordItem extends React.Component {
         inGroup={inGroup}
         active={this.state.hover}
         onMouseEnter={this.onMouseEnterHandler}
-        onMouseLeave={this.onMouseLeaveHandler}
         onMouseLeave={this.onMouseLeaveHandler}
         onClick={this.openInfo}
       >
@@ -131,42 +109,23 @@ export const RecordItemTitles = ({ inGroup }) => {
 /////////////////////////////
 //STYLED-COMPONENTS
 /////////////////////////////
-const BtnTitle = styled.span`
-  margin-right: 20px;
-`;
-
-const TitleWithStatusContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
 const DescriptionContainer = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: row;
   flex: 2;
   align-items: center;
-`;
 
-const TitleBlock = styled.div`
-  display: flex;
-  flex-direction: row;
   width: 100%;
-
-  margin-right: 20px;
 `;
 
 const InfoBlock = styled.div`
-  width: 100%;
-  flex-direction: row;
   display: flex;
+  flex-direction: row;
   justify-content: inherit;
-  opacity: ${p => p.status == "notCreate" && "0.5"};
-`;
 
-const Period = styled.div`
-  text-decoration: underline;
-  margin-right: 20px;
+  width: 100%;
+
+  opacity: ${p => p.status === "notCreate" && "0.5"};
 `;
 
 const RecordItemContainer = styled.div`
@@ -174,19 +133,24 @@ const RecordItemContainer = styled.div`
     border-bottom: none;
   }
 
-  flex-direction: row;
-  width: 100%;
-  padding: 5px 5px;
   display: flex;
   align-items: center;
+  flex-direction: row;
+
+  width: 100%;
+
+  padding: 10px 10px;
+
   border-bottom: 1px solid #a52a2a33;
+
   background: ${p => p.active && "rgba(171,124,207,0.2)"};
+
   cursor: ${p => p.active && "pointer"};
 `;
 
 const StatusContainer = styled.span`
-  margin-right: 20px;
   width: 50px;
+  margin-right: 20px;
 `;
 
 const TitlesContainer = RecordItemContainer.extend`

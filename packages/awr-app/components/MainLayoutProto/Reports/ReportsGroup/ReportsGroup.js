@@ -1,23 +1,17 @@
 import React, { Component } from "react";
 
-import RowDirection from "../../Common/RowDirection";
-import Status from "./Status";
-import LogoDirection from "./LogoDirection";
-import Edit from "material-ui-icons/Edit";
-import DeleteForever from "material-ui-icons/Delete";
-import CreateNewFolder from "material-ui-icons/CreateNewFolder";
 import styled from "styled-components";
-import RecordItem, { RecordItemTitles } from "./RecordItem";
-import RecordTitle from "./RecordTitle";
-import RecordStats from "./RecordStats";
+import RecordItem, { RecordItemTitles } from "../Report/ReportItem";
+import RecordTitle from "./Title";
+import RecordStats from "./Stats";
 import ReportDirectionBadge from "../../Common/ReportDirectionBadge";
-import ReportPeriodBlock from "../../Common/ReportPeriodBlock";
+
 import Collapse from "material-ui/transitions/Collapse";
 import ExpandLess from "material-ui-icons/ExpandLess";
 import ExpandMore from "material-ui-icons/ExpandMore";
 import IconButton from "material-ui/IconButton";
 
-class RecordsGroup extends Component {
+class ReportsGroup extends Component {
   state = {
     stats: {},
     // hover: false,
@@ -39,7 +33,6 @@ class RecordsGroup extends Component {
   }
 
   render() {
-    console.log("this.props", this.props);
     const { stats, checked } = this.state;
     const {
       data: { title, direction, directionTitle, recordReports },
@@ -58,14 +51,14 @@ class RecordsGroup extends Component {
     return (
       <div className={className}>
         <TitleContainer inGroup>
-          <TitleBlock inGroup>
+          <RightTitleBlock inGroup>
             <ReportDirectionBadge
               inGroup
               directionTitle={directionTitle}
               direction={direction}
             />
             <RecordTitle title={title} />
-          </TitleBlock>
+          </RightTitleBlock>
           <LeftTitleBlock>
             {recordReports.length !== 1 && <RecordStats data={stats} />}
           </LeftTitleBlock>
@@ -73,7 +66,7 @@ class RecordsGroup extends Component {
         <GroupContainer>
           <RecordItemTitles inGroup />
           {_recordReports.length > 3 ? (
-            <Collapse in={checked} collapsedHeight="180px" timeout={300}>
+            <Collapse in={checked} collapsedHeight="210px" timeout={300}>
               {_recordReports}
             </Collapse>
           ) : (
@@ -95,7 +88,7 @@ class RecordsGroup extends Component {
   }
 }
 
-export default styled(RecordsGroup)`
+export default styled(ReportsGroup)`
   font-size: 18px;
   width: 100%;
   transition: all;
@@ -106,27 +99,21 @@ export default styled(RecordsGroup)`
 const ColapseBtnContainer = styled.div`
   display: flex;
   justify-content: center;
-
   height: 40px;
-
-  box-shadow: 0px -5px 12px -11px;
-
   & svg {
     height: 80%;
     width: 80%;
   }
 `;
 
-const TitleBlock = styled.div`
+const RightTitleBlock = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
   flex: 1;
 `;
 
-const RightTitleBlock = styled.div``;
-
-const LeftTitleBlock = TitleBlock.extend`
+const LeftTitleBlock = RightTitleBlock.extend`
   justify-content: flex-end;
 `;
 
@@ -136,11 +123,6 @@ const TitleContainer = styled.div`
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  padding-right: 10px;
-`;
-const Period = styled.div`
-  text-decoration: underline;
-  margin-right: 20px;
 `;
 
 const GroupContainer = styled.div`
