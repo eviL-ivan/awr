@@ -9,17 +9,15 @@ import { Flex, Margin } from "components/Common/positional";
 class Directions extends Component {
   render() {
     return (
-      <div>
-        <Margin right="20">
-          <Flex>
-            <span>Направления :</span>
-          </Flex>
-        </Margin>
+      <Flex>
+        <TitleContainer>
+          <span>Направления :</span>
+        </TitleContainer>
         <ButtonContainer variant="raised">ВСЕ</ButtonContainer>
         {directionsConfig.map((item, idx) => (
           <ButtonContainer variant="raised">{item.title}</ButtonContainer>
         ))}
-      </div>
+      </Flex>
     );
   }
 }
@@ -37,4 +35,12 @@ const ButtonContainer = styled(Button)`
     color: black !important;
     background: lightgray !important;
   }
+`;
+
+const TitleContainer = styled.div`
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+
+  margin-right: 20px;
 `;

@@ -20,22 +20,31 @@ const Status = ({ className, status }) => (
     className={className}
     id="tooltip-icon"
     title={statusConfig[status].tooltip}
-    placement="left"
+    placement="right-end"
   >
     {statusConfig[status].comp}
   </Tooltip>
 );
 
 export default styled(Status)`
-  margin-right: 20px;
-  cursor: pointer;
   display: flex !important;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+
+  /* width: 50px;
+  height: 50px; */
+  width: 40px;
+  height: 40px;
+
+  margin-right: 20px;
   padding: 5px;
+
+  opacity: 0.7;
+
+  cursor: pointer;
+
   & > svg {
+    padding: 5px !important;
     border-radius: 50%;
     background: ${p =>
       statusConfig[p.status] ? statusConfig[p.status].background : null};

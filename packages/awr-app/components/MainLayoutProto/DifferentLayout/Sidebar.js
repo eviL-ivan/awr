@@ -1,13 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import { Button as MuiButton, IconButton } from "material-ui";
 import List, { ListItem, ListItemIcon, ListItemText } from "material-ui/List";
-import { Zoom, Collapse } from "material-ui/transitions";
-import ExpandLess from "material-ui-icons/ExpandLess";
-import ExpandMore from "material-ui-icons/ExpandMore";
-import AddCircleIcon from "material-ui-icons/NoteAdd";
-import PlusIcon from "material-ui-icons/Add";
-import MenuIcon from "material-ui-icons/Menu";
+import { Collapse } from "material-ui/transitions";
 import Add from "material-ui-icons/Add";
 import Button from "material-ui/Button";
 import Tooltip from "material-ui/Tooltip";
@@ -118,7 +112,7 @@ export default styled(Sidebar)`
     p.expanded ? p.theme.sidebarExpanded.width : p.theme.sidebar.width};
   transition: all 0.3s;
   height: calc(100vh - 60px);
-  z-index: 3;
+  z-index: 21;
 `;
 
 const opacityOpen = keyframes`

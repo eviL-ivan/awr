@@ -33,7 +33,9 @@ class ReportsDashBoard extends React.Component {
     const { className, organization, directions } = this.props;
     return (
       <div className={className}>
-        <Filters />
+        <FiltersContainer>
+          <Filters />
+        </FiltersContainer>
         <Container onClick={this.toggleInformationWindow}>
           <Content>
             {reports.map(({ date, records }, idx) => (
@@ -77,8 +79,19 @@ const Container = styled.div`
 
   height: 100%;
   width: 100%;
+`;
 
-  transition: all;
+const FiltersContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1;
+
+  width: 100%;
+  padding: 20px 0;
+
+  box-shadow: 0 40px 50px #f3f3f2;
 `;
 
 const Content = styled.div`
@@ -86,7 +99,8 @@ const Content = styled.div`
   flex-direction: column;
 
   height: 100%;
-  width: 95%;
+  width: 100%;
 
+  padding: 0 70px;
   margin-top: 30px;
 `;

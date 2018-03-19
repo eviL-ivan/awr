@@ -139,7 +139,7 @@ const RecordItemContainer = styled.div`
 
   width: 100%;
 
-  padding: 10px 10px;
+  padding: 5px;
 
   border-bottom: 1px solid #a52a2a33;
 
