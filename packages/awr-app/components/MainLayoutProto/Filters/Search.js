@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import styled from "styled-components";
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
-import TextField from "material-ui/TextField";
-import Search from "material-ui-icons/Search";
+import TextField from 'material-ui/TextField';
+import Search from 'material-ui-icons/Search';
 
 class SearchBlock extends Component {
   state = {
@@ -42,15 +42,15 @@ const SearchIcon = styled(Search)`
   position: absolute;
   left: 10px;
 
-  height: 100% !important;
+  height: 100%;
 
   color: ${p => p.theme.palette.mainColor};
 `;
 
 const SearchInput = styled.input`
-  width: ${p => (p.active ? "250px" : "200px")} !important;
+  width: ${p => (p.active ? '250px' : '200px')};
 
-  transition: all 0.3s !important;
+  transition: all 0.3s;
 
   padding: 7px 40px 10px;
 
