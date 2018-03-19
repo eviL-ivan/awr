@@ -46,10 +46,9 @@ MyDocument.getInitialProps = ({ renderPage }) => {
   const styleTags = sheet.getStyleElement();
   // JSS
   const pageContext = getPageContext();
-  const page = renderPage();
 
   return {
-    ...page,
+    ...renderPage(),
     pageContext,
     styleTags,
     styles: <style id="jss-server-side" />
