@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Chip from "material-ui/Chip";
+
 const RecordSmallInfoBlock = ({ className, data, title }) => (
   <div className={className}>
     {/* <Chip label={data} /> */}
@@ -19,10 +19,12 @@ export default styled(RecordSmallInfoBlock)`
 
 const TitleConatiner = styled.span`
   display: flex;
+
+  margin-right: 5px;
   padding-right: 4px;
+
   font-size: 14px;
   color: gray;
-  margin-right: 5px;
 `;
 
 const DataContainer = styled.span`

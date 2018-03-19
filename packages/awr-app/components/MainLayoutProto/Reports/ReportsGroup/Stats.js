@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
-import { Line, Circle } from "rc-progress";
+import { Circle } from "rc-progress";
 
 const RecordStats = props => {
   const { complite, cancel, warning, notCreate } = props.data;
@@ -22,11 +22,14 @@ const RecordStats = props => {
 /////////////////////////////
 const StatsContainer = styled.div`
   position: absolute;
-  width: 100%;
-  height: 100%;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
   font-size: 16px;
 `;
 const CircleContainer = styled(Circle)`
@@ -35,7 +38,9 @@ const CircleContainer = styled(Circle)`
 `;
 const StyledRecordStats = styled.div`
   position: relative;
+
   display: flex;
+
   font-size: 20px;
 `;
 const Complite = styled.span`

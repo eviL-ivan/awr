@@ -16,9 +16,9 @@ class Filters extends Component {
         <Container>
           <Flex>
             <Period />
-            <Margin right="20">
+            <MarginContainer right="20">
               <Year />
-            </Margin>
+            </MarginContainer>
             <Directions />
           </Flex>
 
@@ -47,4 +47,9 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 95%;
+`;
+
+const MarginContainer = Margin.extend`
+  display: flex;
+  align-items: center;
 `;

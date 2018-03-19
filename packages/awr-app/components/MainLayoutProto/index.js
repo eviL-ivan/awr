@@ -8,12 +8,12 @@ import Done from "material-ui-icons/Done";
 import Clear from "material-ui-icons/Clear";
 
 import reports from "./Reports/reportsData";
-import ReportsContainer from "./Reports/ReportsContainer";
+import ReportsGroupContainer from "./Reports/ReportsGroup/ReportsGroupContainer";
 import ReportInformationWindow from "../ReportInformationWindow";
 import Filters from "./Filters";
 import { directionsConfig } from "components/Layout/ConstantsTemp";
 
-class Documents extends React.Component {
+class ReportsDashBoard extends React.Component {
   state = {
     reportInfo: null,
     directions: []
@@ -45,7 +45,7 @@ class Documents extends React.Component {
         <Container onClick={this.toggleInformationWindow}>
           <Content>
             {reports.map(({ data, records }, idx) => (
-              <ReportsContainer
+              <ReportsGroupContainer
                 key={idx}
                 data={data}
                 records={records}
@@ -65,7 +65,7 @@ class Documents extends React.Component {
   }
 }
 
-export default styled(Documents)`
+export default styled(ReportsDashBoard)`
   position: relative;
 
   display: flex;

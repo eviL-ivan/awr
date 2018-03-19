@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import DoneIcon from "material-ui-icons/Person";
 import Edit from "material-ui-icons/Edit";
 import DeleteForever from "material-ui-icons/Delete";
 import CreateNewFolder from "material-ui-icons/CreateNewFolder";
@@ -12,12 +11,7 @@ import Send from "material-ui-icons/Send";
 import Button from "material-ui/Button";
 import Tooltip from "material-ui/Tooltip";
 
-import RecordTitle from "./RecordTitle";
-import Status from "./Status";
-import ReportDirectionBadge from "../../Common/ReportDirectionBadge";
-import ReportPeriodBlock from "../../Common/ReportPeriodBlock";
-import RecordSmallInfoBlock from "./RecordSmallInfoBlock";
-import { Flex, Margin, FlexRow } from "components/Common/positional";
+import { Flex } from "components/Common/positional";
 
 const iconStyle = { color: "white", fontSize: "30px" };
 

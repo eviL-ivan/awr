@@ -1,47 +1,51 @@
 import React from "react";
 import styled from "styled-components";
-import Records from "./Records/Records";
+
+import ReportsGroup from "./ReportsGroup";
+
 import Paper from "material-ui/Paper";
 
-function ReportItem({ data, records, organization, directions }) {
+function ReportsGroupContainer({ data, records, organization, directions }) {
   const _records = records.reduce((prev, item, index) => {
     let Record = null;
+
     //если все организации
-    if (organization == "all") Record = <Records data={item} />;
+    if (organization == "all") Record = <ReportsGroup data={item} />;
     else {
       //если выбрана кака-то конкретная
       let _recordData = item.recordReports.find(
         item => item.organization == organization
       );
+      //тут нужно будет поставить отдельное отображения для одного отчета
       if (_recordData) {
         const _item = { ...item, recordReports: [_recordData] };
-        Record = <Records data={_item} />;
+        Record = <ReportsGroup data={_item} />;
       }
     }
     //пушим элеиенты отчета по записям
     if (Record)
       prev.push(
-        <ReportContent key={index + item.title} elevation={2}>
+        <GroupContainer key={index + item.title} elevation={2}>
           {Record}
-        </ReportContent>
+        </GroupContainer>
       );
     return prev;
   }, []);
   if (!_records.length) return null;
   return (
-    <Report>
-      <DataBlock today={data == "Сегодня"}>{data}</DataBlock>
+    <Container>
+      <DateBlock today={data == "Сегодня"}>{data}</DateBlock>
       {_records}
-    </Report>
+    </Container>
   );
 }
 
-export default ReportItem;
+export default ReportsGroupContainer;
 
 /////////////////////////////
 //STYLED-COMPONENTS
 /////////////////////////////
-const DataBlock = styled.span`
+const DateBlock = styled.span`
   margin-left: -2px;
   font-weight: 400;
   font-size: 18px;
@@ -50,7 +54,7 @@ const DataBlock = styled.span`
   justify-content: center;
   padding: 3px 6px;
 `;
-const ReportContent = styled(Paper)`
+const GroupContainer = styled(Paper)`
   padding: 10px;
   width: 99%;
   display: flex;
@@ -60,7 +64,7 @@ const ReportContent = styled(Paper)`
   }
 `;
 
-const Report = styled.div`
+const Container = styled.div`
   position: relative;
   display: flex;
   flex-shrink: 0;

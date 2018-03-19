@@ -1,21 +1,22 @@
 import React from "react";
 import styled from "styled-components";
-import RecordsGroup from "./Records/RecordsGroup";
+import ReportsGroup from "./ReportsGroup";
 import Paper from "material-ui/Paper";
 
-function ReportsContainer({
-  data,
+function ReportsGroupContainer({
+  date,
   records,
   toggleInformationWindow,
   organization,
   directions
 }) {
-  const _records = records.reduce((prev, item, index) => {
-    let recordGroup = null;
+  const reportsGroup = records.reduce((prev, item, index) => {
     let recordsData = item.recordReports;
     let data = item;
     //если выбрана кака-то конкретная
+
     if (organization !== "all") {
+      //то фильтруем по ней
       recordsData = item.recordReports.find(
         item => item.organization == organization
       );
@@ -25,32 +26,30 @@ function ReportsContainer({
       }
     }
 
-    recordGroup = (
-      <RecordsGroup
-        toggleInformationWindow={toggleInformationWindow}
-        data={data}
-      />
-    );
     //пушим элеиенты отчета по записям
     if (recordsData)
       prev.push(
         <ReportContent key={index + item.title} elevation={2}>
-          {recordGroup}
+          <ReportsGroup
+            toggleInformationWindow={toggleInformationWindow}
+            data={data}
+          />
         </ReportContent>
       );
     return prev;
   }, []);
 
-  if (!_records.length) return null;
+  if (!reportsGroup.length) return null;
+
   return (
-    <Report>
-      <DataBlock today={data == "Сегодня"}>{data}</DataBlock>
-      {_records}
-    </Report>
+    <GroupContainer>
+      <DataBlock today={date == "Сегодня"}>{data}</DataBlock>
+      {reportsGroup}
+    </GroupContainer>
   );
 }
 
-export default ReportsContainer;
+export default ReportsGroupContainer;
 
 /////////////////////////////
 //STYLED-COMPONENTS
@@ -74,7 +73,7 @@ const ReportContent = styled(Paper)`
   }
 `;
 
-const Report = styled.div`
+const GroupContainer = styled.div`
   position: relative;
   display: flex;
   flex-shrink: 0;

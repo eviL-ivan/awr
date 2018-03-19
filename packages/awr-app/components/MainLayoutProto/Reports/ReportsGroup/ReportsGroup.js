@@ -1,23 +1,17 @@
 import React, { Component } from "react";
 
-import RowDirection from "../../Common/RowDirection";
-import Status from "./Status";
-import LogoDirection from "./LogoDirection";
-import Edit from "material-ui-icons/Edit";
-import DeleteForever from "material-ui-icons/Delete";
-import CreateNewFolder from "material-ui-icons/CreateNewFolder";
 import styled from "styled-components";
-import RecordItem, { RecordItemTitles } from "./RecordItem";
-import RecordTitle from "./RecordTitle";
-import RecordStats from "./RecordStats";
+import RecordItem, { RecordItemTitles } from "../Report/ReportItem";
+import RecordTitle from "./Title";
+import RecordStats from "./Stats";
 import ReportDirectionBadge from "../../Common/ReportDirectionBadge";
-import ReportPeriodBlock from "../../Common/ReportPeriodBlock";
+
 import Collapse from "material-ui/transitions/Collapse";
 import ExpandLess from "material-ui-icons/ExpandLess";
 import ExpandMore from "material-ui-icons/ExpandMore";
 import IconButton from "material-ui/IconButton";
 
-class RecordsGroup extends Component {
+class ReportsGroup extends Component {
   state = {
     stats: {},
     // hover: false,
@@ -57,14 +51,14 @@ class RecordsGroup extends Component {
     return (
       <div className={className}>
         <TitleContainer inGroup>
-          <TitleBlock inGroup>
+          <RightTitleBlock inGroup>
             <ReportDirectionBadge
               inGroup
               directionTitle={directionTitle}
               direction={direction}
             />
             <RecordTitle title={title} />
-          </TitleBlock>
+          </RightTitleBlock>
           <LeftTitleBlock>
             {recordReports.length !== 1 && <RecordStats data={stats} />}
           </LeftTitleBlock>
@@ -94,7 +88,7 @@ class RecordsGroup extends Component {
   }
 }
 
-export default styled(RecordsGroup)`
+export default styled(ReportsGroup)`
   font-size: 18px;
   width: 100%;
   transition: all;
@@ -112,16 +106,14 @@ const ColapseBtnContainer = styled.div`
   }
 `;
 
-const TitleBlock = styled.div`
+const RightTitleBlock = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
   flex: 1;
 `;
 
-const RightTitleBlock = styled.div``;
-
-const LeftTitleBlock = TitleBlock.extend`
+const LeftTitleBlock = RightTitleBlock.extend`
   justify-content: flex-end;
 `;
 

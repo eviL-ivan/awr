@@ -20,4 +20,5 @@ const data = [
 
 export default styled(Year)`
   display: flex;
+  align-items: center;
 `;
