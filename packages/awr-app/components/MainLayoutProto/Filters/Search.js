@@ -1,14 +1,9 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import styled from "styled-components";
 
-<<<<<<< HEAD
 import TextField from "material-ui/TextField";
 import Search from "material-ui-icons/Search";
 import Button from "material-ui/Button";
-=======
-import TextField from 'material-ui/TextField';
-import Search from 'material-ui-icons/Search';
->>>>>>> 8d8ffdde0a7fd9e2bab923e1fa63292b916860e6
 
 class SearchBlock extends Component {
   state = {
@@ -46,7 +41,7 @@ const SearchIconContainer = styled(Button)`
   height: 45px !important;
 
   opacity: 0.9;
-  box-shadow: none;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2);
 
   background: white !important;
 
@@ -57,7 +52,6 @@ const SearchIconContainer = styled(Button)`
 `;
 
 const SearchIcon = styled(Search)`
-<<<<<<< HEAD
   height: 100% !important;
 
   color: ${p => p.theme.palette.mainColor};
@@ -65,26 +59,8 @@ const SearchIcon = styled(Search)`
 /* width: ${p => (p.active ? "250px" : "200px")} !important; */
 const SearchInput = styled(TextField)`
   width: 250px !important;
-=======
-  position: absolute;
-  left: 10px;
-
-  height: 100%;
-
-  color: ${p => p.theme.palette.mainColor};
-`;
-
-const SearchInput = styled.input`
-  width: ${p => (p.active ? '250px' : '200px')};
-
-  transition: all 0.3s;
-
-  padding: 7px 40px 10px;
->>>>>>> 8d8ffdde0a7fd9e2bab923e1fa63292b916860e6
 
   border-radius: 5px;
-  border: 1px solid lightgray;
-
   input {
     padding-left: 10px !important;
   }

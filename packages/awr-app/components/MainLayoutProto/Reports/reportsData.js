@@ -1,6 +1,6 @@
 const reports = [
   {
-    data: "28 марта 2018",
+    date: "28 марта 2018",
     records: {
       direction: "fns",
       directionTitle: "ФНС",
@@ -70,7 +70,7 @@ const reports = [
     }
   },
   {
-    data: "27 марта 2018",
+    date: "27 марта 2018",
     records: {
       direction: "rpn",
       directionTitle: "РПН",
@@ -104,7 +104,7 @@ const reports = [
     }
   },
   {
-    data: "27 марта 2018",
+    date: "27 марта 2018",
     records: {
       direction: "rar",
       directionTitle: "РАР",
@@ -150,7 +150,7 @@ const reports = [
     }
   },
   {
-    data: "26 марта 2018",
+    date: "26 марта 2018",
     records: {
       direction: "rosstat",
       directionTitle: "Росстат",

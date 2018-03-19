@@ -12,12 +12,21 @@ class ReportsDashBoard extends React.Component {
     reportInfo: null,
     directions: []
   };
-  selectDirection = data => {
-    if (data === "all")
-      return this.setState({
-        directions: directionsConfig
+  changeDirections = data => {
+    console.log("changeDirections data", data);
+
+    if (
+      !this.state.directions.find(item => item.direction === data.direction)
+    ) {
+      this.setState({
+        directions: [...this.state.directions, data]
       });
-    this.setState({});
+    } else
+      this.setState({
+        directions: this.state.directions.filter(
+          item => item.direction !== data.direction
+        )
+      });
   };
   toggleInformationWindow = e => {
     // e.preventDeafault();
@@ -30,11 +39,15 @@ class ReportsDashBoard extends React.Component {
   };
 
   render() {
-    const { className, organization, directions } = this.props;
+    const { directions } = this.state;
+    const { className, organization } = this.props;
     return (
       <div className={className}>
         <FiltersContainer>
-          <Filters />
+          <Filters
+            activeDirections={directions}
+            changeDirections={this.changeDirections}
+          />
         </FiltersContainer>
         <Container onClick={this.toggleInformationWindow}>
           <Content>
@@ -102,5 +115,5 @@ const Content = styled.div`
   width: 100%;
 
   padding: 0 70px;
-  margin-top: 30px;
+  margin-top: 40px;
 `;

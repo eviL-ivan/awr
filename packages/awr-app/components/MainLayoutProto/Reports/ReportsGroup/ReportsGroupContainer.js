@@ -12,16 +12,17 @@ function ReportsGroupContainer({
   organization,
   directions
 }) {
-  let recordGroup = null;
   let recordsData = records.recordReports;
   //если выбрана кака-то конкретная
   if (organization !== "all") {
-    recordsData = recordsData.filter(item => item.organization == organization);
+    recordsData = recordsData.filter(
+      item => item.organization === organization
+    );
   }
   if (recordsData.length) {
     return (
       <Container>
-        <DateBlock today={date == "Сегодня"}>{date}</DateBlock>
+        <DateBlock today={date === "Сегодня"}>{date}</DateBlock>
         <GroupContainer elevation={2}>
           <ReportsGroup
             toggleInformationWindow={toggleInformationWindow}

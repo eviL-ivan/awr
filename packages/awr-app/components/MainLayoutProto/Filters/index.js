@@ -10,7 +10,7 @@ import { Flex, Margin } from "components/Common/positional";
 
 class Filters extends Component {
   render() {
-    const { className } = this.props;
+    const { className, activeDirections, changeDirections } = this.props;
     return (
       <div className={className}>
         <Search />
@@ -19,7 +19,10 @@ class Filters extends Component {
           <MarginContainer right="40">
             <Year />
           </MarginContainer>
-          <Directions />
+          <Directions
+            activeDirections={activeDirections}
+            changeDirections={changeDirections}
+          />
         </Flex>
       </div>
     );

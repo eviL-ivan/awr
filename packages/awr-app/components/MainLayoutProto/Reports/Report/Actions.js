@@ -120,7 +120,6 @@ const statusConfig = {
 //STYLED-COMPONENTS
 /////////////////////////////
 const ActionBtn = styled(Button)`
-<<<<<<< HEAD
   min-width: 25px !important;
   padding: 0px 7px !important;
 
@@ -140,13 +139,6 @@ const ActionBtn = styled(Button)`
   :hover {
     background: lightgray !important;
   }
-=======
-  opacity: ${p => (p.status === "notCreate" || p.hover ? 1 : 0.2)} ;
-  background: ${p => (p.background ? p.background : "black")} ;
-  min-width: 40px ;
-  padding: 0px 10px ;
-  font-size: 12px ;
->>>>>>> 8d8ffdde0a7fd9e2bab923e1fa63292b916860e6
 `;
 //background: ${p => (p.background ? p.background : "black")} !important;
 

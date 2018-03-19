@@ -1,21 +1,21 @@
-import React from 'react';
-import styled, { keyframes } from 'styled-components';
-import { Avatar, IconButton, Paper, Badge } from 'material-ui';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import { MenuList, MenuItem } from 'material-ui/Menu';
-import ClickAwayListener from 'material-ui/utils/ClickAwayListener';
-import { Manager, Target, Popper } from 'react-popper';
-import Grow from 'material-ui/transitions/Grow';
-import Popover from 'material-ui/Popover';
-import MenuIcon from 'material-ui-icons/Menu';
-import PersonIcon from 'material-ui-icons/Person';
-import ExpandMore from 'material-ui-icons/ExpandMore';
-import ExitIcon from 'material-ui-icons/ExitToApp';
-import SettingsIcon from 'material-ui-icons/Settings';
-import LinkIcon from 'material-ui-icons/BookmarkBorder';
-import NotificationsIcon from 'material-ui-icons/Notifications';
-import Select from 'material-ui/Select';
-import Input from 'material-ui/Input';
+import React from "react";
+import styled, { keyframes } from "styled-components";
+import { Avatar, IconButton, Paper, Badge } from "material-ui";
+import List, { ListItem, ListItemIcon, ListItemText } from "material-ui/List";
+import { MenuList, MenuItem } from "material-ui/Menu";
+import ClickAwayListener from "material-ui/utils/ClickAwayListener";
+import { Manager, Target, Popper } from "react-popper";
+import Grow from "material-ui/transitions/Grow";
+import Popover from "material-ui/Popover";
+import MenuIcon from "material-ui-icons/Menu";
+import PersonIcon from "material-ui-icons/Person";
+import ExpandMore from "material-ui-icons/ExpandMore";
+import ExitIcon from "material-ui-icons/ExitToApp";
+import SettingsIcon from "material-ui-icons/Settings";
+import LinkIcon from "material-ui-icons/BookmarkBorder";
+import NotificationsIcon from "material-ui-icons/Notifications";
+import Select from "material-ui/Select";
+import Input from "material-ui/Input";
 
 class Header extends React.Component {
   state = {
@@ -61,7 +61,7 @@ class Header extends React.Component {
         <HeaderLeft>
           <BurgerContainer>
             <IconButton onClick={toggleSidebar}>
-              <MenuIcon style={{ color: 'white' }} />
+              <MenuIcon style={{ color: "white" }} />
             </IconButton>
           </BurgerContainer>
           <Logo>
@@ -70,10 +70,10 @@ class Header extends React.Component {
         </HeaderLeft>
         <HeaderRight>
           <SelectContainer
-            classes={{ root: 'customSelect', select: 'customSelect_active' }}
+            classes={{ root: "customSelect", select: "customSelect_active" }}
             value={organization}
             onChange={changeOrganization}
-            inputProps={{ name: 'organization' }}
+            inputProps={{ name: "organization" }}
             native={false}
             input={<Input name="name" id="name-disabled" />}
           >
@@ -87,7 +87,7 @@ class Header extends React.Component {
               <NotificationsIcon />
             </CustomBadge>
           </IconButton>
-          <Manager style={{ marginLeft: '8px' }}>
+          <Manager style={{ marginLeft: "8px" }}>
             <Target>
               <TopProfile button onClick={this.toggleMenu}>
                 <UserName>Вася Пупкин</UserName>
@@ -163,8 +163,8 @@ export default styled(Header)`
   background: ${p => p.theme.palette.mainColor};
   color: #014a8e;
 
-  box-shadow: 0 5px 10px #686868;
-  z-index: 1;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12)
+  z-index: 2;
 `;
 
 const Logo = styled.div`
@@ -198,7 +198,7 @@ const TopProfile = styled(ListItem)`
 
 const CustomBadge = styled(Badge)`
   span {
-    color: 'white';
+    color: "white";
     background: #fb8c00;
     border: ${p => `2px solid ${p.theme.palette.mainColor}`};
   }
@@ -268,9 +268,11 @@ const SelectContainer = styled(Select)`
   &:before,
   &:after {
     background: none;
+    height: 0 !important;
   }
   & svg {
     color: white;
+    top: 0;
   }
   &:hover {
     background: rgba(0, 0, 0, 0.1);
@@ -314,7 +316,7 @@ const BtnAddDoc = styled.button`
   justify-content: center;
   color: white;
   font-size: 30px;
-  width: ${p => (p.expanded ? '50px' : '170px')};
+  width: ${p => (p.expanded ? "50px" : "170px")};
   height: 50px;
   border-radius: 50px;
   border: none;

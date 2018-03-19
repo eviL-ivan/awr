@@ -33,8 +33,8 @@ const StatsContainer = styled.div`
   font-size: 16px;
 `;
 const CircleContainer = styled(Circle)`
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
 `;
 const StyledRecordStats = styled.div`
   position: relative;
@@ -42,9 +42,10 @@ const StyledRecordStats = styled.div`
   display: flex;
 
   font-size: 20px;
+  font-weight: bold;
 `;
 const Complite = styled.span`
-  color: ${p => p.less && "red"};
+  color: ${p => p.less && "green"};
 `;
 
 export default RecordStats;

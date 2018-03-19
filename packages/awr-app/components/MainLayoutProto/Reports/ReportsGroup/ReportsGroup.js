@@ -128,5 +128,5 @@ const TitleContainer = styled.div`
 `;
 
 const GroupContainer = styled.div`
-  padding: 0 15px;
+  /* padding: 0 15px; */
 `;
