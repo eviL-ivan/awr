@@ -133,6 +133,7 @@ export const directionsConfig = [
     direction: "rpn",
     title: "РПН"
   },
+
   {
     direction: "rar",
     title: "РАР"

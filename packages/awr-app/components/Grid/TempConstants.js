@@ -133,6 +133,10 @@ export const DOCUMENTS = [
   }
 ];
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 542a227a1fda82be0e4a213294849d36497e6ebb
 export const STATUSES = {
   none: {
     id: 0,
