@@ -18,7 +18,6 @@ function ReportsGroupContainer({
   if (organization !== "all") {
     recordsData = recordsData.filter(item => item.organization == organization);
   }
-  console.log("recordsData after", recordsData);
   if (recordsData.length) {
     return (
       <Container>
