@@ -12,51 +12,13 @@ function ReportsGroupContainer({
   organization,
   directions
 }) {
-  //   const _records = records.reduce((prev, item, index) => {
-  //     let Record = null;
-
-  //     //если все организации
-  //     if (organization === "all") Record = <ReportsGroup data={item} />;
-  //     else {
-  //       //если выбрана кака-то конкретная
-  //       let _recordData = item.recordReports.find(
-  //         item => item.organization === organization
-  //       );
-  //       //тут нужно будет поставить отдельное отображения для одного отчета
-  //       if (_recordData) {
-  //         const _item = { ...item, recordReports: [_recordData] };
-  //         Record = <ReportsGroup data={_item} />;
-  //       }
-  //     }
-  //     //пушим элеиенты отчета по записям
-  //     if (Record)
-  //       prev.push(
-  //         <GroupContainer key={index + item.title} elevation={2}>
-  //           {Record}
-  //         </GroupContainer>
-  //       );
-  //     return prev;
-  //   }, []);
-  //   if (!_records.length) return null;
-  //   return (
-  //     <Container>
-  //       <DateBlock today={date === "Сегодня"}>{date}</DateBlock>
-  //       {_records}
-  //     </Container>
-  //   );
-  // }
-
-  // let _records = records.reduce((prev, item, index) => {
   let recordGroup = null;
   let recordsData = records.recordReports;
-  // console.log("records", records);
-
   //если выбрана кака-то конкретная
   if (organization !== "all") {
     recordsData = recordsData.filter(item => item.organization == organization);
   }
   console.log("recordsData after", recordsData);
-  // console.log("records", records);
   if (recordsData.length) {
     return (
       <Container>
