@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 import Avatar from 'material-ui/Avatar';
 import Badge from 'material-ui/Badge';
 import Menu, { MenuItem } from 'material-ui/Menu';
@@ -30,12 +30,12 @@ export const CustomBadge = styled(Badge)`
 `;
 
 export const ProfileMenuItem = styled(MenuItem)`
-  color: ${p => p.theme.palette.secondColor} !important;
+  color: ${p => p.theme.palette.secondColor};
 `;
 
 export const ProfileMenu = styled(Menu)`
   margin-top: calc(${p => p.theme.header.height} - 15px);
-  
+
   svg {
     color: ${p => p.theme.palette.textColor};
   }
@@ -43,14 +43,15 @@ export const ProfileMenu = styled(Menu)`
   ${ProfileMenuItem}:hover {
     background: #fff;
 
-    svg, h3 {
+    svg,
+    h3 {
       color: ${p => p.theme.palette.mainColor};
     }
   }
 `;
 
 export const CustomAvatar = styled(Avatar)`
-  background: #fff !important;
+  background: #fff;
 
   svg {
     color: ${p => p.theme.palette.mainColor};

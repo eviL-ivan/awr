@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import List, { ListItem, ListItemIcon, ListItemText } from "material-ui/List";
@@ -6,15 +7,31 @@ import Add from "material-ui-icons/Add";
 import Button from "material-ui/Button";
 import Tooltip from "material-ui/Tooltip";
 import { SIDEBAR_MENU } from "../../Layout/ConstantsTemp";
+=======
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
+import { Button as MuiButton, IconButton } from 'material-ui';
+import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import { Zoom, Collapse } from 'material-ui/transitions';
+import ExpandLess from 'material-ui-icons/ExpandLess';
+import ExpandMore from 'material-ui-icons/ExpandMore';
+import AddCircleIcon from 'material-ui-icons/NoteAdd';
+import PlusIcon from 'material-ui-icons/Add';
+import MenuIcon from 'material-ui-icons/Menu';
+import Add from 'material-ui-icons/Add';
+import Button from 'material-ui/Button';
+import Tooltip from 'material-ui/Tooltip';
+import { SIDEBAR_MENU } from '../../Layout/ConstantsTemp';
+>>>>>>> 8d8ffdde0a7fd9e2bab923e1fa63292b916860e6
 
 class Sidebar extends React.Component {
   state = {
-    current: "" // развернутый пункт меню, содержит key из константы
+    current: '' // развернутый пункт меню, содержит key из константы
   };
 
   setCurrentMenuItem = key => () => {
     this.setState(state => ({
-      current: state.current === key ? "" : key
+      current: state.current === key ? '' : key
     }));
   };
 
@@ -27,9 +44,9 @@ class Sidebar extends React.Component {
         <BtnAddContainer
           className={className}
           id="tooltip-BtnAddDoc"
-          title={expanded ? "СОЗДАТЬ ДОКУМЕНТ" : ""}
+          title={expanded ? 'СОЗДАТЬ ДОКУМЕНТ' : ''}
           placement="left"
-          style={{ boxShadow: "none" }}
+          style={{ boxShadow: 'none' }}
         >
           <BtnAddDoc expanded={expanded}>
             <Add />
@@ -45,7 +62,7 @@ class Sidebar extends React.Component {
             active={current === item.key || undefined}
           >
             <MenuItem
-              className={current === item.key ? "active" : ""}
+              className={current === item.key ? 'active' : ''}
               active={current === item.key}
               button
               onClick={this.setCurrentMenuItem(item.key)}
@@ -145,7 +162,7 @@ const opacityClose = keyframes`
 `;
 
 const AddDocText = styled.span`
-  padding: ${p => (!p.expanded ? "0 16px" : 0)};
+  padding: ${p => (!p.expanded ? '0 16px' : 0)};
   font-size: 15px;
 
   animation: ${p =>
@@ -163,16 +180,16 @@ const BtnAddDoc = styled(Button)`
   align-items: center;
   justify-content: flex-start;
   border: 6px solid white;
-  color: white !important;
+  color: white;
   height: 45px;
   width: 100%;
 
   border: none;
-  background: ${p => p.theme.palette.addDoc} !important;
+  background: ${p => p.theme.palette.addDoc};
   transition: all 0.4s;
-  padding: 0 !important;
-  padding-left: 10px !important;
-  min-width: 0 !important;
+  padding: 0;
+  padding-left: 10px;
+  min-width: 0;
   span {
     display: flex;
     justify-content: flex-start;
@@ -183,22 +200,22 @@ const SubMenuWrapper = styled.div`
   z-index: 10;
   background: ${p => p.theme.palette.subMenu};
   border-top: ${p => p.expanded && `3px solid ${p.theme.palette.mainColor}`};
-  display: ${p => p.expanded && "none"};
-  position: ${p => p.expanded && "absolute"};
-  top: ${p => p.expanded && "0px"};
+  display: ${p => p.expanded && 'none'};
+  position: ${p => p.expanded && 'absolute'};
+  top: ${p => p.expanded && '0px'};
   left: ${p => p.expanded && p.theme.sidebarExpanded.width};
-  box-shadow: ${p => p.expanded && "2px 2px 5px #ccc"};
+  box-shadow: ${p => p.expanded && '2px 2px 5px #ccc'};
   background: #fafafa;
-  border-left: ${p => p.expanded && "2px solid #ccc"};
+  border-left: ${p => p.expanded && '2px solid #ccc'};
 `;
 
 const MenuItemWrapper = styled.div`
   position: relative;
-  padding-left: 0 !important;
+  padding-left: 0;
   &${p => !p.active}:after {
     display: block;
 
-    content: "";
+    content: '';
     top: 0;
     left: 0;
     position: absolute;
@@ -211,25 +228,25 @@ const MenuItemWrapper = styled.div`
   }
 
   &:hover ${SubMenuWrapper} {
-    display: ${p => p.expanded && "block"};
+    display: ${p => p.expanded && 'block'};
   }
 `;
 
 const MenuItemIcon = styled(ListItemIcon)`
-  margin-right: 0 !important;
+  margin-right: 0;
 `;
 
 const MenuItemText = styled(ListItemText)`
   > h3 {
-    font-family: ${p => (p.hasChildren ? "Medium" : "Roboto")};
+    font-family: ${p => (p.hasChildren ? 'Medium' : 'Roboto')};
     font-weight: ${p => (p.hasChildren ? 500 : 100)};
-    color: ${p => p.theme.palette.textColor + "!important"};
+    color: ${p => p.theme.palette.textColor + '!important'};
   }
 
   white-space: nowrap;
   padding: 0;
-  opacity: ${p => (p.expanded ? "0" : "1")};
-  transform: scaleX(${p => (p.expanded ? "0" : "1")});
+  opacity: ${p => (p.expanded ? '0' : '1')};
+  transform: scaleX(${p => (p.expanded ? '0' : '1')});
   transition: all 0.1s;
 `;
 
@@ -239,9 +256,9 @@ const MenuItem = styled(ListItem)`
   display: flex;
   align-items: center;
   padding: 10px 20px;
-  padding-left: ${p => (p.dense && !p.expanded ? "36px" : "20px")};
+  padding-left: ${p => (p.dense && !p.expanded ? '36px' : '20px')};
   box-sizing: border-box;
-  height: ${p => !p.dense && "50px"};
+  height: ${p => !p.dense && '50px'};
   cursor: pointer;
   word-wrap: nowrap;
   box-sizing: border-box;
@@ -249,15 +266,15 @@ const MenuItem = styled(ListItem)`
  
   ${MenuItemText} h3, ${MenuItemIcon} {
     
-    color: ${p => p.theme.palette.textColor + "!important"};
+    color: ${p => p.theme.palette.textColor + '!important'};
     
   }
-  padding-left: 14px !important;
+  padding-left: 14px ;
 `;
 const SubMenuItem = MenuItem.extend`
-  padding-left: 30px !important;
+  padding-left: 30px;
   & h3 {
-    font-family: "Roboto";
-    font-weight: normal !important;
+    font-family: 'Roboto';
+    font-weight: normal;
   }
 `;

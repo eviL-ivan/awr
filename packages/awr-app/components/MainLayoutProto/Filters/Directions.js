@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import styled from "styled-components";
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
-import Button from "material-ui/Button";
+import Button from 'material-ui/Button';
 
-import { directionsConfig } from "components/Layout/ConstantsTemp";
-import { Flex, Margin } from "components/Common/positional";
+import { directionsConfig } from 'components/Layout/ConstantsTemp';
+import { Flex, Margin } from 'components/Common/positional';
 
 class Directions extends Component {
   render() {
@@ -25,15 +25,15 @@ class Directions extends Component {
 export default Directions;
 
 const ButtonContainer = styled(Button)`
-  margin-right: 10px !important;
-  background: none !important;
-  box-shadow: none !important;
-  margin: 0 !important;
-  color: gray !important;
-  min-width: 0 !important;
+  margin-right: 10px;
+  background: none;
+  box-shadow: none;
+  margin: 0;
+  color: gray;
+  min-width: 0;
   &:hover {
-    color: black !important;
-    background: lightgray !important;
+    color: black;
+    background: lightgray;
   }
 `;
 

@@ -1,21 +1,21 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
-import { Avatar, IconButton, Paper, Badge } from "material-ui";
-import List, { ListItem, ListItemIcon, ListItemText } from "material-ui/List";
-import { MenuList, MenuItem } from "material-ui/Menu";
-import ClickAwayListener from "material-ui/utils/ClickAwayListener";
-import { Manager, Target, Popper } from "react-popper";
-import Grow from "material-ui/transitions/Grow";
-import Popover from "material-ui/Popover";
-import MenuIcon from "material-ui-icons/Menu";
-import PersonIcon from "material-ui-icons/Person";
-import ExpandMore from "material-ui-icons/ExpandMore";
-import ExitIcon from "material-ui-icons/ExitToApp";
-import SettingsIcon from "material-ui-icons/Settings";
-import LinkIcon from "material-ui-icons/BookmarkBorder";
-import NotificationsIcon from "material-ui-icons/Notifications";
-import Select from "material-ui/Select";
-import Input from "material-ui/Input";
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
+import { Avatar, IconButton, Paper, Badge } from 'material-ui';
+import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import { MenuList, MenuItem } from 'material-ui/Menu';
+import ClickAwayListener from 'material-ui/utils/ClickAwayListener';
+import { Manager, Target, Popper } from 'react-popper';
+import Grow from 'material-ui/transitions/Grow';
+import Popover from 'material-ui/Popover';
+import MenuIcon from 'material-ui-icons/Menu';
+import PersonIcon from 'material-ui-icons/Person';
+import ExpandMore from 'material-ui-icons/ExpandMore';
+import ExitIcon from 'material-ui-icons/ExitToApp';
+import SettingsIcon from 'material-ui-icons/Settings';
+import LinkIcon from 'material-ui-icons/BookmarkBorder';
+import NotificationsIcon from 'material-ui-icons/Notifications';
+import Select from 'material-ui/Select';
+import Input from 'material-ui/Input';
 
 class Header extends React.Component {
   state = {
@@ -61,7 +61,7 @@ class Header extends React.Component {
         <HeaderLeft>
           <BurgerContainer>
             <IconButton onClick={toggleSidebar}>
-              <MenuIcon style={{ color: "white" }} />
+              <MenuIcon style={{ color: 'white' }} />
             </IconButton>
           </BurgerContainer>
           <Logo>
@@ -70,10 +70,10 @@ class Header extends React.Component {
         </HeaderLeft>
         <HeaderRight>
           <SelectContainer
-            classes={{ root: "customSelect", select: "customSelect_active" }}
+            classes={{ root: 'customSelect', select: 'customSelect_active' }}
             value={organization}
             onChange={changeOrganization}
-            inputProps={{ name: "organization" }}
+            inputProps={{ name: 'organization' }}
             native={false}
             input={<Input name="name" id="name-disabled" />}
           >
@@ -87,7 +87,7 @@ class Header extends React.Component {
               <NotificationsIcon />
             </CustomBadge>
           </IconButton>
-          <Manager style={{ marginLeft: "8px" }}>
+          <Manager style={{ marginLeft: '8px' }}>
             <Target>
               <TopProfile button onClick={this.toggleMenu}>
                 <UserName>Вася Пупкин</UserName>
@@ -198,7 +198,7 @@ const TopProfile = styled(ListItem)`
 
 const CustomBadge = styled(Badge)`
   span {
-    color: "white";
+    color: 'white';
     background: #fb8c00;
     border: ${p => `2px solid ${p.theme.palette.mainColor}`};
   }
@@ -237,16 +237,16 @@ const UserName = styled.span`
 `;
 
 const SelectContainer = styled(Select)`
-  background: none !important;
+  background: none;
   border: none;
 
   padding: 0 10px;
-  color: white !important;
+  color: white;
   display: flex;
   align-items: center;
 
   &div: (: first-child) {
-    background: ${p => p.theme.palette.subMainBlue} !important;
+    background: ${p => p.theme.palette.subMainBlue};
   }
 
   & .customSelect_active {
@@ -259,7 +259,7 @@ const SelectContainer = styled(Select)`
   }
 
   & div {
-    background: none !important;
+    background: none;
   }
 
   & * {
@@ -267,13 +267,13 @@ const SelectContainer = styled(Select)`
   }
   &:before,
   &:after {
-    background: none !important;
+    background: none;
   }
   & svg {
     color: white;
   }
   &:hover {
-    background: rgba(0, 0, 0, 0.1) !important;
+    background: rgba(0, 0, 0, 0.1);
   }
 `;
 
@@ -314,7 +314,7 @@ const BtnAddDoc = styled.button`
   justify-content: center;
   color: white;
   font-size: 30px;
-  width: ${p => (p.expanded ? "50px" : "170px")};
+  width: ${p => (p.expanded ? '50px' : '170px')};
   height: 50px;
   border-radius: 50px;
   border: none;
@@ -333,13 +333,13 @@ const AddDocText = styled.span`
       : `${opacityClose} 0.5s linear forwards`}; */
 
 const BurgerContainer = styled.div`
-  width: ${p => p.theme.sidebarExpanded.width} !important;
+  width: ${p => p.theme.sidebarExpanded.width};
   padding: 5px;
   position: relative;
   background: #1258a8;
   height: 60px;
   & svg {
-    width: 1.3em !important;
-    height: 1.3em !important;
+    width: 1.3em;
+    height: 1.3em;
   }
 `;

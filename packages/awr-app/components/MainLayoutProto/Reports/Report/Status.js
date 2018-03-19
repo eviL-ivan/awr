@@ -27,7 +27,13 @@ const Status = ({ className, status }) => (
 );
 
 export default styled(Status)`
+<<<<<<< HEAD
   display: flex !important;
+=======
+  margin-right: 20px;
+  cursor: pointer;
+  display: flex ;
+>>>>>>> 8d8ffdde0a7fd9e2bab923e1fa63292b916860e6
   align-items: center;
   justify-content: center;
 
