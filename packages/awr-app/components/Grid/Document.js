@@ -46,17 +46,13 @@ class Document extends React.Component {
         <Link href="/grid/view">
           <DocumentTitle primary={name} />
         </Link>
->>>>>>> 838d1b9bfad7d952e11a645a39522b88e417b604
         <DocumentInfo primary={status.title} secondary="Статус" />
         {
           date &&
-            <DocumentInfo primary={date} secondary="Дата" />
+          <DocumentInfo primary={date} secondary="Дата" />
         }
         <DocumentInfo primary={recipient} secondary="Получатель" />
         <DocumentInfo primary={period} secondary="Период" />
-<<<<<<< HEAD
-        </DocumentItem>
-=======
         <DocumentMenuWrapper>
           <IconButton onClick={this.openMenu}>
             <MoreVertIcon />
@@ -68,7 +64,6 @@ class Document extends React.Component {
           />
         </DocumentMenuWrapper>
       </DocumentItem>
->>>>>>> 838d1b9bfad7d952e11a645a39522b88e417b604
     );
   }
 }
