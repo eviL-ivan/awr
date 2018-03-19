@@ -16,7 +16,7 @@ class ReportInformationWindow extends Component {
         transitionDuration={200}
         variant={"persistent"}
       >
-        <div style={{ width: "750px" }}>
+        <div style={{ width: "800px" }}>
           {data && (
             <div>
               <p>{data.organizationTitle}</p>
