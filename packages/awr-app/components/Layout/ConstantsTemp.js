@@ -91,9 +91,8 @@ export const SIDEBAR_MENU = [
     key: "help",
     icon: <HelpIcon />,
     link: "/help"
-  },
+  }
 ];
-
 
 export const PROFILE_MENU = [
   {
@@ -122,5 +121,32 @@ export const PROFILE_MENU = [
     key: "profile",
     title: "Выход",
     icon: <ExitIcon />
+  }
+];
+
+export const directionsConfig = [
+  {
+    direction: "fns",
+    title: "ФНС"
   },
+  {
+    direction: "rpn",
+    title: "РПН"
+  },
+  {
+    direction: "rar",
+    title: "РАР"
+  },
+  {
+    direction: "fss",
+    title: "ФСС"
+  },
+  {
+    direction: "rosstat",
+    title: "Росстат"
+  },
+  {
+    direction: "pfr",
+    title: "ПФР"
+  }
 ];
