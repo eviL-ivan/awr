@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Typography from 'material-ui/Typography';
 import MUIAvatar from 'material-ui/Avatar';
+import MUIPaper from 'material-ui/Paper';
 import Stepper, {
   Step as MUIStep,
   StepLabel,
@@ -12,6 +13,8 @@ import Stepper, {
 import MUIStepConnector from 'material-ui/Stepper/StepConnector';
 // Константы
 import { STATUSES } from '../TempConstants';
+// Компоненты
+import DocumentTitle from "./DocumentTitle";
 
 const StepConnector = styled(MUIStepConnector)`
   margin-left: 20px;
@@ -31,6 +34,10 @@ const Step = styled(MUIStep)`
   }
 `;
 
+const Paper = styled(MUIPaper)`
+  padding: 20px;
+`;
+
 class DocumentView extends React.Component {
   renderStepIcon = status => {
     return <Avatar color={status.color}>{status.icon}</Avatar>;
@@ -38,32 +45,37 @@ class DocumentView extends React.Component {
 
   render() {
     return (
-      <Stepper
-        activeStep={2}
-        orientation="vertical"
-        connector={<StepConnector />}
-      >
-        {Object.keys(STATUSES).map(statusKey => {
-          const status = STATUSES[statusKey];
-          if (!status.id) return null;
+      <Paper>
+        <DocumentTitle
+          title="Документ налоговый"
+        />
+        <Stepper
+          activeStep={2}
+          orientation="vertical"
+          connector={<StepConnector />}
+        >
+          {Object.keys(STATUSES).map(statusKey => {
+            const status = STATUSES[statusKey];
+            if (!status.id) return null;
 
-          return (
-            <Step key={status.id}>
-              <StepLabel icon={this.renderStepIcon(status)}>
-                {status.title}
-                <Typography color="textSecondary">
-                  <small>{status.description || 'Описание отсутствует'}</small>
-                </Typography>
-              </StepLabel>
-              <StepContent active>
-                <Typography color="textSecondary">
-                  <p>Какая-то инфа</p>
-                </Typography>
-              </StepContent>
-            </Step>
-          );
-        })}
-      </Stepper>
+            return (
+              <Step key={status.id}>
+                <StepLabel icon={this.renderStepIcon(status)}>
+                  {status.title}
+                  <Typography color="textSecondary">
+                    <small>{status.description || 'Описание отсутствует'}</small>
+                  </Typography>
+                </StepLabel>
+                <StepContent active>
+                  <Typography color="textSecondary">
+                    <p>Какая-то инфа</p>
+                  </Typography>
+                </StepContent>
+              </Step>
+            );
+          })}
+        </Stepper>
+      </Paper>
     );
   }
 }

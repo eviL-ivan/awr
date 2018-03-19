@@ -24,16 +24,19 @@ export const SIDEBAR_MENU = [
     children: [
       {
         title: "Все отчёты/Андрей",
+        key: "reports-andrei",
         icon: <DocumentsIcon />,
         link: "/mainLayoutProto"
       },
       {
         title: "Все отчёты/Миша",
+        key: "reports-misha",
         icon: <DocumentsIcon />,
         link: "/grid"
       },
       {
         title: "Ссылка",
+        key: "reports-link",
         icon: <LabelIcon />,
         link: "/link"
       }
@@ -46,6 +49,7 @@ export const SIDEBAR_MENU = [
     children: [
       {
         title: "Все требования",
+        key: "demands-all",
         icon: <AnnouncementIcon />,
         link: "/demands"
       }
@@ -58,11 +62,13 @@ export const SIDEBAR_MENU = [
     children: [
       {
         title: "Все письма",
+        key: "messages-all",
         icon: <MailIcon />,
         link: "/messages"
       },
       {
         title: "Рассылки",
+        key: "messages-mass",
         icon: <RssIcon />,
         link: "/mass"
       }
@@ -75,6 +81,7 @@ export const SIDEBAR_MENU = [
     children: [
       {
         title: "Все запросы",
+        key: "queries-all",
         icon: <QueryIcon />,
         link: "/queries"
       }

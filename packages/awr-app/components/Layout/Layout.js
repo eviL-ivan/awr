@@ -30,7 +30,7 @@ class Layout extends React.Component {
         expanded={expanded}
         url={this.props.children.props.url}
       />,
-      <Content key="Sidebar" sidebarExpanded={expanded}>
+      <Content key="Content" sidebarExpanded={expanded}>
         {this.props.children}
       </Content>
     ];

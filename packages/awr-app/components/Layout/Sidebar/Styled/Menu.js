@@ -33,7 +33,7 @@ export const MenuItem = styled(ListItem)`
     margin-right: ${p => (p.dense ? '10px' : '20px')} ;
   }
   
-  // Выделить пункт меню, если он является текущей ссылкой
+  /*Выделить пункт меню, если он является текущей ссылкой*/
   background: ${p =>
     p.current
       ? p.dense ? p.theme.sidebar.background : p.theme.palette.mainColor

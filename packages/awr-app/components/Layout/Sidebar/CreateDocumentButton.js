@@ -1,5 +1,6 @@
 import React from "react";
 import AddDocumentIcon from 'material-ui-icons/NoteAdd';
+import Icon from "material-ui/Icon";
 // Стайлд компоненты
 import { Button, Wrapper } from "./Styled/CreateDocumentButton";
 import Tooltip from "components/Common/Tooltip"
@@ -21,8 +22,8 @@ const CreateDocumentButton = ({ expanded, title }) => {
     <Wrapper expanded={expanded}>
       {
         expanded
-        ? <Tooltip title={title} placement="right">{renderButton()}</Tooltip>
-        : renderButton()
+          ? <Tooltip title={title} placement="right">{renderButton()}</Tooltip>
+          : renderButton()
       }
     </Wrapper>
   );
