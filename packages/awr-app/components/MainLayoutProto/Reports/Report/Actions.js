@@ -94,11 +94,11 @@ const statusConfig = {
 //STYLED-COMPONENTS
 /////////////////////////////
 const ActionBtn = styled(Button)`
-  opacity: ${p => (p.status === "notCreate" || p.hover ? 1 : 0.2)} !important;
-  background: ${p => (p.background ? p.background : "black")} !important;
-  min-width: 40px !important;
-  padding: 0px 10px !important;
-  font-size: 12px !important;
+  opacity: ${p => (p.status === "notCreate" || p.hover ? 1 : 0.2)} ;
+  background: ${p => (p.background ? p.background : "black")} ;
+  min-width: 40px ;
+  padding: 0px 10px ;
+  font-size: 12px ;
 `;
 
 const ActionsBlock = Flex.extend`

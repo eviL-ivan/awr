@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import Input, { InputLabel } from "material-ui/Input";
-import { MenuItem } from "material-ui/Menu";
-import { FormControl } from "material-ui/Form";
-import Select from "material-ui/Select";
+import Input, { InputLabel } from 'material-ui/Input';
+import { MenuItem } from 'material-ui/Menu';
+import { FormControl } from 'material-ui/Form';
+import Select from 'material-ui/Select';
 
 class BaseSelect extends Component {
   static propTypes = {
@@ -32,9 +32,9 @@ class BaseSelect extends Component {
           )}
           <Select
             // displayEmpty
-            value={defaultValue || ""}
+            value={defaultValue || ''}
             onChange={handleChange}
-            inputProps={{ name: "age", id: "age-simple" }}
+            inputProps={{ name: 'age', id: 'age-simple' }}
             autoWidth
           >
             <MenuItem value="">
@@ -56,9 +56,9 @@ export default styled(BaseSelect)`
   display: flex;
   flex-wrap: wrap;
 
-  margin-top: -16px !important;
+  margin-top: -16px;
 `;
 
 const FormControlContainer = styled(FormControl)`
-  min-width: 120px !important;
+  min-width: 120px;
 `;

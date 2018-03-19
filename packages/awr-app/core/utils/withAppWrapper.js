@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { ThemeProvider, injectGlobal } from 'styled-components';
-import CssBaseline from "material-ui/CssBaseline";
+import CssBaseline from 'material-ui/CssBaseline';
 import { MuiThemeProvider } from 'material-ui/styles';
-import theme from "core/theme/theme";
-import muiTheme from "core/theme/muiTheme";
+import theme from 'core/theme/theme';
+import muiTheme from 'core/theme/muiTheme';
 
 import JssProvider from 'react-jss/lib/JssProvider';
 import { create } from 'jss';
@@ -17,10 +17,9 @@ jss.options.insertionPoint = 'jss-insertion-point';
 injectGlobal`
   body {
     font-family: Roboto;
-    background: #f7f7f7 !important;
+    background: #f7f7f7 ;
   }
-  
-  // TODO: проверить работу путей, написать остальные импорты шрифтов
+
    @font-face {
      font-family: "Roboto";
      src: url("static/fonts/Roboto-Regular.ttf") format("ttf");
@@ -32,9 +31,7 @@ const Wrapper = ({ children }) => {
     <JssProvider jss={jss} generateClassName={generateClassName}>
       <MuiThemeProvider theme={muiTheme}>
         <ThemeProvider theme={theme}>
-          <CssBaseline>
-            {children}
-          </CssBaseline>
+          <CssBaseline>{children}</CssBaseline>
         </ThemeProvider>
       </MuiThemeProvider>
     </JssProvider>

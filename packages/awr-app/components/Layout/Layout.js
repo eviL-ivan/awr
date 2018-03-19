@@ -1,8 +1,8 @@
-import React from "react";
-import Header from "./Header/Header";
+import React from 'react';
+import Header from './Header/Header';
 
-import Content from "./Content";
-import Sidebar from "./Sidebar/Sidebar";
+import Content from './Content';
+import Sidebar from './Sidebar/Sidebar';
 
 class Layout extends React.Component {
   state = {
@@ -13,16 +13,26 @@ class Layout extends React.Component {
   toggleSidebar = () => {
     this.setState(state => ({
       expanded: !state.expanded
-    }))
+    }));
   };
 
   render() {
     const { expanded } = this.state;
 
     return [
-      <Header sidebarExpanded={expanded} toggleSidebar={this.toggleSidebar} />,
-      <Sidebar expanded={expanded} url={this.props.children.props.url} />,
-      <Content sidebarExpanded={expanded}>{this.props.children}</Content>
+      <Header
+        key="Header"
+        sidebarExpanded={expanded}
+        toggleSidebar={this.toggleSidebar}
+      />,
+      <Sidebar
+        key="Sidebar"
+        expanded={expanded}
+        url={this.props.children.props.url}
+      />,
+      <Content key="Sidebar" sidebarExpanded={expanded}>
+        {this.props.children}
+      </Content>
     ];
   }
 }

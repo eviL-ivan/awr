@@ -29,7 +29,7 @@ const Status = ({ className, status }) => (
 export default styled(Status)`
   margin-right: 20px;
   cursor: pointer;
-  display: flex !important;
+  display: flex ;
   align-items: center;
   justify-content: center;
   width: 50px;

@@ -10,7 +10,7 @@ import routerConfig from '../../src/routerConfig';
 
 class Layout extends Component {
   state = {
-    mobileOpen: false,
+    mobileOpen: false
   };
 
   handleDrawerToggle = () => {
@@ -22,9 +22,7 @@ class Layout extends Component {
 
     return (
       <div className={classes.root}>
-        <Header
-          onDrawerToggle={this.handleDrawerToggle}
-        />
+        <Header onDrawerToggle={this.handleDrawerToggle} />
         <Sidebar
           theme={theme}
           onDrawerToggle={this.handleDrawerToggle}
@@ -34,25 +32,22 @@ class Layout extends Component {
           <div className={classes.toolbar} />
           <Switch>
             <Route exact path="/" component={() => <h1>AWR Components</h1>} />
-            {
-            routerConfig.map(route =>
+            {routerConfig.map(route =>
               route.components.map(component => (
-                <Route
-                  path={component.path}
-                  component={component.component}
-                />
-              )))
-            }
+                <Route path={component.path} component={component.component} />
+              ))
+            )}
             <Route component={() => <h1>404</h1>} />
           </Switch>
         </main>
-      </div>);
+      </div>
+    );
   }
 }
 
 Layout.propTypes = {
   classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired
 };
 
 export default withStyles(styles, { withTheme: true })(Layout);
