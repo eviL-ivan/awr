@@ -9,18 +9,18 @@ const baseTheme = {
     secondColor: "#666",
     thirdColor: "#f8f8f8",
     darkTextColor: "#555",
-    lightTextColor: "#fff",
+    lightTextColor: "#fff"
   },
   statuses: {
     success: "#fff"
   },
   sign: {
     logo: {
-      height: "100px",
+      height: "100px"
     }
   },
   header: {
-    height: "60px",
+    height: "60px"
   },
   sidebar: {
     width: "280px",
@@ -41,12 +41,14 @@ const baseTheme = {
 // Какая-то константа, которая содержит текущий брендинг
 const CURRENT_BRAND = "AO";
 // переопределяем базовую тему темой из брендинга
-const mergeTheme = (brandTheme) => merge(baseTheme, brandTheme);
+const mergeTheme = brandTheme => merge(baseTheme, brandTheme);
 // Получение темы по брендингу
 const getTheme = () => {
-  switch(CURRENT_BRAND) {
-    case "AO": return mergeTheme(AOTheme);
-    default: return mergeTheme(baseTheme);
+  switch (CURRENT_BRAND) {
+    case "AO":
+      return mergeTheme(AOTheme);
+    default:
+      return mergeTheme(baseTheme);
   }
 };
 

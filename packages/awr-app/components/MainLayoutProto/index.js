@@ -1,147 +1,92 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
-import Reboot from "material-ui/Reboot";
-import styled, { ThemeProvider } from "styled-components";
-import { Typography } from "material-ui";
-import { MuiThemeProvider, createMuiTheme } from "material-ui/styles";
-//import "typeface-roboto";
-//import "./style.css";
-import { theme } from "./Theme.js";
+import React from "react";
+import styled from "styled-components";
 
-import JssProvider from "react-jss/lib/JssProvider";
-import { create } from "jss";
-import { createGenerateClassName, jssPreset } from "material-ui/styles";
-import Layout from "./Layout";
+import reports from "./Reports/reportsData";
+import ReportsGroupContainer from "./Reports/ReportsGroup/ReportsGroupContainer";
+import ReportInformationWindow from "../ReportInformationWindow";
+import Filters from "./Filters";
+import { directionsConfig } from "components/Layout/ConstantsTemp";
 
-import Header from "./Header/Header";
-import Sidebar from "./Sidebar";
-import Content from "./Reports/Content";
-import SubHeader from "./SubHeader";
-
-const generateClassName = createGenerateClassName();
-const jss = create(jssPreset());
-// We define a custom insertion point that JSS will look for injecting the styles in the DOM.
-jss.options.insertionPoint = "jss-insertion-point";
-
-const muiTheme = createMuiTheme({
-  palette: {
-    primary: {
-      main: "#0071d4",
-      light: "#6ba6da",
-      dark: "#3599F0"
-    },
-    secondary: {
-      main: "#6ba6da",
-      light: "#0071d4",
-      dark: "#6ba6da"
-    }
-    // error: will us the default color
-  }
-});
-
-class App extends Component {
+class ReportsDashBoard extends React.Component {
   state = {
-    expanded: false,
-    organization: "all",
-    directions: {}
+    reportInfo: null,
+    directions: []
   };
-
-  changeDirection = directionName => {
-    const directions = { ...this.state.directions };
-    if (directions[directionName]) delete directions[directionName];
-    else directions[directionName] = true;
-
-    this.setState({ directions });
+  selectDirection = data => {
+    if (data === "all")
+      return this.setState({
+        directions: directionsConfig
+      });
+    this.setState({});
   };
-  changeAllDirection = directions => () => {
-    const directionLength = Object.keys(this.state.directions).length;
-
-    let _directions = {};
-    if (directionLength !== 6) {
-      _directions = directions.reduce((previousValue, item) => {
-        previousValue[item.label] = true;
-        return previousValue;
-      }, {});
+  toggleInformationWindow = e => {
+    // e.preventDeafault();
+    // debugger;
+    if (e.target) {
+      //e.stopPropagination();
+      return this.setState({ reportInfo: null });
     }
-    this.setState({ directions: _directions });
-  };
-
-  changeOrganization = organization => {
-    this.setState({
-      organization: organization.target.value
-    });
-  };
-
-  toggleSidebar = () => {
-    this.setState(state => ({
-      expanded: !state.expanded
-    }));
+    this.setState({ reportInfo: e });
   };
 
   render() {
-    const { expanded, organization, directions } = this.state;
-
+    const { className, organization, directions } = this.props;
     return (
-      <JssProvider jss={jss} generateClassName={generateClassName}>
-        <Reboot>
-          <MuiThemeProvider theme={muiTheme}>
-            <ThemeProvider theme={theme}>
-              <TypographyContainer>
-                <RowContainer>
-                  <Sidebar
-                    expanded={expanded}
-                    toggleSidebar={this.toggleSidebar}
-                  />
-                  <Layout>
-                    <Header
-                      changeOrganization={this.changeOrganization}
-                      organization={organization}
-                      directions={directions}
-                      changeDirection={this.changeDirection}
-                      changeAllDirection={this.changeAllDirection}
-                      toggleSidebar={this.toggleSidebar}
-                    />
-
-                    <Content
-                      sidebarExpanded={expanded}
-                      organization={organization}
-                      directions={directions}
-                    />
-                  </Layout>
-                </RowContainer>
-              </TypographyContainer>
-            </ThemeProvider>
-          </MuiThemeProvider>
-        </Reboot>
-      </JssProvider>
+      <div className={className}>
+        <Filters />
+        <Container onClick={this.toggleInformationWindow}>
+          <Content>
+            {reports.map(({ date, records }, idx) => (
+              <ReportsGroupContainer
+                key={idx}
+                date={date}
+                records={records}
+                organization={organization}
+                directions={directions}
+                toggleInformationWindow={this.toggleInformationWindow}
+              />
+            ))}
+            <ReportInformationWindow
+              data={this.state.reportInfo}
+              toggleInformationWindow={this.toggleInformationWindow}
+            />
+          </Content>
+        </Container>
+      </div>
     );
   }
 }
 
-const TypographyContainer = styled(Typography)`
-  /* flex: 1;
+export default styled(ReportsDashBoard)`
+  position: relative;
+
   display: flex;
-  height: 100%; */
-  /* width: 100%; */
-  position: absolute;
+  flex-direction: column;
+
   width: 100%;
-  height: 100%;
+
+  padding: 0;
 `;
 
-const RowContainer = styled.div`
-  flex-direction: row;
-  flex: 1;
+const Container = styled.div`
+  overflow: auto;
+
   display: flex;
+  flex-direction: column;
+  align-items: center;
+
   height: 100%;
   width: 100%;
+
+  transition: all;
 `;
-export default App;
-{
-  /* <SubHeader
-changeOrganization={this.changeOrganization}
-organization={organization}
-directions={directions}
-changeDirection={this.changeDirection}
-changeAllDirection={this.changeAllDirection}
-/> */
-}
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  width: 95%;
+
+  margin-top: 30px;
+`;

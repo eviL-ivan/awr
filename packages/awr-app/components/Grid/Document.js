@@ -37,6 +37,11 @@ class Document extends React.Component {
     const status = this.getStatus(statusId);
 
     return (
+<<<<<<< HEAD
+      <DocumentItem divider>
+        <ListItemIcon>{status.icon}</ListItemIcon>
+        <DocumentTitle primary={name} />
+=======
       <DocumentItem dense button divider>
         <Tooltip title={status.title} placement="right">
           <Avatar style={{background: status.color}} new={status.id === 0}>
@@ -46,6 +51,7 @@ class Document extends React.Component {
         <Link href="/grid/view">
           <DocumentTitle primary={name} />
         </Link>
+>>>>>>> 838d1b9bfad7d952e11a645a39522b88e417b604
         <DocumentInfo primary={status.title} secondary="Статус" />
         {
           date &&
@@ -53,6 +59,9 @@ class Document extends React.Component {
         }
         <DocumentInfo primary={recipient} secondary="Получатель" />
         <DocumentInfo primary={period} secondary="Период" />
+<<<<<<< HEAD
+        </DocumentItem>
+=======
         <DocumentMenuWrapper>
           <IconButton onClick={this.openMenu}>
             <MoreVertIcon />
@@ -64,6 +73,7 @@ class Document extends React.Component {
           />
         </DocumentMenuWrapper>
       </DocumentItem>
+>>>>>>> 838d1b9bfad7d952e11a645a39522b88e417b604
     );
   }
 }

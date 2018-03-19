@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Report from "./Report";
 import List, { ListSubheader } from "material-ui/List";
 
@@ -8,18 +8,16 @@ class DateGroup extends React.Component {
 
     return (
       <List subheader={<ListSubheader>{date}</ListSubheader>}>
-        {
-          reports.map((report, index) => (
-            <Report
-              name={report.name}
-              groupIndex={groupIndex}
-              index={index}
-              documents={report.organizations}
-              description={report.description}
-              direction={report.direction}
-            />
-          ))
-        }
+        {reports.map((report, index) => (
+          <Report
+            name={report.name}
+            groupIndex={groupIndex}
+            index={index}
+            documents={report.organizations}
+            description={report.description}
+            direction={report.direction}
+          />
+        ))}
       </List>
     );
   }

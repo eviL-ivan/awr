@@ -13,7 +13,7 @@ class Layout extends React.Component {
   toggleSidebar = () => {
     this.setState(state => ({
       expanded: !state.expanded
-    }))
+    }));
   };
 
   render() {
@@ -22,11 +22,9 @@ class Layout extends React.Component {
     return [
       <Header sidebarExpanded={expanded} toggleSidebar={this.toggleSidebar} />,
       <Sidebar expanded={expanded} url={this.props.children.props.url} />,
-      <Content sidebarExpanded={expanded}>
-        {this.props.children}
-      </Content>
+      <Content sidebarExpanded={expanded}>{this.props.children}</Content>
     ];
-  };
+  }
 }
 
 export default Layout;

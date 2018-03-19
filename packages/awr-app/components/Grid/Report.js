@@ -60,7 +60,11 @@ class Report extends React.Component {
       <Collapse in={open} timeout="auto">
         <List disablePadding>
           {
+<<<<<<< HEAD
+            documents.map(document => (
+=======
             this.sortDocuments("status", false).map(document => (
+>>>>>>> 838d1b9bfad7d952e11a645a39522b88e417b604
               <Document document={document}/>
             ))
           }
