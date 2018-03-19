@@ -1,17 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 // Иконки статусов
-import NoCreatedIcon from 'material-ui-icons/Add';
-import CreatedIcon from 'material-ui-icons/QueryBuilder';
-import SendIcon from 'material-ui-icons/Reply';
-import CompleteIcon from 'material-ui-icons/Check';
-import ErrorIcon from 'material-ui-icons/PriorityHigh';
+import NoCreatedIcon from "material-ui-icons/Add";
+import CreatedIcon from "material-ui-icons/QueryBuilder";
+import SendIcon from "material-ui-icons/Reply";
+import CompleteIcon from "material-ui-icons/Check";
+import ErrorIcon from "material-ui-icons/PriorityHigh";
 // Иконки контекстного меню документа
-import CreateFileIcon from 'material-ui-icons/NoteAdd';
-import EditFileIcon from 'material-ui-icons/Edit';
-import DeleteFileIcon from 'material-ui-icons/Delete';
-import PrintFileIcon from 'material-ui-icons/Print';
-import DownloadFileIcon from 'material-ui-icons/FileDownload';
+import CreateFileIcon from "material-ui-icons/NoteAdd";
+import EditFileIcon from "material-ui-icons/Edit";
+import DeleteFileIcon from "material-ui-icons/Delete";
+import PrintFileIcon from "material-ui-icons/Print";
+import DownloadFileIcon from "material-ui-icons/FileDownload";
 
 const CustomSendIcon = styled(SendIcon)`
   transform: scaleX(-1);
@@ -56,8 +56,6 @@ export const DOCUMENTS = [
             recipient: "ИФНС50"
           },
           {
-<<<<<<< HEAD
-=======
             name: "Грудинин и КО",
             status: 3,
             date: "27.02.2018 17:20",
@@ -65,7 +63,6 @@ export const DOCUMENTS = [
             recipient: "ИФНС50"
           },
           {
->>>>>>> 838d1b9bfad7d952e11a645a39522b88e417b604
             name: "Организация 5",
             status: 4,
             date: "27.02.2018 10:15",
@@ -136,69 +133,41 @@ export const DOCUMENTS = [
   }
 ];
 
-<<<<<<< HEAD
-export const STATUSES = [
-  {
-    id: 0,
-    title: "Не создан",
-    icon: <Icon />
-  },
-  {
-    id: 1,
-    title: "Не отправлен",
-    icon: <Icon />
-  },
-  {
-    id: 2,
-    title: "Отправлен",
-    icon: <Icon style={{color: "#f00"}}/>
-  },
-  {
-    id: 3,
-    title: "Завершен",
-    icon: <Icon />
-  },
-  {
-    id: 4,
-    title: "Требуется корректировка",
-    icon: <Icon />
-=======
-
 export const STATUSES = {
   none: {
     id: 0,
     title: "Не создан",
     icon: <NoCreatedIcon />,
     color: "#fff",
-    description: "",
+    description: ""
   },
   draft: {
     id: 1,
     title: "Не отправлен",
     icon: <CreatedIcon />,
     color: "#7e8992",
-    description: "",
+    description: ""
   },
   send: {
     id: 2,
     title: "Отправлен",
     icon: <CustomSendIcon />,
     color: "#0071D4",
-    description: "Декларация отправлена",
+    description: "Декларация отправлена"
   },
   complete: {
     id: 3,
     title: "Завершён",
     icon: <CompleteIcon />,
     color: "#0aac18",
-    description: "",
+    description: ""
   },
   error: {
     id: 4,
     title: "Ошибка",
     icon: <ErrorIcon />,
     color: "#ff4c4c",
-    description: "",
+    description: ""
   }
 };
 
@@ -246,6 +215,5 @@ export const DOCUMENT_MENU = [
     statuses: [1, 2, 3, 4],
     title: "Скачать",
     icon: <DownloadFileIcon />
->>>>>>> 838d1b9bfad7d952e11a645a39522b88e417b604
   }
 ];
