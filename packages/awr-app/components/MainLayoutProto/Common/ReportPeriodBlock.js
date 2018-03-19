@@ -5,7 +5,7 @@ import DateRange from "material-ui-icons/DateRange";
 const ReportPeriodBlock = () => {
   return (
     <PeriodContainer>
-      <DateRange />
+      {/* <DateRange /> */}
       <Period>4 квартал 2016г</Period>
     </PeriodContainer>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 // Компоненты
 import DateGroup from "./DateGroup";
 import GridToolbar from "./GridToolbar";
@@ -13,23 +13,21 @@ class Grid extends React.Component {
   // Выбрать/Снять выделение направления
   toggleDirection = direction => () => {
     this.setState(state => ({
-      directions:
-        !state.directions.includes(direction)
-          ? [...state.directions, direction]
-          : state.directions.filter(item => item !== direction)
-    }))
+      directions: !state.directions.includes(direction)
+        ? [...state.directions, direction]
+        : state.directions.filter(item => item !== direction)
+    }));
   };
 
   // Выбрать/Снять выделение всех направлений
   toggleAllDirections = () => {
     this.setState(state => ({
-      directions:
-        state.directions.length
-          ? state.directions.length < Object.keys(DIRECTIONS).length
-            ? Object.keys(DIRECTIONS)
-            : []
-          : Object.keys(DIRECTIONS)
-    }))
+      directions: state.directions.length
+        ? state.directions.length < Object.keys(DIRECTIONS).length
+          ? Object.keys(DIRECTIONS)
+          : []
+        : Object.keys(DIRECTIONS)
+    }));
   };
 
   isSelected = direction => this.state.directions.includes(direction);

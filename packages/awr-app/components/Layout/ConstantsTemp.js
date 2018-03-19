@@ -11,10 +11,10 @@ import HelpIcon from "material-ui-icons/Help";
 import RssIcon from "material-ui-icons/RssFeed";
 
 // Profile Menu icons
-import ExitIcon from 'material-ui-icons/ExitToApp';
-import SettingsIcon from 'material-ui-icons/Settings';
-import LinkIcon from 'material-ui-icons/BookmarkBorder';
-import PersonIcon from 'material-ui-icons/Person';
+import ExitIcon from "material-ui-icons/ExitToApp";
+import SettingsIcon from "material-ui-icons/Settings";
+import LinkIcon from "material-ui-icons/BookmarkBorder";
+import PersonIcon from "material-ui-icons/Person";
 
 export const SIDEBAR_MENU = [
   {

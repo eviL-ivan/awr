@@ -63,6 +63,7 @@ export const DOCUMENTS = [
             recipient: "ИФНС50"
           },
           {
+>>>>>>> 838d1b9bfad7d952e11a645a39522b88e417b604
             name: "Организация 5",
             status: 4,
             date: "27.02.2018 10:15",

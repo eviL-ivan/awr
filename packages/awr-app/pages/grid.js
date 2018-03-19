@@ -7,8 +7,6 @@ import Grid from "components/Grid/Grid";
 @withLayout
 export default class Index extends React.Component {
   render() {
-    return (
-      <Grid />
-    );
+    return <Grid />;
   }
 }
