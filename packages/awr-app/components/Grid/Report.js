@@ -1,14 +1,17 @@
-import React from 'react';
+import React from "react";
 import IconButton from "material-ui/IconButton";
 import List from "material-ui/List";
-import { Collapse } from 'material-ui/transitions';
+import { Collapse } from "material-ui/transitions";
 // Компоненты
 import CircularProgressBar from "../Common/CircularProgressBar";
 import Document from "./Document";
 // Стайлд
 import {
-  ReportWrapper, ReportTitle,
-  ReportInfo, ExpandIcon } from "./Styled/Report";
+  ReportWrapper,
+  ReportTitle,
+  ReportInfo,
+  ExpandIcon
+} from "./Styled/Report";
 
 class Report extends React.Component {
   // разворачиваем по дефолту первый отчёт в первой группе по дате
@@ -22,15 +25,17 @@ class Report extends React.Component {
   // общее количество организаций по одному отчету
   getTotal = () => this.props.documents.length;
   // Количество организаций, у которых отчет в статусе "Завершен"
-  getCompleted = () => this.props.documents.reduce((count, report) => report.status === 3 ? ++count : count, 0);
+  getCompleted = () =>
+    this.props.documents.reduce(
+      (count, report) => (report.status === 3 ? ++count : count),
+      0
+    );
 
   // сортировка отчетов по полю
   sortDocuments = (field, ascending = true) => {
-    const compare = (a,b) => {
-      if (a[field] < b[field])
-        return -1;
-      if (a[field] > b[field])
-        return 1;
+    const compare = (a, b) => {
+      if (a[field] < b[field]) return -1;
+      if (a[field] > b[field]) return 1;
       return 0;
     };
 
@@ -48,7 +53,7 @@ class Report extends React.Component {
         <CircularProgressBar
           strokeWidth={4}
           sqSize={55}
-          percentage={parseInt(this.getCompleted()/this.getTotal()*100)}
+          percentage={parseInt(this.getCompleted() / this.getTotal() * 100)}
           text={`${this.getCompleted()}/${this.getTotal()}`}
         />
         <ReportTitle primary={name} secondary={description} />
@@ -59,14 +64,12 @@ class Report extends React.Component {
       </ReportWrapper>,
       <Collapse in={open} timeout="auto">
         <List disablePadding>
-          {
-            this.sortDocuments("status", false).map(document => (
-              <Document document={document}/>
-            ))
-          }
+          {this.sortDocuments("status", false).map(document => (
+            <Document document={document} />
+          ))}
         </List>
       </Collapse>
-    ]
+    ];
   }
 }
 

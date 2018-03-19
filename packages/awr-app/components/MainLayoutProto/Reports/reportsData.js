@@ -168,13 +168,14 @@ const reports = [
             title: "ИНФО 0040"
           }
         },
+
         {
           status: "cancel",
           organization: "sup",
           organizationTitle: "OOO 'Суповой набор’",
           docLink: "ya.ru",
           docTitle: "NO_ZEMD_werwer_WEDWEW_WWQWD.xml",
-          period: "4 квартал 2016г",
+          period: "4 квартал 2017г",
           sendData: "17.06.2017 12:38",
           recipient: {
             title: "ИНФО 0040"

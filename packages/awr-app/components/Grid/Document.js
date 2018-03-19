@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import Link from "next/link";
-import IconButton from 'material-ui/IconButton';
+import IconButton from "material-ui/IconButton";
 // Компоненты
 import Tooltip from "../Common/Tooltip";
 import DocumentMenu from "./DocumentMenu";
@@ -8,14 +8,18 @@ import DocumentMenu from "./DocumentMenu";
 import { STATUSES } from "./TempConstants";
 // Стайлд компоненты
 import {
-  DocumentMenuWrapper, DocumentItem,
-  DocumentTitle, DocumentInfo, Avatar } from "./Styled/Document";
+  DocumentMenuWrapper,
+  DocumentItem,
+  DocumentTitle,
+  DocumentInfo,
+  Avatar
+} from "./Styled/Document";
 // Иконки
-import MoreVertIcon from 'material-ui-icons/MoreVert';
+import MoreVertIcon from "material-ui-icons/MoreVert";
 
 class Document extends React.Component {
   state = {
-    anchorEl: null,
+    anchorEl: null
   };
 
   openMenu = event => {
@@ -27,19 +31,23 @@ class Document extends React.Component {
   };
 
   getStatus = statusId => {
-    const statusKey = Object.keys(STATUSES).filter(key => STATUSES[key].id === statusId)[0];
+    const statusKey = Object.keys(STATUSES).filter(
+      key => STATUSES[key].id === statusId
+    )[0];
     return STATUSES[statusKey];
   };
 
   render() {
     const { anchorEl } = this.state;
-    const { document: { name, date, status : statusId, recipient, period } } = this.props;
+    const {
+      document: { name, date, status: statusId, recipient, period }
+    } = this.props;
     const status = this.getStatus(statusId);
 
     return (
       <DocumentItem dense button divider>
         <Tooltip title={status.title} placement="right">
-          <Avatar style={{background: status.color}} new={status.id === 0}>
+          <Avatar style={{ background: status.color }} new={status.id === 0}>
             {status.icon}
           </Avatar>
         </Tooltip>
@@ -47,10 +55,7 @@ class Document extends React.Component {
           <DocumentTitle primary={name} />
         </Link>
         <DocumentInfo primary={status.title} secondary="Статус" />
-        {
-          date &&
-          <DocumentInfo primary={date} secondary="Дата" />
-        }
+        {date && <DocumentInfo primary={date} secondary="Дата" />}
         <DocumentInfo primary={recipient} secondary="Получатель" />
         <DocumentInfo primary={period} secondary="Период" />
         <DocumentMenuWrapper>

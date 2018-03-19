@@ -1,17 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 // Иконки статусов
-import NoCreatedIcon from 'material-ui-icons/Add';
-import CreatedIcon from 'material-ui-icons/QueryBuilder';
-import SendIcon from 'material-ui-icons/Reply';
-import CompleteIcon from 'material-ui-icons/Check';
-import ErrorIcon from 'material-ui-icons/PriorityHigh';
+import NoCreatedIcon from "material-ui-icons/Add";
+import CreatedIcon from "material-ui-icons/QueryBuilder";
+import SendIcon from "material-ui-icons/Reply";
+import CompleteIcon from "material-ui-icons/Check";
+import ErrorIcon from "material-ui-icons/PriorityHigh";
 // Иконки контекстного меню документа
-import CreateFileIcon from 'material-ui-icons/NoteAdd';
-import EditFileIcon from 'material-ui-icons/Edit';
-import DeleteFileIcon from 'material-ui-icons/Delete';
-import PrintFileIcon from 'material-ui-icons/Print';
-import DownloadFileIcon from 'material-ui-icons/FileDownload';
+import CreateFileIcon from "material-ui-icons/NoteAdd";
+import EditFileIcon from "material-ui-icons/Edit";
+import DeleteFileIcon from "material-ui-icons/Delete";
+import PrintFileIcon from "material-ui-icons/Print";
+import DownloadFileIcon from "material-ui-icons/FileDownload";
 
 const CustomSendIcon = styled(SendIcon)`
   transform: scaleX(-1);
@@ -133,42 +133,41 @@ export const DOCUMENTS = [
   }
 ];
 
-
 export const STATUSES = {
   none: {
     id: 0,
     title: "Не создан",
     icon: <NoCreatedIcon />,
     color: "#fff",
-    description: "",
+    description: ""
   },
   draft: {
     id: 1,
     title: "Не отправлен",
     icon: <CreatedIcon />,
     color: "#7e8992",
-    description: "",
+    description: ""
   },
   send: {
     id: 2,
     title: "Отправлен",
     icon: <CustomSendIcon />,
     color: "#0071D4",
-    description: "Декларация отправлена",
+    description: "Декларация отправлена"
   },
   complete: {
     id: 3,
     title: "Завершён",
     icon: <CompleteIcon />,
     color: "#0aac18",
-    description: "",
+    description: ""
   },
   error: {
     id: 4,
     title: "Ошибка",
     icon: <ErrorIcon />,
     color: "#ff4c4c",
-    description: "",
+    description: ""
   }
 };
 
