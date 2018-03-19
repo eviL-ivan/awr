@@ -55,14 +55,7 @@ class Document extends React.Component {
           <DocumentTitle primary={name} />
         </Link>
         <DocumentInfo primary={status.title} secondary="Статус" />
-<<<<<<< HEAD
         {date && <DocumentInfo primary={date} secondary="Дата" />}
-=======
-        {
-          date &&
-          <DocumentInfo primary={date} secondary="Дата" />
-        }
->>>>>>> 542a227a1fda82be0e4a213294849d36497e6ebb
         <DocumentInfo primary={recipient} secondary="Получатель" />
         <DocumentInfo primary={period} secondary="Период" />
         <DocumentMenuWrapper>
