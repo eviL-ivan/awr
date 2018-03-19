@@ -13,7 +13,7 @@ class Layout extends React.Component {
   toggleSidebar = () => {
     this.setState(state => ({
       expanded: !state.expanded
-    }));
+    }))
   };
 
   render() {

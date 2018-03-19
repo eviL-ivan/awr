@@ -56,8 +56,6 @@ export const DOCUMENTS = [
             recipient: "ИФНС50"
           },
           {
-<<<<<<< HEAD
-=======
             name: "Грудинин и КО",
             status: 3,
             date: "27.02.2018 17:20",
@@ -65,7 +63,6 @@ export const DOCUMENTS = [
             recipient: "ИФНС50"
           },
           {
->>>>>>> 838d1b9bfad7d952e11a645a39522b88e417b604
             name: "Организация 5",
             status: 4,
             date: "27.02.2018 10:15",
@@ -136,33 +133,6 @@ export const DOCUMENTS = [
   }
 ];
 
-<<<<<<< HEAD
-export const STATUSES = [
-  {
-    id: 0,
-    title: "Не создан",
-    icon: <Icon />
-  },
-  {
-    id: 1,
-    title: "Не отправлен",
-    icon: <Icon />
-  },
-  {
-    id: 2,
-    title: "Отправлен",
-    icon: <Icon style={{color: "#f00"}}/>
-  },
-  {
-    id: 3,
-    title: "Завершен",
-    icon: <Icon />
-  },
-  {
-    id: 4,
-    title: "Требуется корректировка",
-    icon: <Icon />
-=======
 
 export const STATUSES = {
   none: {
@@ -246,6 +216,5 @@ export const DOCUMENT_MENU = [
     statuses: [1, 2, 3, 4],
     title: "Скачать",
     icon: <DownloadFileIcon />
->>>>>>> 838d1b9bfad7d952e11a645a39522b88e417b604
   }
 ];
