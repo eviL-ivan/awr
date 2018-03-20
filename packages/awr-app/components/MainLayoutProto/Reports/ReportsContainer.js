@@ -53,7 +53,7 @@ const DataBlock = styled.span`
 `;
 const ReportContent = styled(Paper)`
   padding: 15px 10px 10px;
-  width: 99%;
+  width: 100%;
   display: flex;
   font-size: 18px;
   &:not(:last-child) {

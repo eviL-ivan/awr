@@ -50,7 +50,7 @@ const DateBlock = styled.span`
 `;
 const GroupContainer = styled(Paper)`
   padding: 10px;
-  width: 99%;
+  width: 100%;
   display: flex;
   font-size: 18px;
   &:not(:last-child) {

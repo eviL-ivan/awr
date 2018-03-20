@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import { Container, FiltersContainer, Content } from "./styled";
+
 import reports from "./Reports/reportsData";
 import ReportsGroupContainer from "./Reports/ReportsGroup/ReportsGroupContainer";
 import ReportInformationWindow from "../ReportInformationWindow";
@@ -81,39 +83,4 @@ export default styled(ReportsDashBoard)`
   width: 100%;
 
   padding: 0;
-`;
-
-const Container = styled.div`
-  overflow: auto;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  height: 100%;
-  width: 100%;
-`;
-
-const FiltersContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  z-index: 1;
-
-  width: 100%;
-  padding: 20px 0;
-
-  box-shadow: 0 40px 50px #f3f3f2;
-`;
-
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  height: 100%;
-  width: 100%;
-
-  padding: 0 70px;
-  margin-top: 40px;
 `;

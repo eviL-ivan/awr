@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
+import Input, { InputLabel, InputAdornment } from "material-ui/Input";
+
 import TextField from "material-ui/TextField";
 import Search from "material-ui-icons/Search";
 import Button from "material-ui/Button";
@@ -12,9 +14,6 @@ class SearchBlock extends Component {
   render() {
     return (
       <div>
-        <SearchIconContainer variant="fab" aria-label="add">
-          <SearchIcon />
-        </SearchIconContainer>
         <SearchInput
           onClick={this.setFocus}
           onBlur={this.disableFocus}
@@ -22,6 +21,11 @@ class SearchBlock extends Component {
           placeholder="Поиск..."
           id="bootstrap-input"
           InputLabelProps={{ shrink: true }}
+          endAdornment={
+            <InputAdornment position="end">
+              <SearchIcon />
+            </InputAdornment>
+          }
         />
       </div>
     );
@@ -43,12 +47,12 @@ const SearchIconContainer = styled(Button)`
   opacity: 0.9;
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2);
 
-  background: white !important;
+  /* background: white !important; */
 
-  :hover {
+  /* :hover {
     box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
       0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
-  }
+  } */
 `;
 
 const SearchIcon = styled(Search)`
@@ -57,11 +61,11 @@ const SearchIcon = styled(Search)`
   color: ${p => p.theme.palette.mainColor};
 `;
 /* width: ${p => (p.active ? "250px" : "200px")} !important; */
-const SearchInput = styled(TextField)`
+const SearchInput = styled(Input)`
   width: 250px !important;
 
   border-radius: 5px;
   input {
-    padding-left: 10px !important;
+    /* padding-left: 10px !important; */
   }
 `;

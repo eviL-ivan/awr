@@ -34,16 +34,11 @@ export default styled(Filters)`
   display: flex;
   justify-content: center;
   justify-content: space-between;
+  /*так как блок контент под фильтрами имее scroll то отбиваем этот отступ чуть меньшим width */
   width: 95%;
 
-  z-index: 20;
+  /* z-index: 20; */
 `;
-
-// const Container = styled.div`
-//   display: flex;
-
-//   width: 95%;
-// `;
 
 const MarginContainer = Margin.extend`
   display: flex;
