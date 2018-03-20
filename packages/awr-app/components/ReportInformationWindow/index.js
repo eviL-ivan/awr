@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import ReportInformationContainer from "./ReportInformationContainer";
 import Drawer from "material-ui/Drawer";
 import Slide from "material-ui/transitions/Slide";
 
@@ -16,13 +17,8 @@ class ReportInformationWindow extends Component {
         transitionDuration={200}
         variant={"persistent"}
       >
-        <div style={{ width: "750px" }}>
-          {data && (
-            <div>
-              <p>{data.organizationTitle}</p>
-              <button onClick={toggleInformationWindow}>button</button>
-            </div>
-          )}
+        <div style={{ width: "800px" }}>
+          {data && <ReportInformationContainer data={data} />}
         </div>
       </Drawer>
     );

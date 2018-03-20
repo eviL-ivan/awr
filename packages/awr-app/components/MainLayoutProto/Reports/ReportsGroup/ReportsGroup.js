@@ -66,7 +66,7 @@ class ReportsGroup extends Component {
         <GroupContainer>
           <RecordItemTitles inGroup />
           {_recordReports.length > 3 ? (
-            <Collapse in={checked} collapsedHeight="210px" timeout={300}>
+            <Collapse in={checked} collapsedHeight="150px" timeout={300}>
               {_recordReports}
             </Collapse>
           ) : (
@@ -99,7 +99,9 @@ export default styled(ReportsGroup)`
 const ColapseBtnContainer = styled.div`
   display: flex;
   justify-content: center;
-  height: 40px;
+
+  margin-bottom: -10px;
+
   & svg {
     height: 80%;
     width: 80%;
@@ -126,5 +128,5 @@ const TitleContainer = styled.div`
 `;
 
 const GroupContainer = styled.div`
-  padding: 0 15px;
+  /* padding: 0 15px; */
 `;

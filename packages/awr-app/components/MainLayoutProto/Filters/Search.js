@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import styled from "styled-components";
 
-import TextField from 'material-ui/TextField';
-import Search from 'material-ui-icons/Search';
+import Input, { InputLabel, InputAdornment } from "material-ui/Input";
+
+import TextField from "material-ui/TextField";
+import Search from "material-ui-icons/Search";
+import Button from "material-ui/Button";
 
 class SearchBlock extends Component {
   state = {
@@ -10,18 +13,21 @@ class SearchBlock extends Component {
   };
   render() {
     return (
-      <Container>
-        <SearchIcon />
+      <div>
         <SearchInput
           onClick={this.setFocus}
           onBlur={this.disableFocus}
           active={this.state.focus}
           placeholder="Поиск..."
-          label="Bootstrap"
           id="bootstrap-input"
           InputLabelProps={{ shrink: true }}
+          endAdornment={
+            <InputAdornment position="end">
+              <SearchIcon />
+            </InputAdornment>
+          }
         />
-      </Container>
+      </div>
     );
   }
   setFocus = () => {
@@ -34,26 +40,32 @@ class SearchBlock extends Component {
 
 export default SearchBlock;
 
-const Container = styled.div`
-  position: relative;
+const SearchIconContainer = styled(Button)`
+  width: 45px !important;
+  height: 45px !important;
+
+  opacity: 0.9;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2);
+
+  /* background: white !important; */
+
+  /* :hover {
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+      0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  } */
 `;
 
 const SearchIcon = styled(Search)`
-  position: absolute;
-  left: 10px;
-
-  height: 100%;
+  height: 100% !important;
 
   color: ${p => p.theme.palette.mainColor};
 `;
-
-const SearchInput = styled.input`
-  width: ${p => (p.active ? '250px' : '200px')};
-
-  transition: all 0.3s;
-
-  padding: 7px 40px 10px;
+/* width: ${p => (p.active ? "250px" : "200px")} !important; */
+const SearchInput = styled(Input)`
+  width: 250px !important;
 
   border-radius: 5px;
-  border: 1px solid lightgray;
+  input {
+    /* padding-left: 10px !important; */
+  }
 `;

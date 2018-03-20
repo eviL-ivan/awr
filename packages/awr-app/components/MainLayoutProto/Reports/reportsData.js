@@ -1,6 +1,6 @@
 const reports = [
   {
-    data: "28 марта 2018",
+    date: "28 марта 2018",
     records: {
       direction: "fns",
       directionTitle: "ФНС",
@@ -10,8 +10,6 @@ const reports = [
           status: "complite",
           organization: "mitek",
           organizationTitle: "OOO 'МИТЕК’",
-          docLink: "ya.ru",
-          docTitle: "NO_ZEMD_werwer_WEDWEW_WWQWD.xml",
           period: "4 квартал 2016г",
           sendData: "17.06.2017 12:38",
           recipient: {
@@ -22,8 +20,6 @@ const reports = [
           status: "cancel",
           organization: "sup",
           organizationTitle: "OOO 'Суповой набор’",
-          docLink: "ya.ru",
-          docTitle: "NO_ZEMD_werwer_WEDWEW_WWQWD.xml",
           period: "4 квартал 2016г",
           sendData: "17.06.2017 12:38",
           recipient: {
@@ -34,8 +30,6 @@ const reports = [
           status: "warning",
           organization: "gold",
           organizationTitle: "ИП 'Золотое Дно",
-          docLink: "ya.ru",
-          docTitle: "NO_ZEMD_werwer_WEDWEW_WWQWD.xml",
           period: "4 квартал 2016г",
           sendData: "17.06.2017 12:38",
           recipient: {
@@ -46,8 +40,6 @@ const reports = [
           status: "notCreate",
           organization: "pure",
           organizationTitle: "ИП 'Бедное лукошко'",
-          docLink: "ya.ru",
-          docTitle: "NO_ZEMD_werwer_WEDWEW_WWQWD.xml",
           period: "4 квартал 2016г",
           sendData: "17.06.2017 12:38",
           recipient: {
@@ -58,8 +50,6 @@ const reports = [
           status: "complite",
           organization: "pure",
           organizationTitle: "ИП 'Бедное лукошко'",
-          docLink: "ya.ru",
-          docTitle: "NO_ZEMD_werwer_WEDWEW_WWQWD.xml",
           period: "4 квартал 2016г",
           sendData: "17.06.2017 12:38",
           recipient: {
@@ -70,7 +60,7 @@ const reports = [
     }
   },
   {
-    data: "27 марта 2018",
+    date: "27 марта 2018",
     records: {
       direction: "rpn",
       directionTitle: "РПН",
@@ -80,8 +70,6 @@ const reports = [
           status: "complite",
           organization: "mitek",
           organizationTitle: "OOO 'МИТЕК’",
-          docLink: "ya.ru",
-          docTitle: "NO_ZEMD_werwer_WEDWEW_WWQWD.xml",
           period: "4 квартал 2016г",
           sendData: "17.06.2017 12:38",
           recipient: {
@@ -92,8 +80,6 @@ const reports = [
           status: "cancel",
           organization: "sup",
           organizationTitle: "OOO 'Суповой набор’",
-          docLink: "ya.ru",
-          docTitle: "NO_ZEMD_werwer_WEDWEW_WWQWD.xml",
           period: "4 квартал 2016г",
           sendData: "17.06.2017 12:38",
           recipient: {
@@ -104,7 +90,7 @@ const reports = [
     }
   },
   {
-    data: "27 марта 2018",
+    date: "27 марта 2018",
     records: {
       direction: "rar",
       directionTitle: "РАР",
@@ -114,8 +100,6 @@ const reports = [
           status: "notCreate",
           organization: "mitek",
           organizationTitle: "OOO 'МИТЕК’",
-          docLink: "ya.ru",
-          docTitle: "NO_ZEMD_werwer_WEDWEW_WWQWD.xml",
           period: "4 квартал 2016г",
           sendData: "17.06.2017 12:38",
           recipient: {
@@ -126,8 +110,6 @@ const reports = [
           status: "warning",
           organization: "sup",
           organizationTitle: "OOO 'Суповой набор’",
-          docLink: "ya.ru",
-          docTitle: "NO_ZEMD_werwer_WEDWEW_WWQWD.xml",
           period: "4 квартал 2016г",
           sendData: "17.06.2017 12:38",
           recipient: {
@@ -138,8 +120,6 @@ const reports = [
           status: "warning",
           organization: "gold",
           organizationTitle: "ИП 'Золотое Дно",
-          docLink: "ya.ru",
-          docTitle: "NO_ZEMD_werwer_WEDWEW_WWQWD.xml",
           period: "4 квартал 2016г",
           sendData: "17.06.2017 12:38",
           recipient: {
@@ -150,7 +130,7 @@ const reports = [
     }
   },
   {
-    data: "26 марта 2018",
+    date: "26 марта 2018",
     records: {
       direction: "rosstat",
       directionTitle: "Росстат",
@@ -160,8 +140,6 @@ const reports = [
           status: "complite",
           organization: "mitek",
           organizationTitle: "OOO 'МИТЕК’",
-          docLink: "ya.ru",
-          docTitle: "NO_ZEMD_werwer_WEDWEW_WWQWD.xml",
           period: "4 квартал 2016г",
           sendData: "17.06.2017 12:38",
           recipient: {
@@ -173,8 +151,6 @@ const reports = [
           status: "cancel",
           organization: "sup",
           organizationTitle: "OOO 'Суповой набор’",
-          docLink: "ya.ru",
-          docTitle: "NO_ZEMD_werwer_WEDWEW_WWQWD.xml",
           period: "4 квартал 2017г",
           sendData: "17.06.2017 12:38",
           recipient: {
@@ -185,8 +161,6 @@ const reports = [
           status: "warning",
           organization: "gold",
           organizationTitle: "ИП 'Золотое Дно",
-          docLink: "ya.ru",
-          docTitle: "NO_ZEMD_werwer_WEDWEW_WWQWD.xml",
           period: "4 квартал 2016г",
           sendData: "17.06.2017 12:38",
           recipient: {
@@ -197,8 +171,6 @@ const reports = [
           status: "notCreate",
           organization: "pure",
           organizationTitle: "ИП 'Бедное лукошко'",
-          docLink: "ya.ru",
-          docTitle: "NO_ZEMD_werwer_WEDWEW_WWQWD.xml",
           period: "4 квартал 2016г",
           sendData: "17.06.2017 12:38",
           recipient: {

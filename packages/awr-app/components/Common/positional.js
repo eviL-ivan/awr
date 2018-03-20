@@ -3,7 +3,8 @@ import styled from "styled-components";
 
 const Flex = styled.div`
   display: flex;
-  flex: ${p => (p.grow ? p.grow : 1)};
+  flex: 1;
+  flex-grow: ${p => (p.grow || p.grow === 0 ? p.grow : 1)};
 `;
 
 // flex-basis: ${p => {
