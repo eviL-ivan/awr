@@ -60,7 +60,7 @@ class Menu extends React.Component {
       <List disablePadding>
         {
           menu.map(item => (
-            <Link href={item.link}>
+            <Link href={item.link} key={item.key}>
               <MenuItem
                 button
                 dense
@@ -84,7 +84,11 @@ class Menu extends React.Component {
     return (
       [
         SIDEBAR_MENU.map(item => (
-          <MenuItemWrapper expanded={expanded} active={current === item.key}>
+          <MenuItemWrapper
+            expanded={expanded}
+            active={current === item.key}
+            key={item.key}
+          >
             {
               item.link
                 ? <Link href={item.link}>

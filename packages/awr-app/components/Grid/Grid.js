@@ -37,6 +37,7 @@ class Grid extends React.Component {
 
     return [
       <GridToolbar
+        key="grid-toolbar"
         directions={directions}
         isSelected={this.isSelected}
         toggleDirection={this.toggleDirection}
@@ -45,6 +46,7 @@ class Grid extends React.Component {
       [
         DOCUMENTS.map((group, index) => (
           <DateGroup
+            key={group.date}
             groupIndex={index}
             date={group.date}
             reports={group.reports}

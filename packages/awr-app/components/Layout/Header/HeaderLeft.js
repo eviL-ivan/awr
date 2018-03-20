@@ -2,7 +2,7 @@ import React from "react";
 // Компоненты
 import ToggleSidebarButton from "./ToggleSidebarButton";
 // Стайлд
-import { HeaderLeftWrapper } from "./Styled/HeaderLeft";
+import HeaderLeftWrapper from "./Styled/HeaderLeft";
 
 class HeaderLeft extends React.Component {
   render() {

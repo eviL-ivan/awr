@@ -49,7 +49,7 @@ class Report extends React.Component {
     const { open } = this.state;
 
     return [
-      <ReportWrapper button onClick={this.toggleReport}>
+      <ReportWrapper button onClick={this.toggleReport} key="report-wrapper">
         <CircularProgressBar
           strokeWidth={4}
           sqSize={55}
@@ -62,10 +62,10 @@ class Report extends React.Component {
           <ExpandIcon open={open} />
         </IconButton>
       </ReportWrapper>,
-      <Collapse in={open} timeout="auto">
+      <Collapse in={open} timeout="auto" key="report-organizations">
         <List disablePadding>
-          {this.sortDocuments("status", false).map(document => (
-            <Document document={document} />
+          {this.sortDocuments("status", false).map((document, index) => (
+            <Document document={document} key={`${document.name}-${index}`} />
           ))}
         </List>
       </Collapse>

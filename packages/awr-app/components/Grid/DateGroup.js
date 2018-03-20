@@ -11,6 +11,7 @@ class DateGroup extends React.Component {
         {
           reports.map((report, index) => (
             <Report
+              key={report.name}
               name={report.name}
               groupIndex={groupIndex}
               index={index}
